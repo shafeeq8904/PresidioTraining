@@ -1,0 +1,22 @@
+category master:
+categoryid, category	(ex- {categoryid-1,category-thriller})
+   
+format master:
+formatid, Format 	(ex-{formatid-1,Format-DVD})
+
+Movie master:
+id, Movie Name, categoryid, formatid (ex- {1,Stranger Things , 1 , 1})
+
+MemberTypeMaster:
+id, TypeName (ex-{id-1, TypeName="Golden"})
+
+Member:
+Id, Name, PhoneNumber, FavoriteCategoryId, MemberTypeId
+ex- ({id-1, Name-"shafeeq", Phone="1234567890", FavoriteCategoryId=1, MemberTypeId=2})
+
+Dependent:
+Id, Name, MemberId
+ex - ({{Id=10, Name="keer", MemberId=1}})
+
+Rental:
+Id, RenterType, RenterId, MovieId, RentalDate, PaymentType.
