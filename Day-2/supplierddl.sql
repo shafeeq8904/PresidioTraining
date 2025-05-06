@@ -39,98 +39,98 @@ order_details
  
  CREATE TABLE categories (
      id INT PRIMARY KEY,
-     name VARCHAR(100),
-     status VARCHAR(20)
+     name VARCHAR(100) NOT NULL UNIQUE,,
+     status VARCHAR(20) NOT NULL CHECK (status IN ('Active', 'Inactive'))
  );
 
  CREATE TABLE country (
      id INT PRIMARY KEY,
-     name VARCHAR(100)
+     name VARCHAR(100) NOT NULL UNIQUE
  );
 
  CREATE TABLE state (
      id INT PRIMARY KEY,
-     name VARCHAR(100),
-     country_id INT,
+     name VARCHAR(100) NOT NULL,
+     country_id INT NOT NULL,
      FOREIGN KEY (country_id) REFERENCES country(id)
  );
 
  CREATE TABLE city (
      id INT PRIMARY KEY,
-     name VARCHAR(100),
-     state_id INT,
+     name VARCHAR(100) NOT NULL,
+     state_id INT  NOT NULL,
      FOREIGN KEY (state_id) REFERENCES state(id)
  );
 
  CREATE TABLE area (
      zipcode VARCHAR(10) PRIMARY KEY,
-     name VARCHAR(100),
-     city_id INT,
+     name VARCHAR(100) NOT NULL,
+     city_id INT NOT NULL,
      FOREIGN KEY (city_id) REFERENCES city(id)
 );
 
 CREATE TABLE address (
      id INT PRIMARY KEY,
-     door_number VARCHAR(20),
-     addressline1 VARCHAR(100),
-     zipcode VARCHAR(10),
+     door_number VARCHAR(20) NOT NULL,
+     addressline1 VARCHAR(100) NOT NULL,
+     zipcode VARCHAR(10) NOT NULL,
      FOREIGN KEY (zipcode) REFERENCES area(zipcode)
  );
 
  CREATE TABLE supplier (
      id INT PRIMARY KEY,
-     name VARCHAR(100),
-     contact_person VARCHAR(100),
-     phone VARCHAR(20),
-     email VARCHAR(100),
-     address_id INT,
-     status VARCHAR(20),
+     name VARCHAR(100) NOT NULL,
+     contact_person VARCHAR(100) NOT NULL,
+     phone VARCHAR(20) NOT NULL UNIQUE,
+     email VARCHAR(100) NOT NULL UNIQUE,
+     address_id INT NOT NULL,
+     status VARCHAR(20) NOT NULL CHECK (status IN ('Active', 'Inactive')),
      FOREIGN KEY (address_id) REFERENCES address(id)
  );
 
  CREATE TABLE product (
-     id INT PRIMARY KEY,
-     name VARCHAR(100),
-     unit_price DECIMAL(10,2),
-     quantity INT,
-     description TEXT,
-     image VARCHAR(255)
- );
+    id INT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL UNIQUE,
+    unit_price DECIMAL(10,2) NOT NULL CHECK (unit_price >= 0),
+    quantity INT NOT NULL CHECK (quantity >= 0),
+    description TEXT,
+    image VARCHAR(255)
+);
 
- CREATE TABLE product_supplier (
-     transaction_id INT PRIMARY KEY,
-     product_id INT, /*Composite key if we have product_id & supplier_id as primary key */
-     supplier_id INT,
-     date_of_supply DATETIME,
-     quantity INT,
-     FOREIGN KEY (product_id) REFERENCES product(id),
-     FOREIGN KEY (supplier_id) REFERENCES supplier(id)
+CREATE TABLE product_supplier (
+    transaction_id INT PRIMARY KEY,
+    product_id INT NOT NULL,
+    supplier_id INT NOT NULL,
+    date_of_supply DATETIME NOT NULL,
+    quantity INT NOT NULL CHECK (quantity > 0),
+    FOREIGN KEY (product_id) REFERENCES product(id),
+    FOREIGN KEY (supplier_id) REFERENCES supplier(id)
 );
 
 CREATE TABLE customer (
-     id INT PRIMARY KEY,
-     name VARCHAR(100),
-     phone VARCHAR(20),
-     age INT,
-     address_id INT,
-     FOREIGN KEY (address_id) REFERENCES address(id)
- );
+    id INT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    phone VARCHAR(20) NOT NULL UNIQUE,
+    age INT CHECK (age >= 0),
+    address_id INT NOT NULL,
+    FOREIGN KEY (address_id) REFERENCES address(id)
+);
 
 CREATE TABLE orders (
     order_number INT PRIMARY KEY,
-    customer_id INT,
-    date_of_order DATETIME,
-    amount DECIMAL(10,2),
-    order_status VARCHAR(20),
+    customer_id INT NOT NULL,
+    date_of_order DATETIME NOT NULL,
+    amount DECIMAL(10,2) NOT NULL CHECK (amount >= 0),
+    order_status VARCHAR(20) NOT NULL CHECK (order_status IN ('Pending', 'Completed', 'Cancelled')),
     FOREIGN KEY (customer_id) REFERENCES customer(id)
 );
 
 CREATE TABLE order_details (
     id INT PRIMARY KEY,
-    order_number INT,
-    product_id INT,
-    quantity INT,
-    unit_price DECIMAL(10,2),
+    order_number INT NOT NULL,
+    product_id INT NOT NULL,
+    quantity INT NOT NULL CHECK (quantity > 0),
+    unit_price DECIMAL(10,2) NOT NULL CHECK (unit_price >= 0),
     FOREIGN KEY (order_number) REFERENCES orders(order_number),
     FOREIGN KEY (product_id) REFERENCES product(id)
 );
