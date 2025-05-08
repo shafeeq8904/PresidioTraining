@@ -1,58 +1,3 @@
-select title , pub_name
-from titles  join publishers
-on titles.pub_id = publishers.pub_id
-
-select title , pub_name
-from titles right outer join publishers
-on titles.pub_id = publishers.pub_id
-
-select * from authors
-select * from jobs;
-select * from publishers;
-select * from pub_info;
-select * from titles;
-select * from stores;
-select * from sales;
-select * from titleauthor;
-
--- select the author_id for all books . print the author_id
-select title , au_id
-from titles  join titleauthor
-on titles.title_id = titleauthor.title_id;
-
-select concat(au_fname ,' ',au_lname) Author_Name , title Book_Name 
-from authors a
-join titleauthor ta
-on a.au_id = ta.au_id
-join titles t
-on ta.title_id= t.title_id;
-
-
-select pub_name PublisherName , title BookName ,ord_date OrderDate
-from publishers p
-join titles t
-on p.pub_id = t.pub_id
-join sales s
-on t.title_id = s.title_id;
- 
-
- -- print the publisher name and the first book sales date for all the publisher
-
-SELECT p.pub_name Publisher_Name, MIN(s.ord_date) First_Sale_Date
-FROM publishers p
-LEFT JOIN titles t ON p.pub_id = t.pub_id
-LEFT JOIN sales s ON t.title_id = s.title_id
-GROUP BY p.pub_name
-order by  2 desc
-
- -- print the book name and the store address
-
-select title Book_Name, stor_address Store_Address 
-from titles
-JOIN sales ON titles.title_id = sales.title_id 
-JOIN stores ON sales.stor_id = stores.stor_id;
-
-
 --creating the stored procedure
 create procedure proc_FirstProcedure
 as
@@ -202,3 +147,80 @@ begin
 end
 
 proc_GetPostsByUserId '1'
+
+-- out parameter
+
+create proc proc_FilterProducts(@pcpu nvarchar(20) , @pcount int out)
+as 
+begin
+	set @pcount = (select count(*) from Products 
+	where
+	TRY_CAST(JSON_VALUE(details,'$.spec.cpu') as nvarchar(20))= @pcpu) 
+end
+
+begin
+declare @cnt int
+exec proc_FilterProducts 'i5',@cnt out
+print concat ('the numbers of cpu is', @cnt)
+end
+
+--bulk insert using stored procedure
+create table people(
+  id int primary key,
+  name nvarchar(100),
+  age int,
+);
+
+create or alter proc proc_BulkInsertPeople(@filepath nvarchar(max))
+as 
+begin
+  declare @insertQuery nvarchar(max)
+
+  set @insertQuery = 'BULK INSERT people FROM ''' + @filepath + ''' 
+                      WITH (FIRSTROW=2 ,
+                      FIELDTERMINATOR = '','', 
+                      ROWTERMINATOR = ''\n'')'
+                      exec sp_executesql @insertQuery
+end
+
+proc_BulkInsertPeople 'C:\GensparkTraining\PresidioTraining\Day-3\stored procedure\Data(in).csv'
+
+--exception handling in stored procedure with try catch block
+
+
+create table BulkInsertLog
+(LogId int identity(1,1) primary key,
+FilePath nvarchar(1000),
+status nvarchar(50) constraint chk_status Check(status in('Success','Failed')),
+Message nvarchar(1000),
+InsertedOn DateTime default GetDate())
+
+
+create or alter proc proc_BulkInsert(@filepath nvarchar(500))
+as
+begin
+  Begin try
+	   declare @insertQuery nvarchar(max)
+
+	   set @insertQuery = 'BULK INSERT people from '''+ @filepath +'''
+	   with(
+	   FIRSTROW =2,
+	   FIELDTERMINATOR='','',
+	   ROWTERMINATOR = ''\n'')'
+
+	   exec sp_executesql @insertQuery
+
+	   insert into BulkInsertLog(filepath,status,message)
+	   values(@filepath,'Success','Bulk insert completed')
+  end try
+  begin catch
+		 insert into BulkInsertLog(filepath,status,message)
+		 values(@filepath,'Failed',Error_Message())
+  END Catch
+end
+
+proc_BulkInsert 'C:\GensparkTraining\PresidioTraining\Day-3\stored procedure\Data(in).csv'
+truncate table people
+select * from BulkInsertLog
+
+
