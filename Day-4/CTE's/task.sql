@@ -127,10 +127,63 @@ select * from Products;
 
 --------------------------------------------------------------------------------------------
 
---12) Create a stored procedure that returns total sales per employee.
-create or alter proc proc_returntotalsales(@pEmployeeID int)
-as
+-- 12) Create a stored procedure that returns total sales per employee.
+go
+create or alter proc proc_TotalSalesPerEmployee
+as 
 begin
-	 
+	SELECT E.EmployeeID, CONCAT(E.FirstName, ' ',E.LastName) as EmployeeName,COUNT(CustomerID) as TotalCustomer,SUM(OD.UnitPrice * OD.Quantity) as TotalSales
+	FROM Employees E join Orders O on E.EmployeeID = O.EmployeeID
+	join [Order Details] OD on O.OrderID = OD.OrderID
+	Group by E.EmployeeID, CONCAT(E.FirstName, ' ',E.LastName)
+	Order by EmployeeID
 end
+go
+proc_TotalSalesPerEmployee
+
+-- 13) Use a CTE to rank products by unit price within each category.
+GO
+with cteRankByPrice 
+as 
+	(SELECT ProductID, ProductName, QuantityPerUnit, UnitPrice, 
+	UnitsInStock, ReorderLevel, Discontinued, CategoryID,
+	ROW_NUMBER() OVER(PARTITION BY CategoryID ORDER BY UnitPrice) as PriceRank
+	from Products
+	)
+SELECT * from cteRankByPrice
+
+-- 14) Create a CTE to calculate total revenue per product and filter products with revenue > 10,000.
+GO
+with cteCalcTotalRevenue
+as 
+	(SELECT P.ProductName, SUM(OD.UnitPrice*OD.Quantity) as TotalRevenue
+	FROM Products P JOIN [Order Details] OD on P.ProductID = OD.ProductID
+	GROUP BY P.ProductName)
+
+	SELECT * FROM cteCalcTotalRevenue WHERE TotalRevenue > 10000
+
+-- 15) Use a CTE with recursion to display employee hierarchy.
+GO
+with cteEmployeeHierarchy 
+as
+	(Select EmployeeID, CONCAT(FirstName, ' ', LastName) as EmployeeName, ReportsTo, 0 as Level,CAST(FirstName+' '+LastName as varchar(MAX)) as HierarchyPath
+	from Employees
+	Where ReportsTo IS NULL
+	
+	UNION ALL
+	
+	Select E.EmployeeID, CONCAT(E.FirstName, ' ', E.LastName), E.ReportsTo, EH.Level+1, CAST(EH.HierarchyPath+' > '+E.FirstName+' '+E.LastName as varchar(MAX))
+	from Employees E join cteEmployeeHierarchy EH ON E.ReportsTo = EH.EmployeeID)
+
+Select * from cteEmployeeHierarchy
+
+
+-- Tables for visualization
+select * from Categories
+select * from Products
+select * from Suppliers
+select * from Customers
+select * from Orders
+select * from [Order Details]
+select * from Employees
 
