@@ -178,12 +178,3 @@ as
 Select * from cteEmployeeHierarchy
 
 
--- Tables for visualization
-select * from Categories
-select * from Products
-select * from Suppliers
-select * from Customers
-select * from Orders
-select * from [Order Details]
-select * from Employees
-
