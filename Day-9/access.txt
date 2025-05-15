@@ -1,0 +1,7 @@
+pg_ctl -D "C:\pri" -o "-p 5433" -l "C:\pri\logfile" start
+psql -p 5433 -U shafeeqahmeds -d postgres
+CREATE USER appuser WITH PASSWORD 'app_pass';
+GRANT CONNECT ON DATABASE postgres TO appuser;
+GRANT USAGE ON SCHEMA public TO appuser;
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO appuser;
+select * from customer;
