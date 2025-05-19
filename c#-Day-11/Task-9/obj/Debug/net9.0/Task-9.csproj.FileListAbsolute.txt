@@ -1,0 +1,15 @@
+C:\GensparkTraining\PresidioTraining\c#-Day-11\Task-9\bin\Debug\net9.0\Task-9.exe
+C:\GensparkTraining\PresidioTraining\c#-Day-11\Task-9\bin\Debug\net9.0\Task-9.deps.json
+C:\GensparkTraining\PresidioTraining\c#-Day-11\Task-9\bin\Debug\net9.0\Task-9.runtimeconfig.json
+C:\GensparkTraining\PresidioTraining\c#-Day-11\Task-9\bin\Debug\net9.0\Task-9.dll
+C:\GensparkTraining\PresidioTraining\c#-Day-11\Task-9\bin\Debug\net9.0\Task-9.pdb
+C:\GensparkTraining\PresidioTraining\c#-Day-11\Task-9\obj\Debug\net9.0\Task-9.GeneratedMSBuildEditorConfig.editorconfig
+C:\GensparkTraining\PresidioTraining\c#-Day-11\Task-9\obj\Debug\net9.0\Task-9.AssemblyInfoInputs.cache
+C:\GensparkTraining\PresidioTraining\c#-Day-11\Task-9\obj\Debug\net9.0\Task-9.AssemblyInfo.cs
+C:\GensparkTraining\PresidioTraining\c#-Day-11\Task-9\obj\Debug\net9.0\Task-9.csproj.CoreCompileInputs.cache
+C:\GensparkTraining\PresidioTraining\c#-Day-11\Task-9\obj\Debug\net9.0\Task-9.sourcelink.json
+C:\GensparkTraining\PresidioTraining\c#-Day-11\Task-9\obj\Debug\net9.0\Task-9.dll
+C:\GensparkTraining\PresidioTraining\c#-Day-11\Task-9\obj\Debug\net9.0\refint\Task-9.dll
+C:\GensparkTraining\PresidioTraining\c#-Day-11\Task-9\obj\Debug\net9.0\Task-9.pdb
+C:\GensparkTraining\PresidioTraining\c#-Day-11\Task-9\obj\Debug\net9.0\Task-9.genruntimeconfig.cache
+C:\GensparkTraining\PresidioTraining\c#-Day-11\Task-9\obj\Debug\net9.0\ref\Task-9.dll

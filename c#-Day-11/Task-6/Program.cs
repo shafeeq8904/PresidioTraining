@@ -8,6 +8,12 @@ public class Task6
         Console.WriteLine("Task 6: Frequency Count");
 
         int[] numbers = {1, 2, 2, 3, 4, 4, 4};
+        if (numbers.Length == 0)
+        {
+            Console.WriteLine("The array is empty. No frequency to count.");
+            return;
+        }
+        
         Dictionary<int, int> frequency = new Dictionary<int, int>();
 
         foreach (int num in numbers)
