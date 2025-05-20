@@ -1,0 +1,15 @@
+C:\GensparkTraining\PresidioTraining\c#-Day-12\collections\bin\Debug\net9.0\collections.exe
+C:\GensparkTraining\PresidioTraining\c#-Day-12\collections\bin\Debug\net9.0\collections.deps.json
+C:\GensparkTraining\PresidioTraining\c#-Day-12\collections\bin\Debug\net9.0\collections.runtimeconfig.json
+C:\GensparkTraining\PresidioTraining\c#-Day-12\collections\bin\Debug\net9.0\collections.dll
+C:\GensparkTraining\PresidioTraining\c#-Day-12\collections\bin\Debug\net9.0\collections.pdb
+C:\GensparkTraining\PresidioTraining\c#-Day-12\collections\obj\Debug\net9.0\collections.GeneratedMSBuildEditorConfig.editorconfig
+C:\GensparkTraining\PresidioTraining\c#-Day-12\collections\obj\Debug\net9.0\collections.AssemblyInfoInputs.cache
+C:\GensparkTraining\PresidioTraining\c#-Day-12\collections\obj\Debug\net9.0\collections.AssemblyInfo.cs
+C:\GensparkTraining\PresidioTraining\c#-Day-12\collections\obj\Debug\net9.0\collections.csproj.CoreCompileInputs.cache
+C:\GensparkTraining\PresidioTraining\c#-Day-12\collections\obj\Debug\net9.0\collections.sourcelink.json
+C:\GensparkTraining\PresidioTraining\c#-Day-12\collections\obj\Debug\net9.0\collections.dll
+C:\GensparkTraining\PresidioTraining\c#-Day-12\collections\obj\Debug\net9.0\refint\collections.dll
+C:\GensparkTraining\PresidioTraining\c#-Day-12\collections\obj\Debug\net9.0\collections.pdb
+C:\GensparkTraining\PresidioTraining\c#-Day-12\collections\obj\Debug\net9.0\collections.genruntimeconfig.cache
+C:\GensparkTraining\PresidioTraining\c#-Day-12\collections\obj\Debug\net9.0\ref\collections.dll

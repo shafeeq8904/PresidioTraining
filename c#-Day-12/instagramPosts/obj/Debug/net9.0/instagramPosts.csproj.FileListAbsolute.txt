@@ -1,0 +1,15 @@
+C:\GensparkTraining\PresidioTraining\c#-Day-12\instagramPosts\bin\Debug\net9.0\instagramPosts.exe
+C:\GensparkTraining\PresidioTraining\c#-Day-12\instagramPosts\bin\Debug\net9.0\instagramPosts.deps.json
+C:\GensparkTraining\PresidioTraining\c#-Day-12\instagramPosts\bin\Debug\net9.0\instagramPosts.runtimeconfig.json
+C:\GensparkTraining\PresidioTraining\c#-Day-12\instagramPosts\bin\Debug\net9.0\instagramPosts.dll
+C:\GensparkTraining\PresidioTraining\c#-Day-12\instagramPosts\bin\Debug\net9.0\instagramPosts.pdb
+C:\GensparkTraining\PresidioTraining\c#-Day-12\instagramPosts\obj\Debug\net9.0\instagramPosts.GeneratedMSBuildEditorConfig.editorconfig
+C:\GensparkTraining\PresidioTraining\c#-Day-12\instagramPosts\obj\Debug\net9.0\instagramPosts.AssemblyInfoInputs.cache
+C:\GensparkTraining\PresidioTraining\c#-Day-12\instagramPosts\obj\Debug\net9.0\instagramPosts.AssemblyInfo.cs
+C:\GensparkTraining\PresidioTraining\c#-Day-12\instagramPosts\obj\Debug\net9.0\instagramPosts.csproj.CoreCompileInputs.cache
+C:\GensparkTraining\PresidioTraining\c#-Day-12\instagramPosts\obj\Debug\net9.0\instagramPosts.sourcelink.json
+C:\GensparkTraining\PresidioTraining\c#-Day-12\instagramPosts\obj\Debug\net9.0\instagramPosts.dll
+C:\GensparkTraining\PresidioTraining\c#-Day-12\instagramPosts\obj\Debug\net9.0\refint\instagramPosts.dll
+C:\GensparkTraining\PresidioTraining\c#-Day-12\instagramPosts\obj\Debug\net9.0\instagramPosts.pdb
+C:\GensparkTraining\PresidioTraining\c#-Day-12\instagramPosts\obj\Debug\net9.0\instagramPosts.genruntimeconfig.cache
+C:\GensparkTraining\PresidioTraining\c#-Day-12\instagramPosts\obj\Debug\net9.0\ref\instagramPosts.dll
