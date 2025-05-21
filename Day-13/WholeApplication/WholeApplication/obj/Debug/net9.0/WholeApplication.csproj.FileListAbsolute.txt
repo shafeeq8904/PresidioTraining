@@ -1,0 +1,15 @@
+C:\GensparkTraining\PresidioTraining\Day-13\WholeApplication\WholeApplication\bin\Debug\net9.0\WholeApplication.exe
+C:\GensparkTraining\PresidioTraining\Day-13\WholeApplication\WholeApplication\bin\Debug\net9.0\WholeApplication.deps.json
+C:\GensparkTraining\PresidioTraining\Day-13\WholeApplication\WholeApplication\bin\Debug\net9.0\WholeApplication.runtimeconfig.json
+C:\GensparkTraining\PresidioTraining\Day-13\WholeApplication\WholeApplication\bin\Debug\net9.0\WholeApplication.dll
+C:\GensparkTraining\PresidioTraining\Day-13\WholeApplication\WholeApplication\bin\Debug\net9.0\WholeApplication.pdb
+C:\GensparkTraining\PresidioTraining\Day-13\WholeApplication\WholeApplication\obj\Debug\net9.0\WholeApplication.GeneratedMSBuildEditorConfig.editorconfig
+C:\GensparkTraining\PresidioTraining\Day-13\WholeApplication\WholeApplication\obj\Debug\net9.0\WholeApplication.AssemblyInfoInputs.cache
+C:\GensparkTraining\PresidioTraining\Day-13\WholeApplication\WholeApplication\obj\Debug\net9.0\WholeApplication.AssemblyInfo.cs
+C:\GensparkTraining\PresidioTraining\Day-13\WholeApplication\WholeApplication\obj\Debug\net9.0\WholeApplication.csproj.CoreCompileInputs.cache
+C:\GensparkTraining\PresidioTraining\Day-13\WholeApplication\WholeApplication\obj\Debug\net9.0\WholeApplication.sourcelink.json
+C:\GensparkTraining\PresidioTraining\Day-13\WholeApplication\WholeApplication\obj\Debug\net9.0\WholeApplication.dll
+C:\GensparkTraining\PresidioTraining\Day-13\WholeApplication\WholeApplication\obj\Debug\net9.0\refint\WholeApplication.dll
+C:\GensparkTraining\PresidioTraining\Day-13\WholeApplication\WholeApplication\obj\Debug\net9.0\WholeApplication.pdb
+C:\GensparkTraining\PresidioTraining\Day-13\WholeApplication\WholeApplication\obj\Debug\net9.0\WholeApplication.genruntimeconfig.cache
+C:\GensparkTraining\PresidioTraining\Day-13\WholeApplication\WholeApplication\obj\Debug\net9.0\ref\WholeApplication.dll

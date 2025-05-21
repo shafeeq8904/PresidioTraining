@@ -1,0 +1,201 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\GensparkTraining\\PresidioTraining\\Day-13\\cardiologist\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5C1CB366-B3FD-4A6B-8AD1-8876BF765DE4}|cardiologist\\cardiologist.csproj|c:\\gensparktraining\\presidiotraining\\day-13\\cardiologist\\cardiologist\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C1CB366-B3FD-4A6B-8AD1-8876BF765DE4}|cardiologist\\cardiologist.csproj|solutionrelative:cardiologist\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C1CB366-B3FD-4A6B-8AD1-8876BF765DE4}|cardiologist\\cardiologist.csproj|c:\\gensparktraining\\presidiotraining\\day-13\\cardiologist\\cardiologist\\repositories\\appointmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C1CB366-B3FD-4A6B-8AD1-8876BF765DE4}|cardiologist\\cardiologist.csproj|solutionrelative:cardiologist\\repositories\\appointmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C1CB366-B3FD-4A6B-8AD1-8876BF765DE4}|cardiologist\\cardiologist.csproj|c:\\gensparktraining\\presidiotraining\\day-13\\cardiologist\\cardiologist\\services\\appointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C1CB366-B3FD-4A6B-8AD1-8876BF765DE4}|cardiologist\\cardiologist.csproj|solutionrelative:cardiologist\\services\\appointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C1CB366-B3FD-4A6B-8AD1-8876BF765DE4}|cardiologist\\cardiologist.csproj|c:\\gensparktraining\\presidiotraining\\day-13\\cardiologist\\cardiologist\\interfaces\\irepositor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C1CB366-B3FD-4A6B-8AD1-8876BF765DE4}|cardiologist\\cardiologist.csproj|solutionrelative:cardiologist\\interfaces\\irepositor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C1CB366-B3FD-4A6B-8AD1-8876BF765DE4}|cardiologist\\cardiologist.csproj|c:\\gensparktraining\\presidiotraining\\day-13\\cardiologist\\cardiologist\\interfaces\\iappointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C1CB366-B3FD-4A6B-8AD1-8876BF765DE4}|cardiologist\\cardiologist.csproj|solutionrelative:cardiologist\\interfaces\\iappointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C1CB366-B3FD-4A6B-8AD1-8876BF765DE4}|cardiologist\\cardiologist.csproj|c:\\gensparktraining\\presidiotraining\\day-13\\cardiologist\\cardiologist\\models\\appointmentsearchmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C1CB366-B3FD-4A6B-8AD1-8876BF765DE4}|cardiologist\\cardiologist.csproj|solutionrelative:cardiologist\\models\\appointmentsearchmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C1CB366-B3FD-4A6B-8AD1-8876BF765DE4}|cardiologist\\cardiologist.csproj|c:\\gensparktraining\\presidiotraining\\day-13\\cardiologist\\cardiologist\\models\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C1CB366-B3FD-4A6B-8AD1-8876BF765DE4}|cardiologist\\cardiologist.csproj|solutionrelative:cardiologist\\models\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C1CB366-B3FD-4A6B-8AD1-8876BF765DE4}|cardiologist\\cardiologist.csproj|c:\\gensparktraining\\presidiotraining\\day-13\\cardiologist\\cardiologist\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C1CB366-B3FD-4A6B-8AD1-8876BF765DE4}|cardiologist\\cardiologist.csproj|solutionrelative:cardiologist\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C1CB366-B3FD-4A6B-8AD1-8876BF765DE4}|cardiologist\\cardiologist.csproj|c:\\gensparktraining\\presidiotraining\\day-13\\cardiologist\\cardiologist\\manageappointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C1CB366-B3FD-4A6B-8AD1-8876BF765DE4}|cardiologist\\cardiologist.csproj|solutionrelative:cardiologist\\manageappointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C1CB366-B3FD-4A6B-8AD1-8876BF765DE4}|cardiologist\\cardiologist.csproj|c:\\gensparktraining\\presidiotraining\\day-13\\cardiologist\\cardiologist\\exceptions\\collectionemptyexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C1CB366-B3FD-4A6B-8AD1-8876BF765DE4}|cardiologist\\cardiologist.csproj|solutionrelative:cardiologist\\exceptions\\collectionemptyexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C1CB366-B3FD-4A6B-8AD1-8876BF765DE4}|cardiologist\\cardiologist.csproj|c:\\gensparktraining\\presidiotraining\\day-13\\cardiologist\\cardiologist\\exceptions\\duplicateentityexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C1CB366-B3FD-4A6B-8AD1-8876BF765DE4}|cardiologist\\cardiologist.csproj|solutionrelative:cardiologist\\exceptions\\duplicateentityexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IAppointmentService.cs",
+              "DocumentMoniker": "C:\\GensparkTraining\\PresidioTraining\\Day-13\\cardiologist\\cardiologist\\Interfaces\\IAppointmentService.cs",
+              "RelativeDocumentMoniker": "cardiologist\\Interfaces\\IAppointmentService.cs",
+              "ToolTip": "C:\\GensparkTraining\\PresidioTraining\\Day-13\\cardiologist\\cardiologist\\Interfaces\\IAppointmentService.cs",
+              "RelativeToolTip": "cardiologist\\Interfaces\\IAppointmentService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T09:51:11.342Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IRepositor.cs",
+              "DocumentMoniker": "C:\\GensparkTraining\\PresidioTraining\\Day-13\\cardiologist\\cardiologist\\Interfaces\\IRepositor.cs",
+              "RelativeDocumentMoniker": "cardiologist\\Interfaces\\IRepositor.cs",
+              "ToolTip": "C:\\GensparkTraining\\PresidioTraining\\Day-13\\cardiologist\\cardiologist\\Interfaces\\IRepositor.cs",
+              "RelativeToolTip": "cardiologist\\Interfaces\\IRepositor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T09:50:39.733Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Repository.cs",
+              "DocumentMoniker": "C:\\GensparkTraining\\PresidioTraining\\Day-13\\cardiologist\\cardiologist\\Repositories\\Repository.cs",
+              "RelativeDocumentMoniker": "cardiologist\\Repositories\\Repository.cs",
+              "ToolTip": "C:\\GensparkTraining\\PresidioTraining\\Day-13\\cardiologist\\cardiologist\\Repositories\\Repository.cs",
+              "RelativeToolTip": "cardiologist\\Repositories\\Repository.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAA1wBMAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T09:56:12.515Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AppointmentRepository.cs",
+              "DocumentMoniker": "C:\\GensparkTraining\\PresidioTraining\\Day-13\\cardiologist\\cardiologist\\Repositories\\AppointmentRepository.cs",
+              "RelativeDocumentMoniker": "cardiologist\\Repositories\\AppointmentRepository.cs",
+              "ToolTip": "C:\\GensparkTraining\\PresidioTraining\\Day-13\\cardiologist\\cardiologist\\Repositories\\AppointmentRepository.cs",
+              "RelativeToolTip": "cardiologist\\Repositories\\AppointmentRepository.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwCIAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T09:58:02.069Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AppointmentService.cs",
+              "DocumentMoniker": "C:\\GensparkTraining\\PresidioTraining\\Day-13\\cardiologist\\cardiologist\\Services\\AppointmentService.cs",
+              "RelativeDocumentMoniker": "cardiologist\\Services\\AppointmentService.cs",
+              "ToolTip": "C:\\GensparkTraining\\PresidioTraining\\Day-13\\cardiologist\\cardiologist\\Services\\AppointmentService.cs",
+              "RelativeToolTip": "cardiologist\\Services\\AppointmentService.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAYwEUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T10:00:43.925Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AppointmentSearchModel.cs",
+              "DocumentMoniker": "C:\\GensparkTraining\\PresidioTraining\\Day-13\\cardiologist\\cardiologist\\Models\\AppointmentSearchModel.cs",
+              "RelativeDocumentMoniker": "cardiologist\\Models\\AppointmentSearchModel.cs",
+              "ToolTip": "C:\\GensparkTraining\\PresidioTraining\\Day-13\\cardiologist\\cardiologist\\Models\\AppointmentSearchModel.cs",
+              "RelativeToolTip": "cardiologist\\Models\\AppointmentSearchModel.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAowBMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T09:30:05.244Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Appointment.cs",
+              "DocumentMoniker": "C:\\GensparkTraining\\PresidioTraining\\Day-13\\cardiologist\\cardiologist\\Models\\Appointment.cs",
+              "RelativeDocumentMoniker": "cardiologist\\Models\\Appointment.cs",
+              "ToolTip": "C:\\GensparkTraining\\PresidioTraining\\Day-13\\cardiologist\\cardiologist\\Models\\Appointment.cs",
+              "RelativeToolTip": "cardiologist\\Models\\Appointment.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T09:28:40.178Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\GensparkTraining\\PresidioTraining\\Day-13\\cardiologist\\cardiologist\\Program.cs",
+              "RelativeDocumentMoniker": "cardiologist\\Program.cs",
+              "ToolTip": "C:\\GensparkTraining\\PresidioTraining\\Day-13\\cardiologist\\cardiologist\\Program.cs",
+              "RelativeToolTip": "cardiologist\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T09:22:07.752Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ManageAppointment.cs",
+              "DocumentMoniker": "C:\\GensparkTraining\\PresidioTraining\\Day-13\\cardiologist\\cardiologist\\ManageAppointment.cs",
+              "RelativeDocumentMoniker": "cardiologist\\ManageAppointment.cs",
+              "ToolTip": "C:\\GensparkTraining\\PresidioTraining\\Day-13\\cardiologist\\cardiologist\\ManageAppointment.cs",
+              "RelativeToolTip": "cardiologist\\ManageAppointment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T10:04:22.876Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CollectionEmptyException.cs",
+              "DocumentMoniker": "C:\\GensparkTraining\\PresidioTraining\\Day-13\\cardiologist\\cardiologist\\Exceptions\\CollectionEmptyException.cs",
+              "RelativeDocumentMoniker": "cardiologist\\Exceptions\\CollectionEmptyException.cs",
+              "ToolTip": "C:\\GensparkTraining\\PresidioTraining\\Day-13\\cardiologist\\cardiologist\\Exceptions\\CollectionEmptyException.cs",
+              "RelativeToolTip": "cardiologist\\Exceptions\\CollectionEmptyException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T09:52:35.247Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "DuplicateEntityException.cs",
+              "DocumentMoniker": "C:\\GensparkTraining\\PresidioTraining\\Day-13\\cardiologist\\cardiologist\\Exceptions\\DuplicateEntityException.cs",
+              "RelativeDocumentMoniker": "cardiologist\\Exceptions\\DuplicateEntityException.cs",
+              "ToolTip": "C:\\GensparkTraining\\PresidioTraining\\Day-13\\cardiologist\\cardiologist\\Exceptions\\DuplicateEntityException.cs",
+              "RelativeToolTip": "cardiologist\\Exceptions\\DuplicateEntityException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T09:53:03.255Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
