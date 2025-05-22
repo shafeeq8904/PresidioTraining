@@ -46,7 +46,7 @@ namespace cardiologist.Services
             {
                 Console.WriteLine($"Error: {ex.Message}");
                 return null;
-            }
+            } 
         }
 
         private ICollection<Appointment> FilterByName(ICollection<Appointment> list, string? name)
