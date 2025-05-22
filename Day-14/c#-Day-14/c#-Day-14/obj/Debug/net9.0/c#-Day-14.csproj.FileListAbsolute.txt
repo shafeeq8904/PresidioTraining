@@ -1,0 +1,15 @@
+C:\GensparkTraining\PresidioTraining\Day-14\c#-Day-14\c#-Day-14\bin\Debug\net9.0\c#-Day-14.exe
+C:\GensparkTraining\PresidioTraining\Day-14\c#-Day-14\c#-Day-14\bin\Debug\net9.0\c#-Day-14.deps.json
+C:\GensparkTraining\PresidioTraining\Day-14\c#-Day-14\c#-Day-14\bin\Debug\net9.0\c#-Day-14.runtimeconfig.json
+C:\GensparkTraining\PresidioTraining\Day-14\c#-Day-14\c#-Day-14\bin\Debug\net9.0\c#-Day-14.dll
+C:\GensparkTraining\PresidioTraining\Day-14\c#-Day-14\c#-Day-14\bin\Debug\net9.0\c#-Day-14.pdb
+C:\GensparkTraining\PresidioTraining\Day-14\c#-Day-14\c#-Day-14\obj\Debug\net9.0\c#-Day-14.GeneratedMSBuildEditorConfig.editorconfig
+C:\GensparkTraining\PresidioTraining\Day-14\c#-Day-14\c#-Day-14\obj\Debug\net9.0\c#-Day-14.AssemblyInfoInputs.cache
+C:\GensparkTraining\PresidioTraining\Day-14\c#-Day-14\c#-Day-14\obj\Debug\net9.0\c#-Day-14.AssemblyInfo.cs
+C:\GensparkTraining\PresidioTraining\Day-14\c#-Day-14\c#-Day-14\obj\Debug\net9.0\c#-Day-14.csproj.CoreCompileInputs.cache
+C:\GensparkTraining\PresidioTraining\Day-14\c#-Day-14\c#-Day-14\obj\Debug\net9.0\c#-Day-14.sourcelink.json
+C:\GensparkTraining\PresidioTraining\Day-14\c#-Day-14\c#-Day-14\obj\Debug\net9.0\c#-Day-14.dll
+C:\GensparkTraining\PresidioTraining\Day-14\c#-Day-14\c#-Day-14\obj\Debug\net9.0\refint\c#-Day-14.dll
+C:\GensparkTraining\PresidioTraining\Day-14\c#-Day-14\c#-Day-14\obj\Debug\net9.0\c#-Day-14.pdb
+C:\GensparkTraining\PresidioTraining\Day-14\c#-Day-14\c#-Day-14\obj\Debug\net9.0\c#-Day-14.genruntimeconfig.cache
+C:\GensparkTraining\PresidioTraining\Day-14\c#-Day-14\c#-Day-14\obj\Debug\net9.0\ref\c#-Day-14.dll

@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "c#-Day-14/1.0.0": {
+        "runtime": {
+          "c#-Day-14.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "c#-Day-14/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
