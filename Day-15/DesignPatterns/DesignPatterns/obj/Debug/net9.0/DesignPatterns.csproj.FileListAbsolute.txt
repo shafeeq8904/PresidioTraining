@@ -1,0 +1,15 @@
+C:\GensparkTraining\PresidioTraining\Day-15\DesignPatterns\DesignPatterns\bin\Debug\net9.0\DesignPatterns.exe
+C:\GensparkTraining\PresidioTraining\Day-15\DesignPatterns\DesignPatterns\bin\Debug\net9.0\DesignPatterns.deps.json
+C:\GensparkTraining\PresidioTraining\Day-15\DesignPatterns\DesignPatterns\bin\Debug\net9.0\DesignPatterns.runtimeconfig.json
+C:\GensparkTraining\PresidioTraining\Day-15\DesignPatterns\DesignPatterns\bin\Debug\net9.0\DesignPatterns.dll
+C:\GensparkTraining\PresidioTraining\Day-15\DesignPatterns\DesignPatterns\bin\Debug\net9.0\DesignPatterns.pdb
+C:\GensparkTraining\PresidioTraining\Day-15\DesignPatterns\DesignPatterns\obj\Debug\net9.0\DesignPatterns.GeneratedMSBuildEditorConfig.editorconfig
+C:\GensparkTraining\PresidioTraining\Day-15\DesignPatterns\DesignPatterns\obj\Debug\net9.0\DesignPatterns.AssemblyInfoInputs.cache
+C:\GensparkTraining\PresidioTraining\Day-15\DesignPatterns\DesignPatterns\obj\Debug\net9.0\DesignPatterns.AssemblyInfo.cs
+C:\GensparkTraining\PresidioTraining\Day-15\DesignPatterns\DesignPatterns\obj\Debug\net9.0\DesignPatterns.csproj.CoreCompileInputs.cache
+C:\GensparkTraining\PresidioTraining\Day-15\DesignPatterns\DesignPatterns\obj\Debug\net9.0\DesignPatterns.sourcelink.json
+C:\GensparkTraining\PresidioTraining\Day-15\DesignPatterns\DesignPatterns\obj\Debug\net9.0\DesignPatterns.dll
+C:\GensparkTraining\PresidioTraining\Day-15\DesignPatterns\DesignPatterns\obj\Debug\net9.0\refint\DesignPatterns.dll
+C:\GensparkTraining\PresidioTraining\Day-15\DesignPatterns\DesignPatterns\obj\Debug\net9.0\DesignPatterns.pdb
+C:\GensparkTraining\PresidioTraining\Day-15\DesignPatterns\DesignPatterns\obj\Debug\net9.0\DesignPatterns.genruntimeconfig.cache
+C:\GensparkTraining\PresidioTraining\Day-15\DesignPatterns\DesignPatterns\obj\Debug\net9.0\ref\DesignPatterns.dll

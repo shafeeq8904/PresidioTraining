@@ -1,0 +1,160 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\GensparkTraining\\PresidioTraining\\Day-15\\DesignPatterns\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E76CB229-7289-44AD-9950-E0F250FAABB0}|DesignPatterns\\DesignPatterns.csproj|c:\\gensparktraining\\presidiotraining\\day-15\\designpatterns\\designpatterns\\notification\\emailnotification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E76CB229-7289-44AD-9950-E0F250FAABB0}|DesignPatterns\\DesignPatterns.csproj|solutionrelative:designpatterns\\notification\\emailnotification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E76CB229-7289-44AD-9950-E0F250FAABB0}|DesignPatterns\\DesignPatterns.csproj|c:\\gensparktraining\\presidiotraining\\day-15\\designpatterns\\designpatterns\\notification\\notificationfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E76CB229-7289-44AD-9950-E0F250FAABB0}|DesignPatterns\\DesignPatterns.csproj|solutionrelative:designpatterns\\notification\\notificationfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E76CB229-7289-44AD-9950-E0F250FAABB0}|DesignPatterns\\DesignPatterns.csproj|c:\\gensparktraining\\presidiotraining\\day-15\\designpatterns\\designpatterns\\services\\fileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E76CB229-7289-44AD-9950-E0F250FAABB0}|DesignPatterns\\DesignPatterns.csproj|solutionrelative:designpatterns\\services\\fileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E76CB229-7289-44AD-9950-E0F250FAABB0}|DesignPatterns\\DesignPatterns.csproj|c:\\gensparktraining\\presidiotraining\\day-15\\designpatterns\\designpatterns\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E76CB229-7289-44AD-9950-E0F250FAABB0}|DesignPatterns\\DesignPatterns.csproj|solutionrelative:designpatterns\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E76CB229-7289-44AD-9950-E0F250FAABB0}|DesignPatterns\\DesignPatterns.csproj|c:\\gensparktraining\\presidiotraining\\day-15\\designpatterns\\designpatterns\\notification\\inotificationfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E76CB229-7289-44AD-9950-E0F250FAABB0}|DesignPatterns\\DesignPatterns.csproj|solutionrelative:designpatterns\\notification\\inotificationfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E76CB229-7289-44AD-9950-E0F250FAABB0}|DesignPatterns\\DesignPatterns.csproj|c:\\gensparktraining\\presidiotraining\\day-15\\designpatterns\\designpatterns\\notification\\smsnotification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E76CB229-7289-44AD-9950-E0F250FAABB0}|DesignPatterns\\DesignPatterns.csproj|solutionrelative:designpatterns\\notification\\smsnotification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E76CB229-7289-44AD-9950-E0F250FAABB0}|DesignPatterns\\DesignPatterns.csproj|c:\\gensparktraining\\presidiotraining\\day-15\\designpatterns\\designpatterns\\notification\\concretenotificationfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E76CB229-7289-44AD-9950-E0F250FAABB0}|DesignPatterns\\DesignPatterns.csproj|solutionrelative:designpatterns\\notification\\concretenotificationfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E76CB229-7289-44AD-9950-E0F250FAABB0}|DesignPatterns\\DesignPatterns.csproj|c:\\gensparktraining\\presidiotraining\\day-15\\designpatterns\\designpatterns\\notification\\inotification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E76CB229-7289-44AD-9950-E0F250FAABB0}|DesignPatterns\\DesignPatterns.csproj|solutionrelative:designpatterns\\notification\\inotification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ConcreteNotificationFactory.cs",
+              "DocumentMoniker": "C:\\GensparkTraining\\PresidioTraining\\Day-15\\DesignPatterns\\DesignPatterns\\Notification\\ConcreteNotificationFactory.cs",
+              "RelativeDocumentMoniker": "DesignPatterns\\Notification\\ConcreteNotificationFactory.cs",
+              "ToolTip": "C:\\GensparkTraining\\PresidioTraining\\Day-15\\DesignPatterns\\DesignPatterns\\Notification\\ConcreteNotificationFactory.cs",
+              "RelativeToolTip": "DesignPatterns\\Notification\\ConcreteNotificationFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T09:27:11.799Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "INotificationFactory.cs",
+              "DocumentMoniker": "C:\\GensparkTraining\\PresidioTraining\\Day-15\\DesignPatterns\\DesignPatterns\\Notification\\INotificationFactory.cs",
+              "RelativeDocumentMoniker": "DesignPatterns\\Notification\\INotificationFactory.cs",
+              "ToolTip": "C:\\GensparkTraining\\PresidioTraining\\Day-15\\DesignPatterns\\DesignPatterns\\Notification\\INotificationFactory.cs",
+              "RelativeToolTip": "DesignPatterns\\Notification\\INotificationFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T09:26:41.441Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "NotificationFactory.cs",
+              "DocumentMoniker": "C:\\GensparkTraining\\PresidioTraining\\Day-15\\DesignPatterns\\DesignPatterns\\Notification\\NotificationFactory.cs",
+              "RelativeDocumentMoniker": "DesignPatterns\\Notification\\NotificationFactory.cs",
+              "ToolTip": "C:\\GensparkTraining\\PresidioTraining\\Day-15\\DesignPatterns\\DesignPatterns\\Notification\\NotificationFactory.cs",
+              "RelativeToolTip": "DesignPatterns\\Notification\\NotificationFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T09:26:09.159Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SMSNotification.cs",
+              "DocumentMoniker": "C:\\GensparkTraining\\PresidioTraining\\Day-15\\DesignPatterns\\DesignPatterns\\Notification\\SMSNotification.cs",
+              "RelativeDocumentMoniker": "DesignPatterns\\Notification\\SMSNotification.cs",
+              "ToolTip": "C:\\GensparkTraining\\PresidioTraining\\Day-15\\DesignPatterns\\DesignPatterns\\Notification\\SMSNotification.cs",
+              "RelativeToolTip": "DesignPatterns\\Notification\\SMSNotification.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T09:25:17.107Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EmailNotification.cs",
+              "DocumentMoniker": "C:\\GensparkTraining\\PresidioTraining\\Day-15\\DesignPatterns\\DesignPatterns\\Notification\\EmailNotification.cs",
+              "RelativeDocumentMoniker": "DesignPatterns\\Notification\\EmailNotification.cs",
+              "ToolTip": "C:\\GensparkTraining\\PresidioTraining\\Day-15\\DesignPatterns\\DesignPatterns\\Notification\\EmailNotification.cs",
+              "RelativeToolTip": "DesignPatterns\\Notification\\EmailNotification.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T09:24:41.511Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "INotification.cs",
+              "DocumentMoniker": "C:\\GensparkTraining\\PresidioTraining\\Day-15\\DesignPatterns\\DesignPatterns\\Notification\\INotification.cs",
+              "RelativeDocumentMoniker": "DesignPatterns\\Notification\\INotification.cs",
+              "ToolTip": "C:\\GensparkTraining\\PresidioTraining\\Day-15\\DesignPatterns\\DesignPatterns\\Notification\\INotification.cs",
+              "RelativeToolTip": "DesignPatterns\\Notification\\INotification.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T09:24:06.647Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FileService.cs",
+              "DocumentMoniker": "C:\\GensparkTraining\\PresidioTraining\\Day-15\\DesignPatterns\\DesignPatterns\\Services\\FileService.cs",
+              "RelativeDocumentMoniker": "DesignPatterns\\Services\\FileService.cs",
+              "ToolTip": "C:\\GensparkTraining\\PresidioTraining\\Day-15\\DesignPatterns\\DesignPatterns\\Services\\FileService.cs*",
+              "RelativeToolTip": "DesignPatterns\\Services\\FileService.cs*",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T09:21:57.408Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\GensparkTraining\\PresidioTraining\\Day-15\\DesignPatterns\\DesignPatterns\\Program.cs",
+              "RelativeDocumentMoniker": "DesignPatterns\\Program.cs",
+              "ToolTip": "C:\\GensparkTraining\\PresidioTraining\\Day-15\\DesignPatterns\\DesignPatterns\\Program.cs",
+              "RelativeToolTip": "DesignPatterns\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-23T06:42:10.083Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+C:\GensparkTraining\PresidioTraining\Day-15\SecureFileAccess\SecureFileAccess\bin\Debug\net9.0\SecureFileAccess.exe
+C:\GensparkTraining\PresidioTraining\Day-15\SecureFileAccess\SecureFileAccess\bin\Debug\net9.0\SecureFileAccess.deps.json
+C:\GensparkTraining\PresidioTraining\Day-15\SecureFileAccess\SecureFileAccess\bin\Debug\net9.0\SecureFileAccess.runtimeconfig.json
+C:\GensparkTraining\PresidioTraining\Day-15\SecureFileAccess\SecureFileAccess\bin\Debug\net9.0\SecureFileAccess.dll
+C:\GensparkTraining\PresidioTraining\Day-15\SecureFileAccess\SecureFileAccess\bin\Debug\net9.0\SecureFileAccess.pdb
+C:\GensparkTraining\PresidioTraining\Day-15\SecureFileAccess\SecureFileAccess\obj\Debug\net9.0\SecureFileAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\GensparkTraining\PresidioTraining\Day-15\SecureFileAccess\SecureFileAccess\obj\Debug\net9.0\SecureFileAccess.AssemblyInfoInputs.cache
+C:\GensparkTraining\PresidioTraining\Day-15\SecureFileAccess\SecureFileAccess\obj\Debug\net9.0\SecureFileAccess.AssemblyInfo.cs
+C:\GensparkTraining\PresidioTraining\Day-15\SecureFileAccess\SecureFileAccess\obj\Debug\net9.0\SecureFileAccess.csproj.CoreCompileInputs.cache
+C:\GensparkTraining\PresidioTraining\Day-15\SecureFileAccess\SecureFileAccess\obj\Debug\net9.0\SecureFileAccess.sourcelink.json
+C:\GensparkTraining\PresidioTraining\Day-15\SecureFileAccess\SecureFileAccess\obj\Debug\net9.0\SecureFileAccess.dll
+C:\GensparkTraining\PresidioTraining\Day-15\SecureFileAccess\SecureFileAccess\obj\Debug\net9.0\refint\SecureFileAccess.dll
+C:\GensparkTraining\PresidioTraining\Day-15\SecureFileAccess\SecureFileAccess\obj\Debug\net9.0\SecureFileAccess.pdb
+C:\GensparkTraining\PresidioTraining\Day-15\SecureFileAccess\SecureFileAccess\obj\Debug\net9.0\SecureFileAccess.genruntimeconfig.cache
+C:\GensparkTraining\PresidioTraining\Day-15\SecureFileAccess\SecureFileAccess\obj\Debug\net9.0\ref\SecureFileAccess.dll
