@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace doctor.Repositories
 {
-    public  class Patinet : Repository<int, Patient>
+    public  class PatientRepository : Repository<int, Patient>
     {
-        public Patinet(ClinicContext clinicContext) : base(clinicContext)
+        public PatientRepository(ClinicContext clinicContext) : base(clinicContext)
         {
         }
 
@@ -15,15 +15,14 @@ namespace doctor.Repositories
         {
             var patient = await _clinicContext.patients.SingleOrDefaultAsync(p => p.Id == key);
 
-            return patient??throw new Exception("No patient with teh given ID");
+            return patient??throw new Exception("No patient with the given ID");
         }
 
         public override async Task<IEnumerable<Patient>> GetAll()
         {
-            var patients = _clinicContext.patients;
-            if (patients.Count() == 0)
-                throw new Exception("No Patients in the database");
-            return await patients.ToListAsync();
+            return await _clinicContext.patients
+            .Include(p => p.User)
+            .ToListAsync();
         }
     }
 }

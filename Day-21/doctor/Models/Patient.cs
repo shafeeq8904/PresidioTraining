@@ -1,7 +1,13 @@
+
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 namespace doctor.Models
+
 {
     public class Patient
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public int Age { get; set; }
@@ -10,5 +16,5 @@ namespace doctor.Models
         public ICollection<Appointmnet>? Appointmnets { get; set; }
         public User? User { get; set; }
     }
-   
+
 }

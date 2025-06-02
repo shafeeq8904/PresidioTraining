@@ -10,6 +10,7 @@ namespace doctor.Misc
             Doctor doctor = new();
             doctor.Name = addRequestDto.Name;
             doctor.YearsOfExperience = addRequestDto.YearsOfExperience;
+            doctor.Status = "Active";
             doctor.Email = addRequestDto.Email;
             return doctor;
         }

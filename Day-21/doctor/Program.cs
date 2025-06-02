@@ -58,7 +58,7 @@ builder.Services.AddDbContext<ClinicContext>(opts =>
 });
 #region  Repositories
 builder.Services.AddTransient<IRepository<int, Doctor>, DoctorRepository>();
-builder.Services.AddTransient<IRepository<int, Patient>, Patinet>();
+builder.Services.AddTransient<IRepository<int, Patient>, PatientRepository>();
 builder.Services.AddTransient<IRepository<int, Speciality>, SpecialityRepository>();
 builder.Services.AddTransient<IRepository<string, Appointmnet>, AppointmnetRepository>();
 builder.Services.AddTransient<IRepository<int, DoctorSpeciality>, DoctorSpecialityRepository>();
@@ -67,6 +67,7 @@ builder.Services.AddTransient<IRepository<string, User>, UserRepository>();
 
 #region Services
 builder.Services.AddTransient<IDoctorService, DoctorService>();
+builder.Services.AddTransient<IPatientService, PatientService>();
 builder.Services.AddTransient<IOtherContextFunctionities, OtherFuncinalitiesImplementation>();
 builder.Services.AddTransient<IEncryptionService, EncryptionService>();
 builder.Services.AddTransient<ITokenService, TokenService>();
