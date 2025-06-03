@@ -55,7 +55,8 @@ namespace doctor.Controllers
             try
             {
                 var appointments = await _appointmnetService.GetAppointmnetsByPatientId(patientId);
-                return Ok(appointments);
+                var response = appointments.Select(a => _appointmnetMapper.MapToResponseDto(a));
+                return Ok(response);
             }
             catch (Exception ex)
             {
@@ -70,7 +71,8 @@ namespace doctor.Controllers
             try
             {
                 var appointments = await _appointmnetService.GetAppointmnetsByDoctorId(doctorId);
-                return Ok(appointments);
+                var response = appointments.Select(a => _appointmnetMapper.MapToResponseDto(a));
+                return Ok(response);
             }
             catch (Exception ex)
             {
