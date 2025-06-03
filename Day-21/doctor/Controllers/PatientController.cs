@@ -22,7 +22,7 @@ namespace doctor.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "Patient")]
         public async Task<ActionResult<IEnumerable<Patient>>> GetPatientByName(string name)
         {
             try
@@ -39,6 +39,7 @@ namespace doctor.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Patient")]
         public async Task<ActionResult<Patient>> PostPatient([FromBody] PatientAddRequestDto patient)
         {
             try

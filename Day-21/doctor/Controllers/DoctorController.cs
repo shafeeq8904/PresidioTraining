@@ -24,13 +24,14 @@ namespace doctor.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "Doctor")]
         public async Task<ActionResult<IEnumerable<DoctorsBySpecialityResponseDto>>> GetDoctors(string speciality)
         {
             var result = await _doctorService.GetDoctorsBySpeciality(speciality);
             return Ok(result);
         }
         [HttpPost]
+        [Authorize(Roles = "Doctor")]
         public async Task<ActionResult<Doctor>> PostDoctor([FromBody] DoctorAddRequestDto doctor)
         {
             try
