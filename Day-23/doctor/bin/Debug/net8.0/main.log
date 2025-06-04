@@ -1,0 +1,905 @@
+2025-06-04 12:29:16,313 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5050
+2025-06-04 12:29:16,347 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-04 12:29:16,348 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-04 12:29:16,348 [1] INFO Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor
+2025-06-04 12:29:57,615 [.NET Signal Handler] INFO Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-04 13:08:50,064 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5050
+2025-06-04 13:08:50,098 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-04 13:08:50,098 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-04 13:08:50,099 [1] INFO Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor
+2025-06-04 13:10:10,506 [.NET TP Worker] INFO Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (57ms) [Parameters=[@__key_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT u."Username", u."HashKey", u."Password", u."Role"
+FROM "Users" AS u
+WHERE u."Username" = @__key_0
+LIMIT 2
+2025-06-04 13:10:10,582 [.NET TP Worker] ERROR doctor.Services.AuthenticationService - Invalid login attempt
+2025-06-04 13:10:24,949 [.NET TP Worker] INFO Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[@__key_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT u."Username", u."HashKey", u."Password", u."Role"
+FROM "Users" AS u
+WHERE u."Username" = @__key_0
+LIMIT 2
+2025-06-04 13:10:24,950 [.NET TP Worker] FATAL doctor.Services.AuthenticationService - User not found
+2025-06-04 13:10:36,310 [.NET TP Worker] INFO Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@__key_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT u."Username", u."HashKey", u."Password", u."Role"
+FROM "Users" AS u
+WHERE u."Username" = @__key_0
+LIMIT 2
+2025-06-04 13:10:50,289 [.NET Signal Handler] INFO Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-04 14:57:14,065 [1] WARN Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServer - The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2025-06-04 14:57:14,194 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5167
+2025-06-04 14:57:14,194 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: https://localhost:7167
+2025-06-04 14:57:14,243 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-04 14:57:14,245 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-04 14:57:14,246 [1] INFO Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor
+2025-06-04 15:01:54,709 [.NET Signal Handler] INFO Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-04 15:18:48,238 [1] WARN Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServer - The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2025-06-04 15:18:48,259 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5167
+2025-06-04 15:18:48,259 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: https://localhost:7167
+2025-06-04 15:18:48,262 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-04 15:18:48,262 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-04 15:18:48,262 [1] INFO Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor
+2025-06-04 15:24:16,545 [.NET TP Worker] INFO Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (67ms) [Parameters=[@p0='?', @p1='?' (DbType = Binary), @p2='?' (DbType = Binary), @p3='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Users" ("Username", "HashKey", "Password", "Role")
+VALUES (@p0, @p1, @p2, @p3);
+2025-06-04 15:24:16,817 [.NET TP Worker] INFO Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT p."Id", p."Age", p."Email", p."Name", p."Phone", u."Username", u."HashKey", u."Password", u."Role"
+FROM patients AS p
+INNER JOIN "Users" AS u ON p."Email" = u."Username"
+2025-06-04 15:24:16,897 [.NET TP Worker] INFO Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (10ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?', @p2='?', @p3='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO patients ("Age", "Email", "Name", "Phone")
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING "Id";
+2025-06-04 15:34:08,894 [.NET Signal Handler] INFO Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-04 16:20:21,210 [1] FATAL Microsoft.AspNetCore.Hosting.Diagnostics - Application startup exception
+System.InvalidOperationException: Scheme already exists: Cookies
+   at Microsoft.AspNetCore.Authentication.AuthenticationOptions.AddScheme(String name, Action`1 configureBuilder)
+   at Microsoft.Extensions.Options.OptionsFactory`1.Create(String name)
+   at Microsoft.Extensions.Options.UnnamedOptionsManager`1.get_Value()
+   at Microsoft.AspNetCore.Authentication.AuthenticationSchemeProvider..ctor(IOptions`1 options, IDictionary`2 schemes)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.ConstructorMatcher.CreateInstance(IServiceProvider provider)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.CreateInstance(IServiceProvider provider, Type instanceType, Object[] parameters)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.ReflectionMiddlewareBinder.CreateMiddleware(RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+2025-06-04 16:20:21,240 [1] ERROR Microsoft.Extensions.Hosting.Internal.Host - Hosting failed to start
+System.InvalidOperationException: Scheme already exists: Cookies
+   at Microsoft.AspNetCore.Authentication.AuthenticationOptions.AddScheme(String name, Action`1 configureBuilder)
+   at Microsoft.Extensions.Options.OptionsFactory`1.Create(String name)
+   at Microsoft.Extensions.Options.UnnamedOptionsManager`1.get_Value()
+   at Microsoft.AspNetCore.Authentication.AuthenticationSchemeProvider..ctor(IOptions`1 options, IDictionary`2 schemes)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.ConstructorMatcher.CreateInstance(IServiceProvider provider)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.CreateInstance(IServiceProvider provider, Type instanceType, Object[] parameters)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.ReflectionMiddlewareBinder.CreateMiddleware(RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2025-06-04 16:24:51,725 [1] FATAL Microsoft.AspNetCore.Hosting.Diagnostics - Application startup exception
+System.InvalidOperationException: Scheme already exists: Cookies
+   at Microsoft.AspNetCore.Authentication.AuthenticationOptions.AddScheme(String name, Action`1 configureBuilder)
+   at Microsoft.Extensions.Options.OptionsFactory`1.Create(String name)
+   at Microsoft.Extensions.Options.UnnamedOptionsManager`1.get_Value()
+   at Microsoft.AspNetCore.Authentication.AuthenticationSchemeProvider..ctor(IOptions`1 options, IDictionary`2 schemes)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.ConstructorMatcher.CreateInstance(IServiceProvider provider)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.CreateInstance(IServiceProvider provider, Type instanceType, Object[] parameters)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.ReflectionMiddlewareBinder.CreateMiddleware(RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+2025-06-04 16:24:51,765 [1] ERROR Microsoft.Extensions.Hosting.Internal.Host - Hosting failed to start
+System.InvalidOperationException: Scheme already exists: Cookies
+   at Microsoft.AspNetCore.Authentication.AuthenticationOptions.AddScheme(String name, Action`1 configureBuilder)
+   at Microsoft.Extensions.Options.OptionsFactory`1.Create(String name)
+   at Microsoft.Extensions.Options.UnnamedOptionsManager`1.get_Value()
+   at Microsoft.AspNetCore.Authentication.AuthenticationSchemeProvider..ctor(IOptions`1 options, IDictionary`2 schemes)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.ConstructorMatcher.CreateInstance(IServiceProvider provider)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.CreateInstance(IServiceProvider provider, Type instanceType, Object[] parameters)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.ReflectionMiddlewareBinder.CreateMiddleware(RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2025-06-04 16:25:37,077 [1] FATAL Microsoft.AspNetCore.Hosting.Diagnostics - Application startup exception
+System.InvalidOperationException: Scheme already exists: Cookies
+   at Microsoft.AspNetCore.Authentication.AuthenticationOptions.AddScheme(String name, Action`1 configureBuilder)
+   at Microsoft.Extensions.Options.OptionsFactory`1.Create(String name)
+   at Microsoft.Extensions.Options.UnnamedOptionsManager`1.get_Value()
+   at Microsoft.AspNetCore.Authentication.AuthenticationSchemeProvider..ctor(IOptions`1 options, IDictionary`2 schemes)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.ConstructorMatcher.CreateInstance(IServiceProvider provider)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.CreateInstance(IServiceProvider provider, Type instanceType, Object[] parameters)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.ReflectionMiddlewareBinder.CreateMiddleware(RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+2025-06-04 16:25:37,112 [1] ERROR Microsoft.Extensions.Hosting.Internal.Host - Hosting failed to start
+System.InvalidOperationException: Scheme already exists: Cookies
+   at Microsoft.AspNetCore.Authentication.AuthenticationOptions.AddScheme(String name, Action`1 configureBuilder)
+   at Microsoft.Extensions.Options.OptionsFactory`1.Create(String name)
+   at Microsoft.Extensions.Options.UnnamedOptionsManager`1.get_Value()
+   at Microsoft.AspNetCore.Authentication.AuthenticationSchemeProvider..ctor(IOptions`1 options, IDictionary`2 schemes)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.ConstructorMatcher.CreateInstance(IServiceProvider provider)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.CreateInstance(IServiceProvider provider, Type instanceType, Object[] parameters)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.ReflectionMiddlewareBinder.CreateMiddleware(RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2025-06-04 16:28:32,470 [1] FATAL Microsoft.AspNetCore.Hosting.Diagnostics - Application startup exception
+System.InvalidOperationException: Scheme already exists: Cookies
+   at Microsoft.AspNetCore.Authentication.AuthenticationOptions.AddScheme(String name, Action`1 configureBuilder)
+   at Microsoft.Extensions.Options.OptionsFactory`1.Create(String name)
+   at Microsoft.Extensions.Options.UnnamedOptionsManager`1.get_Value()
+   at Microsoft.AspNetCore.Authentication.AuthenticationSchemeProvider..ctor(IOptions`1 options, IDictionary`2 schemes)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.ConstructorMatcher.CreateInstance(IServiceProvider provider)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.CreateInstance(IServiceProvider provider, Type instanceType, Object[] parameters)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.ReflectionMiddlewareBinder.CreateMiddleware(RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+2025-06-04 16:28:32,496 [1] ERROR Microsoft.Extensions.Hosting.Internal.Host - Hosting failed to start
+System.InvalidOperationException: Scheme already exists: Cookies
+   at Microsoft.AspNetCore.Authentication.AuthenticationOptions.AddScheme(String name, Action`1 configureBuilder)
+   at Microsoft.Extensions.Options.OptionsFactory`1.Create(String name)
+   at Microsoft.Extensions.Options.UnnamedOptionsManager`1.get_Value()
+   at Microsoft.AspNetCore.Authentication.AuthenticationSchemeProvider..ctor(IOptions`1 options, IDictionary`2 schemes)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.ConstructorMatcher.CreateInstance(IServiceProvider provider)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.CreateInstance(IServiceProvider provider, Type instanceType, Object[] parameters)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.ReflectionMiddlewareBinder.CreateMiddleware(RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2025-06-04 16:30:43,671 [1] WARN Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServer - The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2025-06-04 16:30:43,690 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5167
+2025-06-04 16:30:43,690 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: https://localhost:7167
+2025-06-04 16:30:43,693 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-04 16:30:43,693 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-04 16:30:43,693 [1] INFO Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor
+2025-06-04 16:31:54,878 [.NET TP Worker] WARN Microsoft.AspNetCore.Authentication.Google.GoogleHandler - '.AspNetCore.Correlation.fuC5Q_TmBK4GrZyD-U6QHfGkY_-I_LArpP3gKRlZ0go' cookie not found.
+2025-06-04 16:31:54,897 [.NET TP Worker] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware - An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: Correlation failed.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-06-04 16:37:42,651 [.NET Signal Handler] INFO Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-04 16:38:39,107 [1] WARN Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServer - The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2025-06-04 16:38:39,129 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5167
+2025-06-04 16:38:39,129 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: https://localhost:7167
+2025-06-04 16:38:39,133 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-04 16:38:39,133 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-04 16:38:39,134 [1] INFO Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor
+2025-06-04 16:39:40,539 [.NET Signal Handler] INFO Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-04 16:39:45,794 [1] WARN Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServer - The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2025-06-04 16:39:45,813 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5167
+2025-06-04 16:39:45,813 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: https://localhost:7167
+2025-06-04 16:39:45,816 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-04 16:39:45,816 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-04 16:39:45,816 [1] INFO Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor
+2025-06-04 16:39:59,019 [.NET TP Worker] WARN Microsoft.AspNetCore.Authentication.Google.GoogleHandler - '.AspNetCore.Correlation.fuC5Q_TmBK4GrZyD-U6QHfGkY_-I_LArpP3gKRlZ0go' cookie not found.
+2025-06-04 16:39:59,032 [.NET TP Worker] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware - An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: Correlation failed.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-06-04 16:40:00,321 [.NET TP Worker] WARN Microsoft.AspNetCore.Authentication.Google.GoogleHandler - '.AspNetCore.Correlation.fuC5Q_TmBK4GrZyD-U6QHfGkY_-I_LArpP3gKRlZ0go' cookie not found.
+2025-06-04 16:40:00,322 [.NET TP Worker] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware - An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: Correlation failed.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-06-04 16:40:30,606 [.NET Signal Handler] INFO Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-04 16:49:56,197 [1] WARN Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServer - The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2025-06-04 16:49:56,213 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5167
+2025-06-04 16:49:56,214 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: https://localhost:7167
+2025-06-04 16:49:56,216 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-04 16:49:56,216 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-04 16:49:56,216 [1] INFO Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor
+2025-06-04 16:50:11,392 [.NET TP Worker] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware - An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: The oauth state was missing or invalid.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-06-04 16:51:32,347 [.NET TP Worker] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware - An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: The oauth state was missing or invalid.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-06-04 16:51:33,381 [.NET TP Worker] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware - An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: The oauth state was missing or invalid.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-06-04 16:51:33,840 [.NET TP Worker] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware - An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: The oauth state was missing or invalid.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-06-04 16:51:33,992 [.NET TP Worker] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware - An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: The oauth state was missing or invalid.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-06-04 16:51:36,520 [.NET TP Worker] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware - An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: The oauth state was missing or invalid.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-06-04 16:51:39,576 [.NET TP Worker] WARN Microsoft.AspNetCore.Authentication.Google.GoogleHandler - '.AspNetCore.Correlation.79qWWlrWdNfBZcHAYgyYgYyfVDZ7dVzDG9vv0NYHTSg' cookie not found.
+2025-06-04 16:51:39,577 [.NET TP Worker] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware - An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: Correlation failed.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-06-04 16:52:11,441 [.NET Signal Handler] INFO Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-04 16:52:17,506 [1] WARN Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServer - The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2025-06-04 16:52:17,523 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5167
+2025-06-04 16:52:17,524 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: https://localhost:7167
+2025-06-04 16:52:17,526 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-04 16:52:17,527 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-04 16:52:17,527 [1] INFO Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor
+2025-06-04 16:52:47,453 [.NET TP Worker] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware - An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: The oauth state was missing or invalid.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-06-04 16:58:41,770 [.NET Signal Handler] INFO Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-04 16:58:50,018 [1] WARN Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServer - The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2025-06-04 16:58:50,036 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5167
+2025-06-04 16:58:50,036 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: https://localhost:7167
+2025-06-04 16:58:50,039 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-04 16:58:50,039 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-04 16:58:50,039 [1] INFO Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor
+2025-06-04 17:00:17,483 [.NET Signal Handler] INFO Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-04 17:00:22,073 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5167
+2025-06-04 17:00:22,100 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-04 17:00:22,100 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-04 17:00:22,100 [1] INFO Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor
+2025-06-04 17:01:03,664 [.NET TP Worker] WARN Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware - Failed to determine the https port for redirect.
+2025-06-04 17:01:05,419 [.NET TP Worker] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware - An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: The oauth state was missing or invalid.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-06-04 17:02:53,803 [.NET TP Worker] WARN Microsoft.AspNetCore.Authentication.Google.GoogleHandler - '.AspNetCore.Correlation.nXCUS-9K_N15NA_3rfyhdOaW9_Zwh17EiwJQPJvnCKs' cookie not found.
+2025-06-04 17:02:53,803 [.NET TP Worker] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware - An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: Correlation failed.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-06-04 17:26:45,713 [.NET Signal Handler] INFO Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-04 17:26:50,295 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5167
+2025-06-04 17:26:50,326 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-04 17:26:50,327 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-04 17:26:50,327 [1] INFO Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor
+2025-06-04 17:26:58,559 [.NET TP Worker] WARN Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware - Failed to determine the https port for redirect.
+2025-06-04 17:27:35,416 [.NET TP Worker] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware - An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: The oauth state was missing or invalid.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-06-04 17:28:20,765 [.NET TP Worker] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware - An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: The oauth state was missing or invalid.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-06-04 17:29:42,335 [.NET Signal Handler] INFO Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-04 17:29:46,497 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5167
+2025-06-04 17:29:46,527 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-04 17:29:46,528 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-04 17:29:46,528 [1] INFO Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor
+2025-06-04 17:29:57,252 [.NET TP Worker] WARN Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware - Failed to determine the https port for redirect.
+2025-06-04 17:29:57,277 [.NET TP Worker] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware - An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: The oauth state was missing or invalid.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-06-04 17:32:03,880 [.NET Signal Handler] INFO Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-04 17:32:11,896 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5167
+2025-06-04 17:32:12,020 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-04 17:32:12,020 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-04 17:32:12,020 [1] INFO Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor
+2025-06-04 17:32:48,546 [.NET TP Worker] WARN Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware - Failed to determine the https port for redirect.
+2025-06-04 17:32:57,945 [.NET TP Worker] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware - An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: The oauth state was missing or invalid.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-06-04 17:37:05,001 [.NET Signal Handler] INFO Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-04 17:42:03,264 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5167
+2025-06-04 17:42:03,297 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-04 17:42:03,297 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-04 17:42:03,297 [1] INFO Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor
+2025-06-04 17:42:32,244 [.NET TP Worker] WARN Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware - Failed to determine the https port for redirect.
+2025-06-04 17:46:52,749 [.NET Signal Handler] INFO Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-04 17:46:58,910 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5167
+2025-06-04 17:46:58,938 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-04 17:46:58,939 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-04 17:46:58,939 [1] INFO Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor
+2025-06-04 17:47:22,248 [.NET TP Worker] WARN Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware - Failed to determine the https port for redirect.
+2025-06-04 17:49:13,575 [.NET Signal Handler] INFO Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-04 17:49:19,573 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5167
+2025-06-04 17:49:19,602 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-04 17:49:19,602 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-04 17:49:19,602 [1] INFO Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor
+2025-06-04 17:49:28,566 [.NET TP Worker] WARN Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware - Failed to determine the https port for redirect.
+2025-06-04 17:50:43,087 [.NET Signal Handler] INFO Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-04 17:50:47,630 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5167
+2025-06-04 17:50:47,657 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-04 17:50:47,657 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-04 17:50:47,657 [1] INFO Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor
+2025-06-04 17:50:57,196 [.NET TP Worker] WARN Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware - Failed to determine the https port for redirect.
+2025-06-04 17:52:54,274 [.NET Signal Handler] INFO Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-04 17:52:59,602 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5167
+2025-06-04 17:52:59,640 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-04 17:52:59,640 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-04 17:52:59,640 [1] INFO Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor
+2025-06-04 19:30:11,695 [.NET Signal Handler] INFO Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-04 19:30:18,277 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5167
+2025-06-04 19:30:18,310 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-04 19:30:18,310 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-04 19:30:18,310 [1] INFO Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor
+2025-06-04 19:37:32,594 [.NET Signal Handler] INFO Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-04 19:37:37,627 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5167
+2025-06-04 19:37:37,657 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-04 19:37:37,658 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-04 19:37:37,658 [1] INFO Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor
+2025-06-04 19:43:06,359 [.NET Signal Handler] INFO Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-04 19:43:16,374 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5167
+2025-06-04 19:43:16,405 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-04 19:43:16,406 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-04 19:43:16,406 [1] INFO Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor
+2025-06-04 20:03:40,172 [.NET Signal Handler] INFO Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-04 20:03:44,976 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5167
+2025-06-04 20:03:45,006 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-04 20:03:45,007 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-04 20:03:45,007 [1] INFO Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor
+2025-06-04 20:04:21,575 [.NET TP Worker] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware - An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: The oauth state was missing or invalid.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-06-04 20:08:40,261 [.NET Signal Handler] INFO Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-04 20:08:53,362 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5167
+2025-06-04 20:08:53,390 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-04 20:08:53,391 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-04 20:08:53,391 [1] INFO Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor
+2025-06-04 20:09:12,119 [.NET TP Worker] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware - An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: The oauth state was missing or invalid.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-06-04 20:20:56,557 [.NET TP Worker] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware - An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: The oauth state was missing or invalid.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-06-04 20:21:05,772 [.NET TP Worker] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware - An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: The oauth state was missing or invalid.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-06-04 20:25:30,013 [.NET Signal Handler] INFO Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-04 20:25:44,956 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5167
+2025-06-04 20:25:44,988 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-04 20:25:44,988 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-04 20:25:44,988 [1] INFO Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor
+2025-06-04 20:25:56,639 [.NET TP Worker] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware - An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: The oauth state was missing or invalid.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Program.<>c.<<<Main>$>b__0_7>d.MoveNext() in /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor/Program.cs:line 143
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-06-04 20:25:57,942 [.NET TP Worker] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware - An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: The oauth state was missing or invalid.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Program.<>c.<<<Main>$>b__0_7>d.MoveNext() in /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor/Program.cs:line 143
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-06-04 20:26:03,299 [.NET TP Worker] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware - An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: The oauth state was missing or invalid.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Program.<>c.<<<Main>$>b__0_7>d.MoveNext() in /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor/Program.cs:line 143
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-06-04 20:31:21,227 [.NET Signal Handler] INFO Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-04 20:31:29,083 [1] WARN Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware - The WebRootPath was not found: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor/wwwroot. Static files may be unavailable.
+2025-06-04 20:31:29,144 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5167
+2025-06-04 20:31:29,148 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-04 20:31:29,148 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-04 20:31:29,148 [1] INFO Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor
+2025-06-04 20:31:46,867 [.NET TP Worker] WARN Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware - Failed to determine the https port for redirect.
+2025-06-04 20:31:48,654 [.NET TP Worker] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware - An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: The oauth state was missing or invalid.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Program.<>c.<<<Main>$>b__0_7>d.MoveNext() in /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor/Program.cs:line 130
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-06-04 20:31:51,422 [.NET TP Worker] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware - An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: The oauth state was missing or invalid.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Program.<>c.<<<Main>$>b__0_7>d.MoveNext() in /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor/Program.cs:line 130
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-06-04 20:34:15,174 [.NET Signal Handler] INFO Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-04 20:34:23,230 [1] WARN Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware - The WebRootPath was not found: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor/wwwroot. Static files may be unavailable.
+2025-06-04 20:34:23,287 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5167
+2025-06-04 20:34:23,290 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-04 20:34:23,290 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-04 20:34:23,290 [1] INFO Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor
+2025-06-04 20:34:31,976 [.NET TP Worker] WARN Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware - Failed to determine the https port for redirect.
+2025-06-04 20:34:33,857 [.NET TP Worker] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware - An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: The oauth state was missing or invalid.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Program.<>c.<<<Main>$>b__0_7>d.MoveNext() in /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor/Program.cs:line 130
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-06-04 20:36:38,777 [.NET TP Worker] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware - An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: The oauth state was missing or invalid.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Program.<>c.<<<Main>$>b__0_7>d.MoveNext() in /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor/Program.cs:line 130
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-06-04 20:38:28,269 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Server.Kestrel - Config reload token fired. Checking for changes...
+2025-06-04 20:38:34,238 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets - Connection id "0HND3F4E6AA7H" received FIN.
+2025-06-04 20:38:34,244 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets - Connection id "0HND3F4E6AA7H" sending FIN because: "The Socket transport's send loop completed gracefully."
+2025-06-04 20:38:34,244 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Server.Kestrel.Connections - Connection id "0HND3F4E6AA7H" disconnecting.
+2025-06-04 20:38:34,244 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Server.Kestrel.Connections - Connection id "0HND3F4E6AA7H" stopped.
+2025-06-04 20:38:49,511 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Server.Kestrel.Connections - Connection id "0HND3F4E6AA7F" disconnecting.
+2025-06-04 20:38:49,511 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Server.Kestrel.Connections - Connection id "0HND3F4E6AA7F" stopped.
+2025-06-04 20:38:49,511 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets - Connection id "0HND3F4E6AA7F" sending FIN because: "The Socket transport's send loop completed gracefully."
+2025-06-04 20:39:40,856 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Server.Kestrel - Config reload token fired. Checking for changes...
+2025-06-04 20:39:59,165 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Server.Kestrel - Config reload token fired. Checking for changes...
+2025-06-04 20:41:25,629 [.NET Signal Handler] INFO Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-04 20:41:25,630 [.NET TP Worker] DEBUG Microsoft.Extensions.Hosting.Internal.Host - Hosting stopping
+2025-06-04 20:41:25,638 [.NET TP Worker] DEBUG Microsoft.Extensions.Hosting.Internal.Host - Hosting stopped
+2025-06-04 20:41:33,335 [1] DEBUG Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderFactory - Registered model binder providers, in the following order: Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider
+2025-06-04 20:41:33,401 [1] DEBUG Microsoft.Extensions.Hosting.Internal.Host - Hosting starting
+2025-06-04 20:41:33,413 [1] INFO Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager - User profile is available. Using '/Users/presidio/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-06-04 20:41:33,421 [1] DEBUG Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository - Reading data from file '/Users/presidio/.aspnet/DataProtection-Keys/key-9eb621f3-faf0-4fca-aae0-9e9bd30c095f.xml'.
+2025-06-04 20:41:33,429 [1] DEBUG Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager - Found key {9eb621f3-faf0-4fca-aae0-9e9bd30c095f}.
+2025-06-04 20:41:33,445 [1] DEBUG Microsoft.AspNetCore.DataProtection.KeyManagement.DefaultKeyResolver - Considering key {9eb621f3-faf0-4fca-aae0-9e9bd30c095f} with expiration date 2025-08-31 11:17:52Z as default key.
+2025-06-04 20:41:33,446 [1] DEBUG Microsoft.AspNetCore.DataProtection.TypeForwardingActivator - Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2025-06-04 20:41:33,449 [1] DEBUG Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ManagedAuthenticatedEncryptorFactory - Using managed symmetric algorithm 'System.Security.Cryptography.Aes'.
+2025-06-04 20:41:33,449 [1] DEBUG Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ManagedAuthenticatedEncryptorFactory - Using managed keyed hash algorithm 'System.Security.Cryptography.HMACSHA256'.
+2025-06-04 20:41:33,455 [1] DEBUG Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingProvider - Using key {9eb621f3-faf0-4fca-aae0-9e9bd30c095f} as the default key.
+2025-06-04 20:41:33,456 [1] DEBUG Microsoft.AspNetCore.DataProtection.Internal.DataProtectionHostedService - Key ring with default key {9eb621f3-faf0-4fca-aae0-9e9bd30c095f} was loaded during application startup.
+2025-06-04 20:41:33,547 [1] WARN Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware - The WebRootPath was not found: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor/wwwroot. Static files may be unavailable.
+2025-06-04 20:41:33,593 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5167
+2025-06-04 20:41:33,593 [1] DEBUG Microsoft.AspNetCore.Hosting.Diagnostics - Loaded hosting startup assembly doctor
+2025-06-04 20:41:33,593 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-04 20:41:33,593 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-04 20:41:33,593 [1] INFO Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor
+2025-06-04 20:41:33,593 [1] DEBUG Microsoft.Extensions.Hosting.Internal.Host - Hosting started
+2025-06-04 20:42:05,729 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Server.Kestrel.Connections - Connection id "0HND3F8LE4G2V" accepted.
+2025-06-04 20:42:05,729 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Server.Kestrel.Connections - Connection id "0HND3F8LE4G2V" started.
+2025-06-04 20:42:05,761 [.NET TP Worker] INFO Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:5167/api/googleauth/login - - -
+2025-06-04 20:42:05,767 [.NET TP Worker] DEBUG Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware - Wildcard detected, all requests with hosts will be allowed.
+2025-06-04 20:42:05,791 [.NET TP Worker] DEBUG Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware - The request path  does not match the path filter
+2025-06-04 20:42:05,792 [.NET TP Worker] WARN Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware - Failed to determine the https port for redirect.
+2025-06-04 20:42:05,792 [.NET TP Worker] DEBUG Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware - The request path /api/googleauth/login does not match a supported file type
+2025-06-04 20:42:05,817 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Routing.Matching.DfaMatcher - 1 candidate(s) found for the request path '/api/googleauth/login'
+2025-06-04 20:42:05,823 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Routing.Matching.DfaMatcher - Endpoint 'doctor.Controllers.GoogleAuthController.GoogleLogin (doctor)' with route pattern 'api/googleauth/login' is valid for the request path '/api/googleauth/login'
+2025-06-04 20:42:05,824 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware - Request matched endpoint 'doctor.Controllers.GoogleAuthController.GoogleLogin (doctor)'
+2025-06-04 20:42:05,843 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler - AuthenticationScheme: Cookies was successfully authenticated.
+2025-06-04 20:42:05,845 [.NET TP Worker] INFO Microsoft.AspNetCore.Routing.EndpointMiddleware - Executing endpoint 'doctor.Controllers.GoogleAuthController.GoogleLogin (doctor)'
+2025-06-04 20:42:05,861 [.NET TP Worker] INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Route matched with {action = "GoogleLogin", controller = "GoogleAuth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GoogleLogin() on controller doctor.Controllers.GoogleAuthController (doctor).
+2025-06-04 20:42:05,868 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Execution plan of authorization filters (in the following order): None
+2025-06-04 20:42:05,869 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Execution plan of resource filters (in the following order): None
+2025-06-04 20:42:05,869 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648), Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000), Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)
+2025-06-04 20:42:05,870 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Execution plan of exception filters (in the following order): None
+2025-06-04 20:42:05,870 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)
+2025-06-04 20:42:05,872 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Executing controller factory for controller doctor.Controllers.GoogleAuthController (doctor)
+2025-06-04 20:42:05,876 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Executed controller factory for controller doctor.Controllers.GoogleAuthController (doctor)
+2025-06-04 20:42:05,896 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Routing.DefaultLinkGenerator - Found the endpoints doctor.Controllers.GoogleAuthController.GoogleResponse (doctor) for address (action=[GoogleResponse],controller=[GoogleAuth])
+2025-06-04 20:42:05,899 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Routing.DefaultLinkGenerator - Successfully processed template api/googleauth/google-response for doctor.Controllers.GoogleAuthController.GoogleResponse (doctor) resulting in /api/googleauth/google-response and 
+2025-06-04 20:42:05,900 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Routing.DefaultLinkGenerator - Link generation succeeded for endpoints doctor.Controllers.GoogleAuthController.GoogleResponse (doctor) with result /api/googleauth/google-response
+2025-06-04 20:42:05,902 [.NET TP Worker] INFO Microsoft.AspNetCore.Mvc.ChallengeResult - Executing ChallengeResult with authentication schemes (Google).
+2025-06-04 20:42:05,914 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Authentication.Google.GoogleHandler - HandleChallenge with Location: https://accounts.google.com/o/oauth2/v2/auth?client_id=448510239716-rh1gerln142gc2aqtao1ck88seoi9cm2.apps.googleusercontent.com&scope=openid%20profile%20email&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A5167%2Fapi%2Fgoogleauth%2Fgoogle-response&code_challenge=c8m1s6B2DBGWGahmRry53pzD42ypk3VSpXR1jxtrbO8&code_challenge_method=S256&state=CfDJ8PMhtp7w-spPquCem9MMCV9lQOZXT1X9cQ0TvMOr1B-COxgjIszV8ZpSirAO2CdmzXMWl8dPs6ZNNe13Q9ix01iuMf1dQeNHEoeeELLeuEQ9L97sq7ghISI4ca1W1s7fXaZ1UiH4DtUfn57dtuFQ-LTOLpXwNyqHicxFZrsaZ_3mWR-8yKMjJyGO9v_laXRwFIp0DbIKL4m24F4KSa8oqaBjfdJLrWP_hd25MNhK_WexNO7_Q8HYTMgQUOoM4tHkCYhqvXiV_ZP2TxPs7CCYcCFmox0JcAFCJfO_IhGaikiowyA7N4CBHAixSgSXJOtp6w; and Set-Cookie: .AspNetCore.Correlation.4cxLLDKwvF9cIJKmCC1RI18UEnHtTFWuC4k_I5F4EZQ=N; expires=Wed, 04 Jun 2025 15:27:05 GMT; path=/api/googleauth/google-response; secure; samesite=none; httponly.
+2025-06-04 20:42:05,914 [.NET TP Worker] INFO Microsoft.AspNetCore.Authentication.Google.GoogleHandler - AuthenticationScheme: Google was challenged.
+2025-06-04 20:42:05,924 [.NET TP Worker] INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Executed action doctor.Controllers.GoogleAuthController.GoogleLogin (doctor) in 44.9659ms
+2025-06-04 20:42:05,925 [.NET TP Worker] INFO Microsoft.AspNetCore.Routing.EndpointMiddleware - Executed endpoint 'doctor.Controllers.GoogleAuthController.GoogleLogin (doctor)'
+2025-06-04 20:42:05,927 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Server.Kestrel.Connections - Connection id "0HND3F8LE4G2V" completed keep alive response.
+2025-06-04 20:42:05,928 [.NET TP Worker] INFO Microsoft.AspNetCore.Hosting.Diagnostics - Request finished HTTP/1.1 GET http://localhost:5167/api/googleauth/login - 302 0 - 168.8177ms
+2025-06-04 20:42:12,245 [.NET TP Worker] INFO Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:5167/api/googleauth/login - - -
+2025-06-04 20:42:12,248 [.NET TP Worker] DEBUG Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware - The request path  does not match the path filter
+2025-06-04 20:42:12,248 [.NET TP Worker] DEBUG Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware - The request path /api/googleauth/login does not match a supported file type
+2025-06-04 20:42:12,251 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Routing.Matching.DfaMatcher - 1 candidate(s) found for the request path '/api/googleauth/login'
+2025-06-04 20:42:12,251 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Routing.Matching.DfaMatcher - Endpoint 'doctor.Controllers.GoogleAuthController.GoogleLogin (doctor)' with route pattern 'api/googleauth/login' is valid for the request path '/api/googleauth/login'
+2025-06-04 20:42:12,251 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware - Request matched endpoint 'doctor.Controllers.GoogleAuthController.GoogleLogin (doctor)'
+2025-06-04 20:42:12,255 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler - AuthenticationScheme: Cookies was successfully authenticated.
+2025-06-04 20:42:12,255 [.NET TP Worker] INFO Microsoft.AspNetCore.Routing.EndpointMiddleware - Executing endpoint 'doctor.Controllers.GoogleAuthController.GoogleLogin (doctor)'
+2025-06-04 20:42:12,255 [.NET TP Worker] INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Route matched with {action = "GoogleLogin", controller = "GoogleAuth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GoogleLogin() on controller doctor.Controllers.GoogleAuthController (doctor).
+2025-06-04 20:42:12,255 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Execution plan of authorization filters (in the following order): None
+2025-06-04 20:42:12,255 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Execution plan of resource filters (in the following order): None
+2025-06-04 20:42:12,255 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648), Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000), Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)
+2025-06-04 20:42:12,256 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Execution plan of exception filters (in the following order): None
+2025-06-04 20:42:12,256 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)
+2025-06-04 20:42:12,256 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Executing controller factory for controller doctor.Controllers.GoogleAuthController (doctor)
+2025-06-04 20:42:12,256 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Executed controller factory for controller doctor.Controllers.GoogleAuthController (doctor)
+2025-06-04 20:42:12,257 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Routing.DefaultLinkGenerator - Found the endpoints doctor.Controllers.GoogleAuthController.GoogleResponse (doctor) for address (action=[GoogleResponse],controller=[GoogleAuth])
+2025-06-04 20:42:12,257 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Routing.DefaultLinkGenerator - Successfully processed template api/googleauth/google-response for doctor.Controllers.GoogleAuthController.GoogleResponse (doctor) resulting in /api/googleauth/google-response and 
+2025-06-04 20:42:12,257 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Routing.DefaultLinkGenerator - Link generation succeeded for endpoints doctor.Controllers.GoogleAuthController.GoogleResponse (doctor) with result /api/googleauth/google-response
+2025-06-04 20:42:12,257 [.NET TP Worker] INFO Microsoft.AspNetCore.Mvc.ChallengeResult - Executing ChallengeResult with authentication schemes (Google).
+2025-06-04 20:42:12,258 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Authentication.Google.GoogleHandler - HandleChallenge with Location: https://accounts.google.com/o/oauth2/v2/auth?client_id=448510239716-rh1gerln142gc2aqtao1ck88seoi9cm2.apps.googleusercontent.com&scope=openid%20profile%20email&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A5167%2Fapi%2Fgoogleauth%2Fgoogle-response&code_challenge=RKQQGnGwMHF8_JlXfqjhh_zTt1btOi3X8WGxxIhgI7s&code_challenge_method=S256&state=CfDJ8PMhtp7w-spPquCem9MMCV_qVOsXHpXGhjxeriuMSrN2LNlZ2NUSpcUgHxXbbdJIutFFrn1SpObJo2UyjtrwrWJEZx6FGne1utz-uN9Aio45E8YG2crXd7QoH-FOVU-0VvuYB1Akrk3DaHf8pwBncMXnaL6BMGBGUi_ZkXJAATNgWv--70QGZ0CK0aok86INJQUqncDLQUiS0iibw87_dRzJa72k8zgTv2p1V7T2qY_RVln1vrU-6_EEtqMkC6RvILjunHhZ73stsCOiF8p7C559k1u1UgA61YUazGAF6KzWcupUkv05kXBZDxAkVS7pmQ; and Set-Cookie: .AspNetCore.Correlation.eWZi8ljBPJgY4EK6phoxBKEwBgjOocFMGX4J5nWvEgM=N; expires=Wed, 04 Jun 2025 15:27:12 GMT; path=/api/googleauth/google-response; secure; samesite=none; httponly.
+2025-06-04 20:42:12,258 [.NET TP Worker] INFO Microsoft.AspNetCore.Authentication.Google.GoogleHandler - AuthenticationScheme: Google was challenged.
+2025-06-04 20:42:12,259 [.NET TP Worker] INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Executed action doctor.Controllers.GoogleAuthController.GoogleLogin (doctor) in 2.8842ms
+2025-06-04 20:42:12,259 [.NET TP Worker] INFO Microsoft.AspNetCore.Routing.EndpointMiddleware - Executed endpoint 'doctor.Controllers.GoogleAuthController.GoogleLogin (doctor)'
+2025-06-04 20:42:12,259 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Server.Kestrel.Connections - Connection id "0HND3F8LE4G2V" completed keep alive response.
+2025-06-04 20:42:12,259 [.NET TP Worker] INFO Microsoft.AspNetCore.Hosting.Diagnostics - Request finished HTTP/1.1 GET http://localhost:5167/api/googleauth/login - 302 0 - 14.0423ms
+2025-06-04 20:42:13,260 [.NET TP Worker] INFO Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:5167/api/googleauth/login - - -
+2025-06-04 20:42:13,261 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Server.Kestrel.Connections - Connection id "0HND3F8LE4G30" accepted.
+2025-06-04 20:42:13,261 [.NET TP Worker] DEBUG Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware - The request path  does not match the path filter
+2025-06-04 20:42:13,261 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Server.Kestrel.Connections - Connection id "0HND3F8LE4G30" started.
+2025-06-04 20:42:13,261 [.NET TP Worker] DEBUG Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware - The request path /api/googleauth/login does not match a supported file type
+2025-06-04 20:42:13,261 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Routing.Matching.DfaMatcher - 1 candidate(s) found for the request path '/api/googleauth/login'
+2025-06-04 20:42:13,262 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Routing.Matching.DfaMatcher - Endpoint 'doctor.Controllers.GoogleAuthController.GoogleLogin (doctor)' with route pattern 'api/googleauth/login' is valid for the request path '/api/googleauth/login'
+2025-06-04 20:42:13,262 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware - Request matched endpoint 'doctor.Controllers.GoogleAuthController.GoogleLogin (doctor)'
+2025-06-04 20:42:13,263 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler - AuthenticationScheme: Cookies was successfully authenticated.
+2025-06-04 20:42:13,263 [.NET TP Worker] INFO Microsoft.AspNetCore.Routing.EndpointMiddleware - Executing endpoint 'doctor.Controllers.GoogleAuthController.GoogleLogin (doctor)'
+2025-06-04 20:42:13,264 [.NET TP Worker] INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Route matched with {action = "GoogleLogin", controller = "GoogleAuth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GoogleLogin() on controller doctor.Controllers.GoogleAuthController (doctor).
+2025-06-04 20:42:13,264 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Execution plan of authorization filters (in the following order): None
+2025-06-04 20:42:13,264 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Execution plan of resource filters (in the following order): None
+2025-06-04 20:42:13,264 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648), Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000), Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)
+2025-06-04 20:42:13,264 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Execution plan of exception filters (in the following order): None
+2025-06-04 20:42:13,264 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)
+2025-06-04 20:42:13,264 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Executing controller factory for controller doctor.Controllers.GoogleAuthController (doctor)
+2025-06-04 20:42:13,265 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Executed controller factory for controller doctor.Controllers.GoogleAuthController (doctor)
+2025-06-04 20:42:13,265 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Routing.DefaultLinkGenerator - Found the endpoints doctor.Controllers.GoogleAuthController.GoogleResponse (doctor) for address (action=[GoogleResponse],controller=[GoogleAuth])
+2025-06-04 20:42:13,265 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Routing.DefaultLinkGenerator - Successfully processed template api/googleauth/google-response for doctor.Controllers.GoogleAuthController.GoogleResponse (doctor) resulting in /api/googleauth/google-response and 
+2025-06-04 20:42:13,265 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Routing.DefaultLinkGenerator - Link generation succeeded for endpoints doctor.Controllers.GoogleAuthController.GoogleResponse (doctor) with result /api/googleauth/google-response
+2025-06-04 20:42:13,265 [.NET TP Worker] INFO Microsoft.AspNetCore.Mvc.ChallengeResult - Executing ChallengeResult with authentication schemes (Google).
+2025-06-04 20:42:13,266 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Authentication.Google.GoogleHandler - HandleChallenge with Location: https://accounts.google.com/o/oauth2/v2/auth?client_id=448510239716-rh1gerln142gc2aqtao1ck88seoi9cm2.apps.googleusercontent.com&scope=openid%20profile%20email&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A5167%2Fapi%2Fgoogleauth%2Fgoogle-response&code_challenge=77FYjvHF3Wxl4I3Xv4JVfHc86BbGocTOwhihSyDMFEU&code_challenge_method=S256&state=CfDJ8PMhtp7w-spPquCem9MMCV-PhZHLfVK8jZfG1V4XL0qESDwCvznQDPWs9UKiok62e7jZF3nt7PtSiIddS6JgHo8T-hh98rhi5dHPMcFpjeO5ew1FeuifR-_hrvmsiGz2h4yH2og7kIAl4UL9CvsqlTwdjzSQTDHLkNiYGDL5xvPqm2uH-i-suoEMKUXmDFLcEuqSvSM-D987tvRIA9HFLSpK6UtamNeZ4-0yygiSAH-GuwHoIs7WTBlxOiVDvPE3XW7dmIIxJS31p5G22o3WlaYq1e1zMzW-rEiqGb7mrygKkHKYjpd9EIMz8W3p5ARY4Q; and Set-Cookie: .AspNetCore.Correlation.rdRNB_6rVJbPzovqwWJ9UvlvU8yuMH-9K8lgWEVHnyw=N; expires=Wed, 04 Jun 2025 15:27:13 GMT; path=/api/googleauth/google-response; secure; samesite=none; httponly.
+2025-06-04 20:42:13,266 [.NET TP Worker] INFO Microsoft.AspNetCore.Authentication.Google.GoogleHandler - AuthenticationScheme: Google was challenged.
+2025-06-04 20:42:13,266 [.NET TP Worker] INFO Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker - Executed action doctor.Controllers.GoogleAuthController.GoogleLogin (doctor) in 1.856ms
+2025-06-04 20:42:13,266 [.NET TP Worker] INFO Microsoft.AspNetCore.Routing.EndpointMiddleware - Executed endpoint 'doctor.Controllers.GoogleAuthController.GoogleLogin (doctor)'
+2025-06-04 20:42:13,266 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Server.Kestrel.Connections - Connection id "0HND3F8LE4G2V" completed keep alive response.
+2025-06-04 20:42:13,267 [.NET TP Worker] INFO Microsoft.AspNetCore.Hosting.Diagnostics - Request finished HTTP/1.1 GET http://localhost:5167/api/googleauth/login - 302 0 - 6.1141ms
+2025-06-04 20:42:13,524 [.NET TP Worker] INFO Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:5167/api/googleauth/google-response?state=CfDJ8PMhtp7w-spPquCem9MMCV-PhZHLfVK8jZfG1V4XL0qESDwCvznQDPWs9UKiok62e7jZF3nt7PtSiIddS6JgHo8T-hh98rhi5dHPMcFpjeO5ew1FeuifR-_hrvmsiGz2h4yH2og7kIAl4UL9CvsqlTwdjzSQTDHLkNiYGDL5xvPqm2uH-i-suoEMKUXmDFLcEuqSvSM-D987tvRIA9HFLSpK6UtamNeZ4-0yygiSAH-GuwHoIs7WTBlxOiVDvPE3XW7dmIIxJS31p5G22o3WlaYq1e1zMzW-rEiqGb7mrygKkHKYjpd9EIMz8W3p5ARY4Q&code=4%2F0AUJR-x4tK61zQiF0L1Cy6lExs4ztB8odtEscXIGSew56weKNeUR8NojnptRnD624LoBPMw&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=0&prompt=none - - -
+2025-06-04 20:42:13,524 [.NET TP Worker] DEBUG Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware - The request path  does not match the path filter
+2025-06-04 20:42:13,524 [.NET TP Worker] DEBUG Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware - The request path /api/googleauth/google-response does not match a supported file type
+2025-06-04 20:42:13,524 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Routing.Matching.DfaMatcher - 1 candidate(s) found for the request path '/api/googleauth/google-response'
+2025-06-04 20:42:13,524 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Routing.Matching.DfaMatcher - Endpoint 'doctor.Controllers.GoogleAuthController.GoogleResponse (doctor)' with route pattern 'api/googleauth/google-response' is valid for the request path '/api/googleauth/google-response'
+2025-06-04 20:42:13,524 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware - Request matched endpoint 'doctor.Controllers.GoogleAuthController.GoogleResponse (doctor)'
+2025-06-04 20:42:14,091 [.NET TP Worker] INFO Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler - AuthenticationScheme: Cookies signed in.
+2025-06-04 20:42:14,092 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Server.Kestrel.Connections - Connection id "0HND3F8LE4G2V" completed keep alive response.
+2025-06-04 20:42:14,092 [.NET TP Worker] INFO Microsoft.AspNetCore.Hosting.Diagnostics - Request finished HTTP/1.1 GET http://localhost:5167/api/googleauth/google-response?state=CfDJ8PMhtp7w-spPquCem9MMCV-PhZHLfVK8jZfG1V4XL0qESDwCvznQDPWs9UKiok62e7jZF3nt7PtSiIddS6JgHo8T-hh98rhi5dHPMcFpjeO5ew1FeuifR-_hrvmsiGz2h4yH2og7kIAl4UL9CvsqlTwdjzSQTDHLkNiYGDL5xvPqm2uH-i-suoEMKUXmDFLcEuqSvSM-D987tvRIA9HFLSpK6UtamNeZ4-0yygiSAH-GuwHoIs7WTBlxOiVDvPE3XW7dmIIxJS31p5G22o3WlaYq1e1zMzW-rEiqGb7mrygKkHKYjpd9EIMz8W3p5ARY4Q&code=4%2F0AUJR-x4tK61zQiF0L1Cy6lExs4ztB8odtEscXIGSew56weKNeUR8NojnptRnD624LoBPMw&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=0&prompt=none - 302 0 - 568.8046ms
+2025-06-04 20:42:14,095 [.NET TP Worker] INFO Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/1.1 GET http://localhost:5167/api/googleauth/google-response - - -
+2025-06-04 20:42:14,095 [.NET TP Worker] DEBUG Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware - The request path  does not match the path filter
+2025-06-04 20:42:14,095 [.NET TP Worker] DEBUG Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware - The request path /api/googleauth/google-response does not match a supported file type
+2025-06-04 20:42:14,095 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Routing.Matching.DfaMatcher - 1 candidate(s) found for the request path '/api/googleauth/google-response'
+2025-06-04 20:42:14,095 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Routing.Matching.DfaMatcher - Endpoint 'doctor.Controllers.GoogleAuthController.GoogleResponse (doctor)' with route pattern 'api/googleauth/google-response' is valid for the request path '/api/googleauth/google-response'
+2025-06-04 20:42:14,095 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware - Request matched endpoint 'doctor.Controllers.GoogleAuthController.GoogleResponse (doctor)'
+2025-06-04 20:42:14,095 [.NET TP Worker] INFO Microsoft.AspNetCore.Authentication.Google.GoogleHandler - Error from RemoteAuthentication: The oauth state was missing or invalid..
+2025-06-04 20:42:14,107 [.NET TP Worker] ERROR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware - An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+ ---> Microsoft.AspNetCore.Authentication.AuthenticationFailureException: The oauth state was missing or invalid.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-06-04 20:42:14,122 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Server.Kestrel.Connections - Connection id "0HND3F8LE4G2V" completed keep alive response.
+2025-06-04 20:42:14,122 [.NET TP Worker] INFO Microsoft.AspNetCore.Hosting.Diagnostics - Request finished HTTP/1.1 GET http://localhost:5167/api/googleauth/google-response - 500 - text/html;+charset=utf-8 27.1929ms
+2025-06-04 20:43:21,376 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets - Connection id "0HND3F8LE4G30" received FIN.
+2025-06-04 20:43:21,377 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets - Connection id "0HND3F8LE4G30" sending FIN because: "The Socket transport's send loop completed gracefully."
+2025-06-04 20:43:21,383 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Server.Kestrel.Connections - Connection id "0HND3F8LE4G30" disconnecting.
+2025-06-04 20:43:21,384 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Server.Kestrel.Connections - Connection id "0HND3F8LE4G30" stopped.
+2025-06-04 20:44:24,755 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Server.Kestrel.Connections - Connection id "0HND3F8LE4G2V" disconnecting.
+2025-06-04 20:44:24,756 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Server.Kestrel.Connections - Connection id "0HND3F8LE4G2V" stopped.
+2025-06-04 20:44:24,757 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets - Connection id "0HND3F8LE4G2V" sending FIN because: "The Socket transport's send loop completed gracefully."
+2025-06-04 20:48:03,243 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Server.Kestrel - Config reload token fired. Checking for changes...
+2025-06-04 20:48:11,933 [.NET Signal Handler] INFO Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-04 20:58:49,562 [1] WARN Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware - The WebRootPath was not found: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor/wwwroot. Static files may be unavailable.
+2025-06-04 20:58:49,621 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5167
+2025-06-04 20:58:49,625 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-04 20:58:49,626 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-04 20:58:49,626 [1] INFO Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor
+2025-06-04 20:58:55,683 [.NET TP Worker] WARN Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware - Failed to determine the https port for redirect.
+2025-06-04 21:01:36,681 [.NET Signal Handler] INFO Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-04 21:01:52,612 [1] WARN Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware - The WebRootPath was not found: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor/wwwroot. Static files may be unavailable.
+2025-06-04 21:01:52,666 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5167
+2025-06-04 21:01:52,669 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-04 21:01:52,670 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-04 21:01:52,670 [1] INFO Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor
+2025-06-04 21:02:02,490 [.NET TP Worker] WARN Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware - Failed to determine the https port for redirect.
+2025-06-04 21:12:46,749 [.NET Signal Handler] INFO Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-04 21:12:51,326 [1] WARN Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware - The WebRootPath was not found: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor/wwwroot. Static files may be unavailable.
+2025-06-04 21:12:51,379 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5167
+2025-06-04 21:12:51,382 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-04 21:12:51,383 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-04 21:12:51,383 [1] INFO Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor
+2025-06-04 21:12:57,985 [.NET TP Worker] WARN Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware - Failed to determine the https port for redirect.
+2025-06-04 21:33:23,948 [.NET Signal Handler] INFO Microsoft.Hosting.Lifetime - Application is shutting down...
+2025-06-04 21:33:37,095 [1] WARN Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware - The WebRootPath was not found: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor/wwwroot. Static files may be unavailable.
+2025-06-04 21:33:37,150 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5167
+2025-06-04 21:33:37,152 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2025-06-04 21:33:37,153 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2025-06-04 21:33:37,153 [1] INFO Microsoft.Hosting.Lifetime - Content root path: /Users/presidio/Desktop/Genspark/PresidioTraining/Day-23/doctor
+2025-06-04 21:33:45,956 [.NET TP Worker] WARN Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware - Failed to determine the https port for redirect.
+2025-06-04 21:39:53,973 [.NET TP Worker] ERROR Microsoft.EntityFrameworkCore.Database.Command - Failed executing DbCommand (52ms) [Parameters=[@p0='?', @p1='?' (DbType = Binary), @p2='?' (DbType = Binary), @p3='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Users" ("Username", "HashKey", "Password", "Role")
+VALUES (@p0, @p1, @p2, @p3);
+2025-06-04 21:39:54,005 [.NET TP Worker] ERROR Microsoft.EntityFrameworkCore.Update - An exception occurred in the database while saving changes for context type 'doctor.Contexts.ClinicContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "PK_Users"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "PK_Users"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Users
+    ConstraintName: PK_Users
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "PK_Users"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "PK_Users"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Users
+    ConstraintName: PK_Users
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2025-06-04 21:39:54,008 [.NET TP Worker] ERROR doctor.Services.PatientService - Error adding patient: An error occurred while saving the entity changes. See the inner exception for details.
+2025-06-04 21:42:11,782 [.NET Signal Handler] INFO Microsoft.Hosting.Lifetime - Application is shutting down...
