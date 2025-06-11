@@ -1,0 +1,38 @@
+.like-dislike-section {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.reaction {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.reaction:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.05);
+}
+
+.reaction i {
+  font-size: 1.8rem;
+  color: #555;
+  transition: color 0.3s;
+}
+
+.reaction:hover i {
+  color: #007bff; /* Bootstrap blue */
+}
+
+.reaction span {
+  font-size: 1.2rem;
+  font-weight: bold;
+}

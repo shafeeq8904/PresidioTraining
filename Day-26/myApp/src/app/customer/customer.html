@@ -1,0 +1,14 @@
+<h3>Customer Details</h3>
+<p>Name: Ramu</p>
+
+<!-- Like/Dislike Section -->
+<div class="like-dislike-section">
+  <div class="reaction" (click)="incrementLike()">
+    <i class="bi bi-hand-thumbs-up"></i>
+    <span>{{ likeCount }}</span>
+  </div>
+  <div class="reaction" (click)="incrementDislike()">
+    <i class="bi bi-hand-thumbs-down"></i>
+    <span>{{ dislikeCount }}</span>
+  </div>
+</div>
