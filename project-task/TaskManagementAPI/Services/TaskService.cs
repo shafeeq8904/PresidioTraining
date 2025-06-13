@@ -1,0 +1,249 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using TaskManagementAPI.DTOs.TaskItems;
+using TaskManagementAPI.Enums;
+using TaskManagementAPI.Interfaces;
+using TaskManagementAPI.Models;
+using TaskManagementAPI.Mapper;
+using TaskManagementAPI.Hubs;
+using Microsoft.AspNetCore.SignalR;
+
+
+
+namespace TaskManagementAPI.Services
+{
+    public class TaskService : ITaskService
+    {
+        private readonly ITaskItemRepository _taskRepo;
+        private readonly ITaskStatusLogRepository _logRepo;
+        private readonly TaskItemMapper _createMapper;
+        private readonly TaskItemUpdateMapper _updateMapper;
+
+        private readonly IUserRepository _userRepository;
+
+        private readonly IHubContext<TaskHub> _hubContext;
+
+        public TaskService(
+            ITaskItemRepository taskRepo,
+            ITaskStatusLogRepository logRepo,
+            TaskItemMapper createMapper,
+            TaskItemUpdateMapper updateMapper,
+            IUserRepository userRepository,
+             IHubContext<TaskHub> hubContext)
+        {
+            _taskRepo = taskRepo;
+            _logRepo = logRepo;
+            _createMapper = createMapper;
+            _updateMapper = updateMapper;
+            _userRepository = userRepository;
+            _hubContext = hubContext;
+        }
+
+        public async Task<TaskItemResponseDto> CreateTaskAsync(TaskItemRequestDto dto, Guid creatorId)
+        {
+            if (dto.AssignedToId == null || dto.AssignedToId == Guid.Empty)
+                throw new ArgumentException("AssignedToId is required.");
+
+            var assignedUser = await _userRepository.Get(dto.AssignedToId.Value);
+            if (assignedUser == null)
+                throw new ArgumentException("Assigned user does not exist.");
+            if (assignedUser.Role != UserRole.TeamMember)
+                throw new ArgumentException("Assigned user must have the TeamMember role.");
+
+            if (dto.DueDate.HasValue && dto.DueDate.Value < DateTime.UtcNow)
+                throw new ArgumentException("Due date cannot be in the past.");
+
+            var task = _createMapper.MapTaskItemRequestDtoToTaskItem(dto, creatorId);
+            await _taskRepo.Add(task);
+
+            var creator = await _userRepository.Get(creatorId);
+
+            var log = new TaskStatusLog
+            {
+                TaskItemId = task.Id,
+                PreviousStatus = dto.Status,
+                NewStatus = dto.Status,
+                ChangedById = creatorId,
+                ChangedAt = DateTime.UtcNow
+            };
+            await _logRepo.AddAsync(log);
+
+            await _hubContext.Clients.All.SendAsync("TaskCreated", new
+            {
+                task.Id,
+                task.Title,
+                task.Description,
+                Status = task.Status.ToString(),
+                AssignedToName = assignedUser?.FullName ?? "N/A",
+                CreatedByName = creator?.FullName ?? "N/A"
+            });
+
+            return ToResponseDto(task);
+        }
+
+        public async Task<TaskItemResponseDto> UpdateTaskAsync(Guid taskId, TaskItemUpdateDto dto, Guid updaterId)
+        {
+            var task = await _taskRepo.Get(taskId) ?? throw new Exception("Task not found");
+
+            var updater = await _userRepository.Get(updaterId);
+            if (updater == null)
+                throw new ArgumentException("Updater user not found.");
+
+            var previousStatus = task.Status;
+
+            bool isCreator = task.CreatedById == updaterId;
+            bool isAssignedUser = task.AssignedToId == updaterId;
+
+            if (!(isCreator || isAssignedUser))
+                throw new UnauthorizedAccessException("You are not allowed to update this task.");
+
+            if (updater.Role == UserRole.TeamMember)
+            {
+                if (!isAssignedUser)
+                    throw new UnauthorizedAccessException("Team members can only update tasks assigned to them.");
+
+                if (dto.Title != null || dto.Description != null || dto.DueDate.HasValue || dto.AssignedToId.HasValue)
+                    throw new ArgumentException("TeamMember can only update the status of a task.");
+
+                if (dto.Status == null)
+                    throw new ArgumentException("Status is required for TeamMember update.");
+
+                if (dto.Status == previousStatus)
+                    throw new ArgumentException("Cannot update to the same status.");
+            }
+
+            _updateMapper.MapTaskItemUpdateDtoToTaskItem(dto, task, updaterId);
+            await _taskRepo.Update(task.Id, task);
+
+            if (dto.Status != null && dto.Status != previousStatus)
+            {
+                var log = new TaskStatusLog
+                {
+                    
+                    TaskItemId = task.Id,
+                    PreviousStatus = previousStatus,
+                    NewStatus = dto.Status.Value,
+                    ChangedById = updaterId
+                };
+
+                await _logRepo.AddAsync(log);
+            }
+
+            await _hubContext.Clients.All.SendAsync("TaskUpdated", new
+            {
+                task.Id,
+                task.Title,
+                Status = task.Status.ToString(),
+                PreviousStatus = previousStatus.ToString(),
+                UpdatedById = updaterId,
+                UpdatedByName = updater?.FullName ?? "N/A",
+                AssignedToId = task.AssignedToId 
+            });
+
+            return ToResponseDto(task);
+        }
+
+
+
+
+        public async Task DeleteTaskAsync(Guid taskId, Guid updaterId)
+        {
+            var task = await _taskRepo.Get(taskId) ?? throw new Exception("Task not found");
+            var updater = await _userRepository.Get(updaterId);
+            if (updater == null)
+                throw new ArgumentException("Updater not found.");
+
+            if (task.IsDeleted)
+                throw new InvalidOperationException("Task is already deleted.");
+
+            if (updater.Role != UserRole.Manager || task.CreatedById != updaterId)
+                throw new UnauthorizedAccessException("Only the manager who created this task can delete it.");
+
+            task.IsDeleted = true;
+            task.UpdatedById = updaterId;
+            task.UpdatedAt = DateTime.UtcNow;
+
+            await _taskRepo.Update(task.Id, task);
+
+        }
+
+        public async Task<TaskItemResponseDto> GetTaskByIdAsync(Guid taskId ) //Guid requesterId
+        {
+            var task = await _taskRepo.Get(taskId) ?? throw new Exception("Task not found");
+            // var requester = await _userRepository.Get(requesterId);
+            // if (requester.Role == UserRole.Manager && task.CreatedById != requesterId)
+            //     throw new UnauthorizedAccessException("You are not allowed to view this task.");
+            return ToResponseDto(task);
+        }
+
+        public async Task<IEnumerable<TaskItemResponseDto>> GetAllTasksAsync(Guid requesterId)
+        
+        {
+            var user = await _userRepository.Get(requesterId);
+            if (user == null) throw new ArgumentException("User not found");
+
+            IEnumerable<TaskItem> tasks;
+
+            if (user.Role == UserRole.Manager)
+            {
+                tasks = await _taskRepo.GetByCreatorIdAsync(requesterId); 
+            }
+            else if (user.Role == UserRole.TeamMember)
+            {
+                tasks = await _taskRepo.GetByAssignedToIdAsync(requesterId); 
+            }
+            else
+            {
+                tasks = Enumerable.Empty<TaskItem>();
+            }
+
+            return tasks.Where(t => !t.IsDeleted).Select(ToResponseDto);
+        }
+
+
+        public async Task<IEnumerable<TaskItemResponseDto>> GetTasksByStatusAsync(TaskState status, Guid requesterId)
+        {
+            var user = await _userRepository.Get(requesterId);
+            if (user == null) throw new ArgumentException("User not found");
+
+            IEnumerable<TaskItem> tasks;
+
+            if (user.Role == UserRole.Manager)
+            {
+                tasks = await _taskRepo.GetByStatusAndCreatorIdAsync(status, requesterId);
+            }
+            else if (user.Role == UserRole.TeamMember)
+            {
+                tasks = await _taskRepo.GetByStatusAndAssignedToIdAsync(status, requesterId);
+            }
+            else
+            {
+                tasks = Enumerable.Empty<TaskItem>();
+            }
+
+            return tasks.Where(t => !t.IsDeleted).Select(ToResponseDto);
+        }
+
+        private TaskItemResponseDto ToResponseDto(TaskItem task)
+        {
+            return new TaskItemResponseDto
+            {
+                Id = task.Id,
+                Title = task.Title,
+                Description = task.Description,
+                Status = task.Status,
+                DueDate = task.DueDate,
+                CreatedById = task.CreatedById,
+                UpdatedById = task.UpdatedById,
+                AssignedToId = task.AssignedToId,
+                CreatedAt = task.CreatedAt,
+                UpdatedAt = task.UpdatedAt,
+                AssignedToName = task.AssignedTo?.FullName,
+            };
+        }
+
+    
+    }
+}
