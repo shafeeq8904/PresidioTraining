@@ -144,6 +144,31 @@ namespace TaskManagementAPI.Controllers
             }
         }
 
+        [HttpGet("search")]
+        [Authorize]
+        public async Task<IActionResult> Search([FromQuery] string? title, [FromQuery] DateTime? dueDate)
+        {
+            try
+            {
+                var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
+                var result = await _taskService.SearchTasksAsync(userId, title, dueDate);
+
+                if (!result.Any())
+                {
+                    return NotFound(ApiResponse<IEnumerable<TaskItemResponseDto>>.ErrorResponse(
+                        "No tasks found matching the search criteria.",
+                        new Dictionary<string, List<string>>()));
+                }
+
+                return Ok(ApiResponse<IEnumerable<TaskItemResponseDto>>.SuccessResponse(result));
+            }
+            catch (Exception ex)
+            {
+                return ErrorResponse<IEnumerable<TaskItemResponseDto>>("Failed to search tasks", ex);
+            }
+        }
+
+
         private IActionResult ErrorResponse<T>(string message, Exception ex)
         {
             var errors = new Dictionary<string, List<string>>

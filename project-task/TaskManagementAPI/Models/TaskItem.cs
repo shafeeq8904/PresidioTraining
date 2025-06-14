@@ -27,5 +27,7 @@ namespace TaskManagementAPI.Models
         public User? AssignedTo { get; set; }
 
         public ICollection<TaskStatusLog> StatusLogs { get; set; } = new List<TaskStatusLog>();
-    }
+
+        public ICollection<TaskFile> Files { get; set; } = new List<TaskFile>();
+        }
 }

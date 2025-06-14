@@ -12,8 +12,8 @@ using TaskManagementAPI.Data;
 namespace TaskManagementAPI.Migrations
 {
     [DbContext(typeof(TaskManagementDbContext))]
-    [Migration("20250609110504_UpdateRefreshTokenModel")]
-    partial class UpdateRefreshTokenModel
+    [Migration("20250614075758_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,7 +32,7 @@ namespace TaskManagementAPI.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<DateTime>("ExpiresAt")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamptz");
 
                     b.Property<bool>("IsRevoked")
                         .HasColumnType("boolean");
@@ -51,6 +51,37 @@ namespace TaskManagementAPI.Migrations
                     b.ToTable("RefreshTokens");
                 });
 
+            modelBuilder.Entity("TaskManagementAPI.Models.TaskFile", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("ContentType")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<byte[]>("Data")
+                        .IsRequired()
+                        .HasColumnType("bytea");
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<Guid>("TaskItemId")
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("UploadedAt")
+                        .HasColumnType("timestamptz");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TaskItemId");
+
+                    b.ToTable("TaskFiles");
+                });
+
             modelBuilder.Entity("TaskManagementAPI.Models.TaskItem", b =>
                 {
                     b.Property<Guid>("Id")
@@ -61,7 +92,7 @@ namespace TaskManagementAPI.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamptz");
 
                     b.Property<Guid>("CreatedById")
                         .HasColumnType("uuid");
@@ -71,7 +102,7 @@ namespace TaskManagementAPI.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("DueDate")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamptz");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
@@ -85,7 +116,7 @@ namespace TaskManagementAPI.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamptz");
 
                     b.Property<Guid?>("UpdatedById")
                         .HasColumnType("uuid");
@@ -108,7 +139,7 @@ namespace TaskManagementAPI.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<DateTime>("ChangedAt")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamptz");
 
                     b.Property<Guid>("ChangedById")
                         .HasColumnType("uuid");
@@ -140,7 +171,7 @@ namespace TaskManagementAPI.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamptz");
 
                     b.Property<Guid>("CreatedById")
                         .HasColumnType("uuid");
@@ -165,7 +196,7 @@ namespace TaskManagementAPI.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamptz");
 
                     b.Property<Guid?>("UpdatedById")
                         .HasColumnType("uuid");
@@ -176,6 +207,19 @@ namespace TaskManagementAPI.Migrations
                         .IsUnique();
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("de305d54-75b4-431b-adb2-eb6b9e546013"),
+                            CreatedAt = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                            CreatedById = new Guid("de305d54-75b4-431b-adb2-eb6b9e546013"),
+                            Email = "shafeeq@gmail.com",
+                            FullName = "shafeeq",
+                            IsDeleted = false,
+                            PasswordHash = "$2a$12$qipiy0fGIwTmRoGGeovGauWfJBuwbjmh1enIubnZTVaP5W.cyJ4JO",
+                            Role = "Manager"
+                        });
                 });
 
             modelBuilder.Entity("TaskManagementAPI.Models.RefreshToken", b =>
@@ -187,6 +231,17 @@ namespace TaskManagementAPI.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("TaskManagementAPI.Models.TaskFile", b =>
+                {
+                    b.HasOne("TaskManagementAPI.Models.TaskItem", "TaskItem")
+                        .WithMany("Files")
+                        .HasForeignKey("TaskItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("TaskItem");
                 });
 
             modelBuilder.Entity("TaskManagementAPI.Models.TaskItem", b =>
@@ -235,6 +290,8 @@ namespace TaskManagementAPI.Migrations
 
             modelBuilder.Entity("TaskManagementAPI.Models.TaskItem", b =>
                 {
+                    b.Navigation("Files");
+
                     b.Navigation("StatusLogs");
                 });
 

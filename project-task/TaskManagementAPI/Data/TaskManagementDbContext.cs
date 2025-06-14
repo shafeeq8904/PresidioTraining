@@ -14,6 +14,8 @@ namespace TaskManagementAPI.Data
         public DbSet<User> Users { get; set; } = null!;
         public DbSet<TaskItem> TaskItems { get; set; } = null!;
         public DbSet<TaskStatusLog> TaskStatusLogs { get; set; } = null!;
+
+        public DbSet<TaskFile> TaskFiles { get; set; }
         public DbSet<RefreshToken> RefreshTokens { get; set; } = null!;
 
 
@@ -97,19 +99,47 @@ namespace TaskManagementAPI.Data
 
 
                   });
-                  
+
+                  //fileservices
+                  modelBuilder.Entity<TaskFile>()
+                        .HasOne(f => f.TaskItem)
+                        .WithMany(t => t.Files)
+                        .HasForeignKey(f => f.TaskItemId)
+                        .OnDelete(DeleteBehavior.Cascade);
+
                   //refresh token
                   modelBuilder.Entity<RefreshToken>(entity =>
                   {
-                  entity.HasKey(rt => rt.Id);
-                  entity.HasOne(rt => rt.User)
-                        .WithMany(u => u.RefreshTokens)
-                        .HasForeignKey(rt => rt.UserId);
+                        entity.HasKey(rt => rt.Id);
+                        entity.HasOne(rt => rt.User)
+                              .WithMany(u => u.RefreshTokens)
+                              .HasForeignKey(rt => rt.UserId);
                   });
+                  
+                  foreach (var entityType in modelBuilder.Model.GetEntityTypes())
+                  {
+                  foreach (var property in entityType.GetProperties())
+                  {
+                        if (property.ClrType == typeof(DateTime) || property.ClrType == typeof(DateTime?))
+                        {
+                              property.SetColumnType("timestamptz");
+                        }
+                  }
+                  }
 
-
-
-
+                  modelBuilder.Entity<User>().HasData(new User
+                  {
+                  Id = Guid.Parse("de305d54-75b4-431b-adb2-eb6b9e546013"),
+                  FullName = "shafeeq",
+                  Email = "shafeeq@gmail.com",
+                  PasswordHash = "$2a$12$qipiy0fGIwTmRoGGeovGauWfJBuwbjmh1enIubnZTVaP5W.cyJ4JO",
+                  Role = UserRole.Manager,
+                  CreatedAt =  DateTime.SpecifyKind(new DateTime(2025, 01, 01, 0, 0, 0), DateTimeKind.Utc),
+                  UpdatedAt = null,
+                  CreatedById = Guid.Parse("de305d54-75b4-431b-adb2-eb6b9e546013"),
+                  UpdatedById = null,
+                  IsDeleted = false
+                  });
             }
     }
 }

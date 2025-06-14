@@ -226,6 +226,42 @@ namespace TaskManagementAPI.Services
             return tasks.Where(t => !t.IsDeleted).Select(ToResponseDto);
         }
 
+        public async Task<IEnumerable<TaskItemResponseDto>> SearchTasksAsync(Guid userId, string? title, DateTime? dueDate)
+        {
+            var user = await _userRepository.Get(userId);
+            if (user == null) throw new ArgumentException("User not found");
+
+            IEnumerable<TaskItem> tasks;
+
+            if (user.Role == UserRole.Manager)
+            {
+                tasks = await _taskRepo.GetByCreatorIdAsync(userId);
+            }
+            else if (user.Role == UserRole.TeamMember)
+            {
+                tasks = await _taskRepo.GetByAssignedToIdAsync(userId);
+            }
+            else
+            {
+                return Enumerable.Empty<TaskItemResponseDto>();
+            }
+
+            tasks = tasks.Where(t => !t.IsDeleted);
+
+            if (!string.IsNullOrEmpty(title))
+            {
+                tasks = tasks.Where(t => t.Title.Contains(title, StringComparison.OrdinalIgnoreCase));
+            }
+
+            if (dueDate.HasValue)
+            {
+                tasks = tasks.Where(t => t.DueDate.HasValue && t.DueDate.Value.Date == dueDate.Value.Date);
+            }
+
+            return tasks.Select(ToResponseDto);
+        }
+
+
         private TaskItemResponseDto ToResponseDto(TaskItem task)
         {
             return new TaskItemResponseDto

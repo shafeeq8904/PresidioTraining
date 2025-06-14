@@ -111,6 +111,7 @@ builder.Services.AddScoped<IRepository<Guid, User>, UserRepository>();
 builder.Services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
 builder.Services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<ITaskFileRepository, TaskFileRepository>(); 
 builder.Services.AddScoped<IRepository<Guid, TaskItem>, TaskItemRepository>();
 builder.Services.AddScoped<ITaskItemRepository, TaskItemRepository>();
 builder.Services.AddScoped<ITaskStatusLogRepository, TaskStatusLogRepository>();
@@ -121,6 +122,7 @@ builder.Services.AddScoped<ITaskStatusLogRepository, TaskStatusLogRepository>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ITaskFileService, TaskFileService>();
 builder.Services.AddScoped<ITaskService, TaskService>();
 builder.Services.AddScoped<ITaskStatusLogService, TaskStatusLogService>();
 #endregion
@@ -162,7 +164,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseMiddleware<ExceptionMiddleware>();
-
+app.UseStaticFiles();
 app.MapHub<TaskHub>("/taskHub");
 app.UseAuthentication();
 app.UseAuthorization();

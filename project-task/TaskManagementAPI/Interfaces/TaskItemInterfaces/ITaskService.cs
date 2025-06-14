@@ -13,6 +13,9 @@ namespace TaskManagementAPI.Interfaces
         Task DeleteTaskAsync(Guid taskId, Guid updaterId);
         Task<TaskItemResponseDto> GetTaskByIdAsync(Guid taskId);
         Task<IEnumerable<TaskItemResponseDto>> GetAllTasksAsync(Guid requesterId);
-        Task<IEnumerable<TaskItemResponseDto>> GetTasksByStatusAsync(TaskState status,Guid requesterId);
+        Task<IEnumerable<TaskItemResponseDto>> GetTasksByStatusAsync(TaskState status, Guid requesterId);
+        
+        Task<IEnumerable<TaskItemResponseDto>> SearchTasksAsync(Guid userId, string? title, DateTime? dueDate);
+
     }
 }

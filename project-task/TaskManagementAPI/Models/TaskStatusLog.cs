@@ -16,7 +16,7 @@ namespace TaskManagementAPI.Models
         public Guid ChangedById { get; set; }
         public User ChangedBy { get; set; } = null!;
 
-        public DateTime ChangedAt { get; set; } = DateTime.UtcNow;
+        public DateTime ChangedAt { get; set; } = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Utc);
 
         
     }
