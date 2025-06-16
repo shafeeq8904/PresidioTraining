@@ -1,0 +1,28 @@
+.menu {
+  background-color: #f2f2f2;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.menu a {
+  color: #7f8c8d;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu a:hover {
+  background-color: rgba(236, 240, 241, 0.1);
+  color: black;
+}
+
+.menu a.active {
+  background-color: darkgray;
+  color: white;
+  border-bottom: none;
+}

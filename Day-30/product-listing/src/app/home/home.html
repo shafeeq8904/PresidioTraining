@@ -1,0 +1,42 @@
+<div class="container mt-3" (window:scroll)="onScroll()">
+  <!-- Search Box -->
+  <div class="search-wrapper">
+    <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="searchString"
+      (input)="handleSearchProducts()"
+      placeholder="Search products..."
+    />
+  </div>
+
+  <!-- No Products Message -->
+  <div *ngIf="!loading && products.length === 0" class="no-products-message">
+        <p>😕 No products found. Try a different search!</p>
+  </div>
+
+  <!-- Product Grid -->
+  <div *ngIf="!loading && products.length > 0" class="product-grid fade-in">
+    <div *ngFor="let item of products; trackBy: trackById">
+      <div class="card h-100">
+        <img
+          [src]="item.thumbnail"
+          class="card-img-top"
+          [alt]="item.title"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ item.title }}</h5>
+          <p class="card-text text-muted">₹ {{ item.price }}</p>
+          <p class="card-text">{{ item.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loader -->
+  <div *ngIf="loading" class="text-center mt-3">
+    <div class="spinner-border text-success" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+</div>
