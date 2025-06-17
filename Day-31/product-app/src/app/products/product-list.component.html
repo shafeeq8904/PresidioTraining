@@ -1,0 +1,15 @@
+<div class="search-bar-container">
+  <input [formControl]="search" placeholder="Search products..." class="search-bar" />
+</div>
+
+<div *ngIf="loading" class="loader">Loading...</div>
+<div *ngIf="!loading && products.length === 0" class="empty">No results found.</div>
+
+<div class="grid">
+  <div *ngFor="let p of products" class="card" [routerLink]="['/products', p.id]">
+    <img [src]="p.thumbnail" alt="{{ p.title }}" />
+    <h3>{{ p.title }}</h3>
+    <p>{{ p.description }}</p>
+    <strong>${{ p.price }}</strong>
+  </div>
+</div>

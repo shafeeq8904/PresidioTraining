@@ -1,0 +1,106 @@
+:host {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+}
+
+.product-container {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+  transition: box-shadow 0.3s ease;
+}
+
+.product-container:hover {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  margin-bottom: 1.5rem;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+p {
+  font-size: 1.1rem;
+  color: #555;
+  margin: 1rem 0;
+  line-height: 1.6;
+}
+
+strong {
+  font-size: 1.4rem;
+  color: #007BFF;
+  display: block;
+  margin-top: 1rem;
+}
+
+/* Error and Loading States */
+.error {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.loader {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .product-container {
+    padding: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  strong {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-container {
+    padding: 1rem;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+
+  strong {
+    font-size: 1.1rem;
+  }
+}
