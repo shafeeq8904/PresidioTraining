@@ -1,0 +1,32 @@
+
+<form #form="ngForm" *ngIf="!submitted" (ngSubmit)="addUser()" novalidate>
+  <label>First Name:</label>
+  <input type="text" [(ngModel)]="user.firstName" name="firstName" required #firstName="ngModel" />
+  <div *ngIf="firstName.invalid && firstName.touched" class="error">First name is required</div>
+
+  <label>Last Name:</label>
+  <input type="text" [(ngModel)]="user.lastName" name="lastName" required #lastName="ngModel" />
+  <div *ngIf="lastName.invalid && lastName.touched" class="error">Last name is required</div>
+
+  <label>Gender:</label>
+  <select [(ngModel)]="user.gender" name="gender" required #gender="ngModel">
+    <option value="" disabled selected>Select gender</option>
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+  </select>
+  <div *ngIf="gender.invalid && gender.touched" class="error">Gender is required</div>
+
+  <label>Role:</label>
+  <input type="text" [(ngModel)]="user.role" name="role" required #role="ngModel" />
+  <div *ngIf="role.invalid && role.touched" class="error">Role is required</div>
+
+  <label>State:</label>
+  <input type="text" [(ngModel)]="user.state" name="state" required #state="ngModel" />
+  <div *ngIf="state.invalid && state.touched" class="error">State is required</div>
+
+  <button type="submit" [disabled]="form.invalid">Submit</button>
+</form>
+
+<div *ngIf="submitted">
+  <p>User added successfully!</p>
+</div>

@@ -1,0 +1,76 @@
+<div class="container mt-4">
+
+ 
+  <div class="form-group mb-4">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Filter users..."
+      [ngModel]="filterTerm()"
+      (ngModelChange)="filterTerm.set($event)" />
+  </div>
+
+
+  <div *ngIf="filteredUsers().length === 0" class="no-results text-center">
+    <p>No users match your search. Please search based on role, firstname , lastname ,region.</p>
+  </div>
+
+  <ng-container *ngIf="filteredUsers().length > 0">
+    
+
+    <div class="row chart-row gx-4 gy-4">
+     
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-header">Gender Distribution (Pie Chart)</div>
+          <div class="card-body d-flex justify-content-center align-items-center">
+            <div class="chart-container">
+              <canvas
+                baseChart
+                [data]="genderChartData()"
+                [type]="genderChartType"
+                [options]="{ responsive: true, maintainAspectRatio: false }">
+              </canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+   
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-header">Role Distribution (Bar Chart)</div>
+          <div class="card-body d-flex justify-content-center align-items-center">
+            <div class="chart-container">
+              <canvas
+                baseChart
+                [data]="roleChartData()"
+                [type]="roleChartType"
+                [options]="roleChartOptions">
+              </canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  
+    <div class="state-chart-wrapper">
+      <div class="card mt-4 mb-4 w-100" style="max-width: 800px;">
+        <div class="card-header">State Distribution (Bar Chart)</div>
+        <div class="card-body d-flex justify-content-center align-items-center">
+          <div class="state-chart-container">
+            <canvas
+              baseChart
+              [data]="stateChartData()"
+              [type]="stateChartType"
+              [options]="stateChartOptions">
+            </canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </ng-container>
+
+</div>

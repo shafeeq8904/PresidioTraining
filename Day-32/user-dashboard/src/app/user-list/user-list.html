@@ -1,0 +1,9 @@
+<div class="user-grid">
+  <div class="user-card" *ngFor="let user of users()">
+    <img [src]="user.image" alt="{{ user.firstName }}" class="user-image" />
+    <h3>{{ user.firstName }} {{ user.lastName }}</h3>
+    <p><strong>Gender:</strong> {{ user.gender }}</p>
+    <p><strong>Role:</strong> {{ user.role }}</p>
+    <p><strong>State:</strong> {{ user.state }}</p>
+  </div>
+</div>
