@@ -1,0 +1,59 @@
+<aside class="sidebar" [class.open]="isSidebarOpen">
+  <div class="profile">
+    <img class="avatar" src="https://i.pravatar.cc/100" alt="Profile" />
+    <div class="info">
+      <h4>{{ user?.fullName }}</h4>
+      <p>{{user?.email}}</p>
+      <span class="role">{{user?.role}}</span>
+    </div>
+  </div>
+
+ <nav class="nav-links">
+  <a 
+    routerLink="/manager/dashboard" 
+    routerLinkActive="active" 
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    . Dashboard
+  </a>
+  
+  <a 
+    routerLink="/manager/users/create" 
+    routerLinkActive="active" 
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    . Create User
+  </a>
+  
+  <a 
+    routerLink="/manager/users" 
+    routerLinkActive="active" 
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    . User List
+  </a>
+
+  <a 
+    routerLink="/manager/task/create" 
+    routerLinkActive="active" 
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    . Create Task
+  </a>
+
+  <a 
+    routerLink="/manager/tasks" 
+    routerLinkActive="active" 
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    . Manage Task
+  </a>
+
+  <a (click)="logout()"> . Logout</a>
+</nav>
+</aside>
+
+<!-- Hamburger -->
+<div class="hamburger" (click)="toggleSidebar()">
+  &#9776;
+</div>

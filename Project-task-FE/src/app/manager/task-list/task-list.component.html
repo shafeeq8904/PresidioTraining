@@ -1,0 +1,117 @@
+<div class="task-list-wrapper">
+  <h2 class="list-heading">Your Tasks</h2>
+
+  <div class="search-bar">
+  <input
+    type="text"
+    placeholder="Search by title"
+    [(ngModel)]="searchTitle"
+    (keydown.enter)="searchTasks()"
+  />
+  <input
+    type="date"
+    [(ngModel)]="searchDueDate"
+    (change)="searchTasks()"
+  />
+  <button (click)="searchTasks()">🔍 Search</button>
+  <button *ngIf="searchTitle || searchDueDate" (click)="clearSearch()">❌ Clear</button>
+</div>
+
+  <div class="filter-bar">
+    <button
+      *ngFor="let state of ['All', 'ToDo', 'InProgress', 'Done']"
+      [ngClass]="{
+        active: selectedFilter === state,
+        ToDo: state === 'ToDo' && selectedFilter === state,
+        InProgress: state === 'InProgress' && selectedFilter === state,
+        Done: state === 'Done' && selectedFilter === state
+      }"
+      (click)="filterTasks(state)"
+    >
+      {{ state }}
+    </button>
+  </div>
+
+  <div *ngIf="loading" class="loading">Loading tasks...</div>
+  <div *ngIf="!loading && filteredTasks.length === 0" class="no-tasks">
+    No tasks found
+    <ng-container *ngIf="selectedFilter !== 'All'">in {{ selectedFilter }} state 🧐</ng-container>.
+  </div>
+
+  <div class="task-grid">
+    <div class="task-card" *ngFor="let task of filteredTasks">
+      <div class="task-header">
+        <h3>{{ task.title }}</h3>
+        <span class="status" [ngClass]="task.status">{{ task.status }}</span>
+      </div>
+
+      <p class="description">{{ task.description }}</p>
+
+      <div class="meta">
+        <div class="dates">
+          <span><strong>Start:</strong> {{ task.createdAt | date: 'mediumDate' }}</span>
+          <span><strong>Due:</strong> {{ task.dueDate | date: 'mediumDate' }}</span>
+        </div>
+
+        <div class="assigned-user" *ngIf="task.assignedToName">
+          <label class="assigned-label">Assigned To:</label>
+          <div class="user-info">
+            <div class="avatar">{{ getInitials(task.assignedToName) }}</div>
+            <span class="assignee-name">{{ task.assignedToName }}</span>
+          </div>
+        </div>
+
+        <div class="actions">
+            <div class="left-actions">
+                <button class="edit-btn" (click)="openEdit(task)">Edit</button>
+                <button class="delete-btn" (click)="deleteTask(task.id)">Delete</button>
+                <button 
+                *ngIf="currentUser?.role === 'Manager'" 
+                class="upload-btn" 
+                (click)="openUploadModal(task)">
+                Upload File
+                </button>
+            </div>
+            
+            <div class="right-actions">
+                <button class="view-files-btn" (click)="openFilesModal(task.id)">🖇️</button>
+                
+            </div>
+        </div>
+
+        <div>
+            <a class="status-history-link" (click)="openLogModal(task.id)" title="View Task Status Log">
+                view status history <span class="icon">📜</span>
+            </a>
+        </div>
+        
+
+      </div>
+    </div>
+  </div>
+  
+
+  <app-task-edit-modal
+  *ngIf="selectedTaskToEdit"
+  [task]="selectedTaskToEdit"
+  (close)="closeEdit()"
+  (taskUpdated)="fetchTasks()">
+</app-task-edit-modal>
+<app-task-upload-modal
+  *ngIf="showUploadModal && selectedTaskToUpload"
+  [task]="selectedTaskToUpload!"
+  (close)="closeUploadModal()"
+  (fileUploaded)="fetchTasks()">
+</app-task-upload-modal>
+<app-task-files-modal
+  *ngIf="showFilesModal"
+  [taskId]="selectedTaskId"
+  (close)="closeFilesModal()">
+</app-task-files-modal>
+<app-task-status-log-modal
+  *ngIf="showLogModal"
+  [taskId]="selectedTaskIdForLogs"
+  (close)="closeLogModal()">
+</app-task-status-log-modal>
+
+</div>
