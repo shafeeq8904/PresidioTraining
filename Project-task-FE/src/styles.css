@@ -2,15 +2,14 @@
 
 body {
   font-family: 'Poppins', sans-serif;
+
 }
 
-
-/* Toast styling fix */
 #toast-container {
   position: fixed !important;
   top: 20px;
   right: 20px;
-  z-index: 2000 !important; /* Higher than sidebar (1000) and hamburger (1100) */
+  z-index: 2000 !important; 
 }
 
 #toast-container > div {

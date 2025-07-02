@@ -1,7 +1,7 @@
 .sidebar {
   width: 250px;
   height: 100vh;
-  background-color: #243c5a; /* More subtle/navy blue */
+  background-color: #243c5a;
   background-color:#e0e7ff;
   color: #ffffff;
   position: fixed;
@@ -13,6 +13,10 @@
   z-index: 1000;
   transition: transform 0.3s ease-in-out;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links a i {
+  margin-right: 8px;
 }
 
 .profile {
@@ -103,9 +107,25 @@
 }
 
 
+.nav-link {
+  position: relative;
+  display: inline-block;
+  padding-right: 20px;
+}
 
+.badge {
+  position: absolute;
+  top: -6px;
+  right: 0;
+  background-color: red;
+  color: white;
+  border-radius: 999px;
+  padding: 2px 6px;
+  font-size: 12px;
+  font-weight: bold;
+  animation: pulse 1.2s ease-in-out;
+}
 
-/* Content Area */
 .manager-content {
   margin-left: 250px;
   padding: 20px;
@@ -114,7 +134,6 @@
   background-color: #f8f9fa;
 }
 
-/* Hamburger icon */
 .hamburger {
   display: none;
   position: fixed;
@@ -151,7 +170,6 @@
   }
 }
 
-/* Phones (<= 768px) - already exists but improved here */
 @media (max-width: 768px) {
   .sidebar {
     transform: translateX(-100%);
@@ -203,7 +221,6 @@
   }
 }
 
-/* Smallest devices (<= 480px) */
 @media (max-width: 480px) {
   .sidebar {
     width: 200px;

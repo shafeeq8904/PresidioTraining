@@ -51,12 +51,15 @@ builder.Services.AddSwaggerGen(opt =>
     });
 });
 builder.Services.AddControllers()
-                .AddJsonOptions(opts =>
-                {
-                    opts.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
-                    opts.JsonSerializerOptions.WriteIndented = true;
-                    opts.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
-                });
+    .AddJsonOptions(opts =>
+    {
+        opts.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+        opts.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+        opts.JsonSerializerOptions.WriteIndented = true;
+        opts.JsonSerializerOptions.PropertyNameCaseInsensitive = true; 
+        opts.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+    });
+
 
 
 #region serilog
@@ -103,6 +106,21 @@ builder.Services.AddAuthentication(options =>
         ValidateLifetime = true,
         ClockSkew = TimeSpan.Zero
     };
+
+     options.Events = new JwtBearerEvents
+    {
+        OnMessageReceived = context =>
+        {
+            var accessToken = context.Request.Query["access_token"];
+            var path = context.HttpContext.Request.Path;
+            if (!string.IsNullOrEmpty(accessToken) && path.StartsWithSegments("/taskHub"))
+            {
+                Console.WriteLine("[JWT] Access token extracted from SignalR query string.");
+                context.Token = accessToken;
+            }
+            return Task.CompletedTask;
+        }
+    };
 });
 #endregion
 
@@ -145,7 +163,8 @@ builder.Services.AddCors(options =>
               .AllowCredentials()
               .WithOrigins(
                   "http://127.0.0.1:8080",
-                  "http://localhost:8080"
+                  "http://localhost:8080",
+                  "http://localhost:4200"
               );
     });
 });

@@ -16,8 +16,20 @@ export class UserService {
     return this.http.post<ApiResponse<UserResponseDto>>(this.baseUrl, dto);
   }
 
-   getAllUsers(page: number = 1, pageSize: number = 10): Observable<PagedResponse<UserResponseDto>> {
-    return this.http.get<PagedResponse<UserResponseDto>>(`${this.baseUrl}?page=${page}&pageSize=${pageSize}`);
+   getAllUsers(
+    page: number = 1,
+    pageSize: number = 10,
+    search: string = '',
+    role: string = ''
+  ): Observable<PagedResponse<UserResponseDto>> {
+    return this.http.get<PagedResponse<UserResponseDto>>(`${this.baseUrl}`, {
+      params: {
+        page,
+        pageSize,
+        search,
+        role
+      }
+    });
   }
 
   getUserById(id: string): Observable<UserResponseDto> {

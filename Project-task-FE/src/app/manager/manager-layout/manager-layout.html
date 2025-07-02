@@ -1,5 +1,5 @@
-<app-manager-navbar></app-manager-navbar>
-<h3 class="heading">Task Management</h3>
+<app-manager-navbar *ngIf="shouldShowSidebar"></app-manager-navbar>
+<h3 class="heading" *ngIf="shouldShowSidebar">Task Management</h3>
 <main class="manager-content">
   <router-outlet></router-outlet>
 </main>

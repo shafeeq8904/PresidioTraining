@@ -15,31 +15,22 @@ export class App implements OnInit {
   private authService = inject(AuthService);
   private router = inject(Router);
 
-  ngOnInit(): void {
+  ngOnInit(): void
+  {
+    {
     const token = this.authService.getAccessToken();
     const refreshToken = this.authService.getRefreshToken();
     const user = this.authService.getUser();
 
     if (!token && refreshToken) {
       this.authService.refreshToken().subscribe(success => {
-        if (success) {
-          const refreshedUser = this.authService.getUser();
-          if (refreshedUser?.role === 'Manager') {
-            this.router.navigate(['/manager']);
-          } else if (refreshedUser?.role === 'TeamMember') {
-            this.router.navigate(['/team']);
-          }
-        } else {
-          this.router.navigate(['/login']);
-        }
-      });
-    } else if (token && user) {
-
-      if (user.role === 'Manager') {
-        this.router.navigate(['/manager']);
-      } else if (user.role === 'TeamMember') {
-        this.router.navigate(['/team']);
+        if (!success) {
+        this.router.navigate(['/login']);
       }
-    }
+      });
+    } else if (!token || !user) {
+    this.router.navigate(['/login']);
+  }
+  }
   }
 }

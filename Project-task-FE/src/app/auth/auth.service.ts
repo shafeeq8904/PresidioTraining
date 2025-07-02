@@ -10,17 +10,19 @@ import { Observable, of, catchError, map, tap } from 'rxjs';
 export class AuthService {
   private baseUrl = 'http://localhost:5093/api/v1/auth';
 
-  constructor(private http: HttpClient, private router: Router ) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   login(payload: LoginRequestDto): Observable<any> {
-    return this.http.post(`${this.baseUrl}/login`, payload).pipe(
-      tap((res: any) => {
-        if (res.success) {
-          this.setSession(res.data);
-        }
-      })
-    );
-  }
+  return this.http.post(`${this.baseUrl}/login`, payload).pipe(
+    tap((res: any) => {
+      if (res.success) {
+        this.setSession(res.data);
+        const role = res.data.user.role;
+        this.router.navigate(['/dashboard']); // Redirect both roles to a common route
+      }
+    })
+  );
+}
 
   refreshToken(): Observable<boolean> {
     const refreshToken = this.getRefreshToken();
@@ -78,6 +80,19 @@ export class AuthService {
   getRefreshToken(): string | null {
   const match = document.cookie.match(/(^|;)\\s*refreshToken=([^;]*)/);
   return match ? decodeURIComponent(match[2]) : null;
+}
+
+  getUserId(): string {
+  const token = this.getAccessToken();
+  if (!token) return '';
+
+  try {
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    return payload['nameid'];
+  } catch (e) {
+    console.error('Failed to parse JWT', e);
+    return '';
+  }
 }
 
 

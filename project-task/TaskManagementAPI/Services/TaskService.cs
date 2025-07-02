@@ -70,15 +70,28 @@ namespace TaskManagementAPI.Services
             };
             await _logRepo.AddAsync(log);
 
-            await _hubContext.Clients.All.SendAsync("TaskCreated", new
-            {
-                task.Id,
-                task.Title,
-                task.Description,
-                Status = task.Status.ToString(),
-                AssignedToName = assignedUser?.FullName ?? "N/A",
-                CreatedByName = creator?.FullName ?? "N/A"
-            });
+            await _hubContext.Clients.Group($"user-{task.AssignedToId}")
+                .SendAsync("TaskAssigned", new
+                {
+                    task.Id,
+                    task.Title,
+                    task.Description,
+                    Status = task.Status.ToString(),
+                    AssignedToName = assignedUser?.FullName ?? "N/A",
+                    CreatedByName = creator?.FullName ?? "N/A"
+                });
+
+            Console.WriteLine($"[SignalR] Sending TaskCreated to user-{task.CreatedById}");
+            await _hubContext.Clients.Group($"user-{task.CreatedById}")
+                .SendAsync("TaskCreated", new
+                {
+                    task.Id,
+                    task.Title,
+                    task.Description,
+                    Status = task.Status.ToString(),
+                    AssignedToName = assignedUser?.FullName ?? "N/A",
+                    CreatedByName = creator?.FullName ?? "N/A"
+                });
 
             return ToResponseDto(task);
         }
@@ -86,12 +99,11 @@ namespace TaskManagementAPI.Services
         public async Task<TaskItemResponseDto> UpdateTaskAsync(Guid taskId, TaskItemUpdateDto dto, Guid updaterId)
         {
             var task = await _taskRepo.Get(taskId) ?? throw new Exception("Task not found");
-
-            var updater = await _userRepository.Get(updaterId);
-            if (updater == null)
-                throw new ArgumentException("Updater user not found.");
+            var updater = await _userRepository.Get(updaterId) ?? throw new ArgumentException("Updater user not found.");
 
             var previousStatus = task.Status;
+            var oldAssigneeId = task.AssignedToId;
+            var wasReassigned = dto.AssignedToId.HasValue && dto.AssignedToId != task.AssignedToId;
 
             bool isCreator = task.CreatedById == updaterId;
             bool isAssignedUser = task.AssignedToId == updaterId;
@@ -121,32 +133,66 @@ namespace TaskManagementAPI.Services
             {
                 var log = new TaskStatusLog
                 {
-                    
                     TaskItemId = task.Id,
                     PreviousStatus = previousStatus,
                     NewStatus = dto.Status.Value,
                     ChangedById = updaterId
                 };
-
                 await _logRepo.AddAsync(log);
             }
+            var assignedToUser = task.AssignedToId.HasValue ? await _userRepository.Get(task.AssignedToId.Value) : null;
 
-            await _hubContext.Clients.All.SendAsync("TaskUpdated", new
+            if (wasReassigned)
             {
-                task.Id,
-                task.Title,
-                Status = task.Status.ToString(),
-                PreviousStatus = previousStatus.ToString(),
-                UpdatedById = updaterId,
-                UpdatedByName = updater?.FullName ?? "N/A",
-                AssignedToId = task.AssignedToId 
-            });
+                await _hubContext.Clients.Group($"user-{task.AssignedToId}")
+                    .SendAsync("TaskAssigned", new
+                    {
+                        task.Id,
+                        task.Title,
+                        task.Description,
+                        Status = task.Status.ToString(),
+                        AssignedToName = assignedToUser?.FullName ?? "N/A",
+                        CreatedByName = updater?.FullName ?? "N/A"
+                    });
+
+                await _hubContext.Clients.Group($"user-{oldAssigneeId}")
+                    .SendAsync("TaskUnassigned", new
+                    {
+                        task.Id,
+                        task.Title,
+                        UnassignedByName = updater?.FullName ?? "N/A"
+                    });
+            }
+
+            await _hubContext.Clients.Group($"user-{task.AssignedToId}")
+                .SendAsync("TaskUpdated", new
+                {
+                    task.Id,
+                    task.Title,
+                    Status = task.Status.ToString(),
+                    PreviousStatus = previousStatus.ToString(),
+                    UpdatedById = updaterId,
+                    UpdatedByName = updater?.FullName ?? "N/A",
+                    AssignedToId = task.AssignedToId
+                });
+
+            if (task.CreatedById != task.AssignedToId)
+            {
+                await _hubContext.Clients.Group($"user-{task.CreatedById}")
+                    .SendAsync("TaskUpdated", new
+                    {
+                        task.Id,
+                        task.Title,
+                        Status = task.Status.ToString(),
+                        PreviousStatus = previousStatus.ToString(),
+                        UpdatedById = updaterId,
+                        UpdatedByName = updater?.FullName ?? "N/A",
+                        AssignedToId = task.AssignedToId
+                    });
+            }
 
             return ToResponseDto(task);
         }
-
-
-
 
         public async Task DeleteTaskAsync(Guid taskId, Guid updaterId)
         {
@@ -167,14 +213,33 @@ namespace TaskManagementAPI.Services
 
             await _taskRepo.Update(task.Id, task);
 
-        }
+            await _hubContext.Clients.Group($"user-{task.AssignedToId}")
+                .SendAsync("TaskDeleted", new
+                {
+                    task.Id,
+                    task.Title,
+                    AssignedToId = task.AssignedToId,
+                    DeletedById = updaterId
+                });
 
-        public async Task<TaskItemResponseDto> GetTaskByIdAsync(Guid taskId ) //Guid requesterId
+            if (task.CreatedById != task.AssignedToId)
+            {
+                await _hubContext.Clients.Group($"user-{task.CreatedById}")
+                    .SendAsync("TaskDeleted", new
+                    {
+                        task.Id,
+                        task.Title,
+                        AssignedToId = task.AssignedToId,
+                        DeletedById = updaterId
+                    });
+            }
+
+        }
+        
+
+        public async Task<TaskItemResponseDto> GetTaskByIdAsync(Guid taskId)
         {
             var task = await _taskRepo.Get(taskId) ?? throw new Exception("Task not found");
-            // var requester = await _userRepository.Get(requesterId);
-            // if (requester.Role == UserRole.Manager && task.CreatedById != requesterId)
-            //     throw new UnauthorizedAccessException("You are not allowed to view this task.");
             return ToResponseDto(task);
         }
 

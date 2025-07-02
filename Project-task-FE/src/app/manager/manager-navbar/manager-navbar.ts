@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink, Router } from '@angular/router';
 import { AuthService } from '../../auth/auth.service';
 import { RouterModule } from '@angular/router';
+import { NotificationService } from '../../Notifications/notification.service';
 
 @Component({
   selector: 'app-manager-navbar',
@@ -13,8 +14,15 @@ import { RouterModule } from '@angular/router';
 })
 export class ManagerNavbarComponent {
   user = JSON.parse(sessionStorage.getItem('user') || '{}');
+  unreadCount = 0;
 
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(private auth: AuthService, private router: Router,private notificationService: NotificationService) {}
+
+  ngOnInit() {
+  this.notificationService.notifications$.subscribe(notifs => {
+    this.unreadCount = notifs.filter(n => !n.isRead).length;
+  });
+}
 
   isSidebarOpen = false;
 
@@ -25,4 +33,7 @@ export class ManagerNavbarComponent {
   logout() {
     this.auth.logout();
   }
+
+  isManager() { return this.user.role === 'Manager'; }
+  isTeamMember() { return this.user.role === 'TeamMember'; }
 }

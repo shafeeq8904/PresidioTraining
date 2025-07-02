@@ -7,6 +7,9 @@ import { PagedResponse } from '../Create-User/user.types';
 import { ToastrService } from 'ngx-toastr';
 import { HttpErrorResponse } from '@angular/common/http';
 import { EditUserModalComponent } from "../EditUserModalComponent/edit-user-modal.component";
+import { Subject, Subscription } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-user-list',
@@ -22,20 +25,40 @@ export class UserListComponent implements OnInit {
   roleFilter = '';
   showEditModal = false;
   selectedUser?: UserResponseDto;
+  private searchSubject = new Subject<string>();
+  private searchSubscription!: Subscription;
 
-  // Pagination
+
   page = 1;
   pageSize = 5;
   totalPages = 0;
 
   constructor(private userService: UserService, private toastr: ToastrService) {}
 
-  ngOnInit(): void {
+   ngOnInit(): void {
     this.fetchUsers();
+
+    this.searchSubject.pipe(debounceTime(500)).subscribe(search => {
+      this.searchTerm = search;
+      this.page = 1;
+      this.fetchUsers();
+    });
   }
+
+
 
   setRoleFilter(role: string) {
   this.roleFilter = role;
+  this.page = 1;
+  this.fetchUsers();
+}
+
+  onSearchInput(value: string) {
+    this.searchSubject.next(value);
+  }
+
+ngOnDestroy(): void {
+  this.searchSubscription?.unsubscribe();
 }
 
 getPageRange(): number[] {
@@ -58,16 +81,12 @@ getPageRange(): number[] {
   });
 }
 
-  fetchUsers() {
+fetchUsers() {
   this.loading = true;
 
-  this.userService.getAllUsers(this.page, this.pageSize).subscribe({
+  this.userService.getAllUsers(this.page, this.pageSize, this.searchTerm, this.roleFilter).subscribe({
     next: res => {
-      console.log('API Response:', res);
-      console.log('res.data type:', typeof res.data);
-      console.log('res.data instanceof Array:', res.data instanceof Array);
-      
-      this.users = res.data; // This line is fine IF data is an array
+      this.users = res.data;
       this.totalPages = res.pagination.totalPages;
       this.loading = false;
     },

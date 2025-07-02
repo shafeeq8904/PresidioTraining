@@ -1,12 +1,24 @@
 using Microsoft.AspNetCore.SignalR;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+
+
 
 namespace TaskManagementAPI.Hubs
 {
+    [Authorize]
     public class TaskHub : Hub
     {
         public override async Task OnConnectedAsync()
         {
+            var httpContext = Context.GetHttpContext();
+            var userId = httpContext?.User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (!string.IsNullOrEmpty(userId))
+            {
+                await Groups.AddToGroupAsync(Context.ConnectionId, $"user-{userId}");
+            }
             await base.OnConnectedAsync();
         }
 
@@ -15,14 +27,16 @@ namespace TaskManagementAPI.Hubs
             await Clients.All.SendAsync("ReceiveTaskUpdate", message);
         }
 
-        public async Task NotifyTaskCreated(object taskDto)
+        public async Task NotifyTaskCreated(object taskDto, string userId)
         {
-            await Clients.All.SendAsync("TaskCreated", taskDto);
+            await Clients.Group($"user-{userId}").SendAsync("TaskCreated", taskDto);
         }
 
-        public async Task NotifyTaskUpdated(object taskDto)
+        public async Task NotifyTaskUpdated(object taskDto, string userId)
         {
-            await Clients.All.SendAsync("TaskUpdated", taskDto);
+            await Clients.Group($"user-{userId}").SendAsync("TaskUpdated", taskDto);
         }
     }
 }
+
+

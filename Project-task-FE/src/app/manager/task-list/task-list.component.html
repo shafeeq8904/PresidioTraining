@@ -64,7 +64,9 @@
         <div class="actions">
             <div class="left-actions">
                 <button class="edit-btn" (click)="openEdit(task)">Edit</button>
-                <button class="delete-btn" (click)="deleteTask(task.id)">Delete</button>
+                <button *ngIf="currentUser?.role === 'Manager'"  
+                class="delete-btn" 
+                (click)="deleteTask(task.id)">Delete</button>
                 <button 
                 *ngIf="currentUser?.role === 'Manager'" 
                 class="upload-btn" 

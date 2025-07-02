@@ -18,7 +18,8 @@ export const appConfig: ApplicationConfig = {
     provideAnimations(),
     provideToastr({
         positionClass: 'toast-top-right',
-        preventDuplicates: true
+        preventDuplicates: true,
+        timeOut: 2000
     }),
     TokenInterceptorProvider  
   ]

@@ -1,0 +1,6 @@
+Day-23/doctor.Test/bin/
+project-task/TaskManagementAPI/Logs
+project-task/TaskManagementAPI/obj
+project-task/TaskManagementAPI.Tests/bin/Debug/net8.0/*
+project-task/TaskManagementAPI.Tests/obj
+Project-task-FE/package.json

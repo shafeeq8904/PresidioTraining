@@ -38,8 +38,6 @@ namespace TaskManagementAPI.Data
                         entity.Property(u => u.Email).IsRequired();
                         entity.Property(u => u.PasswordHash).IsRequired();
 
-                        // entity.Property(u => u.ProfilePicturePath)
-                        //       .HasMaxLength(255);
 
                         entity.HasMany(u => u.CreatedTasks)
                         .WithOne(t => t.CreatedByUser)

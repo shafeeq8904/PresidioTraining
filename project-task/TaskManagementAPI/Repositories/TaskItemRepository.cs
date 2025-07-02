@@ -63,6 +63,7 @@ namespace TaskManagementAPI.Repositories
         public async Task<IEnumerable<TaskItem>> GetByCreatorIdAsync(Guid creatorId)
         {
             return await _context.TaskItems
+                .Include(t => t.AssignedTo)
                 .Where(t => t.CreatedById == creatorId && !t.IsDeleted)
                 .ToListAsync();
         }
@@ -71,6 +72,7 @@ namespace TaskManagementAPI.Repositories
         public async Task<IEnumerable<TaskItem>> GetByAssignedToIdAsync(Guid assignedToId)
         {
             return await _context.TaskItems
+                .Include(t => t.AssignedTo)
                 .Where(t => t.AssignedToId == assignedToId && !t.IsDeleted)
                 .ToListAsync();
         }

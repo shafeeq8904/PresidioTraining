@@ -5,7 +5,7 @@ import { TaskService } from './task.service';
 import { TaskItemRequestDto, TaskState } from './task.types';
 import {UserResponseDto} from '../Create-User/user.types'
 import { ToastrService } from 'ngx-toastr';
-import { UserService } from '../Create-User/user.service'; // or wherever your user service is
+import { UserService } from '../Create-User/user.service'; 
 import { Router } from '@angular/router';
 
 @Component({
@@ -57,7 +57,7 @@ export class CreateTaskComponent implements OnInit {
   return (control: AbstractControl): ValidationErrors | null => {
     const selectedDate = new Date(control.value);
     const today = new Date();
-    today.setHours(0, 0, 0, 0); // Ignore time
+    today.setHours(0, 0, 0, 0); 
 
     if (selectedDate < today) {
       return { pastDate: true };
@@ -86,7 +86,7 @@ export class CreateTaskComponent implements OnInit {
     this.taskService.createTask(dto).subscribe({
       next: () => {
         this.toastr.success('Task created successfully');
-        this.router.navigate(['/manager/tasks']);
+        this.router.navigate(['/tasks']);
       },
       error: err => {
         this.toastr.error(err?.error?.message || 'Failed to create task');

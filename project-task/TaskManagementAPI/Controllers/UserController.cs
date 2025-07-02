@@ -22,25 +22,32 @@ namespace TaskManagementAPI.Controllers
         // GET: /api/v1/users?page=1&pageSize=10
         [HttpGet]
         [Authorize(Roles = "Manager")]
-        public async Task<ActionResult<PagedResponse<UserResponseDto>>> GetAllUsers([FromQuery] int page = 1, [FromQuery] int pageSize = 10)
+        public async Task<ActionResult<PagedResponse<UserResponseDto>>> GetAllUsers(
+            [FromQuery] int page = 1,
+            [FromQuery] int pageSize = 10,
+            [FromQuery] string? search = null,
+            [FromQuery] string? role = null)
         {
             if (page <= 0 || pageSize <= 0)
             {
                 return BadRequest(ApiResponse<string>.ErrorResponse(
                     "Invalid pagination parameters",
-                    new Dictionary<string, List<string>> { { "Pagination", new() { "Page and pageSize must be greater than 0" } } }
-                ));
+                    new Dictionary<string, List<string>> {
+                        { "Pagination", new() { "Page and pageSize must be greater than 0" } }
+                    }));
             }
-            var response = await _userService.GetAllAsync(page, pageSize);
+
+            var response = await _userService.GetAllAsync(page, pageSize, search, role);
             if (!response.Data.Any())
             {
-                response.Message = "No users found for the given page and page size.";
+                response.Message = "No users found for the given filters.";
             }
             else
             {
                 response.Message = "Users fetched successfully.";
             }
-                return Ok(response);
+
+            return Ok(response);
         }
 
         // GET: /api/v1/users/{id}

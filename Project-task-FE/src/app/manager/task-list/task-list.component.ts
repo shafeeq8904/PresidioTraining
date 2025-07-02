@@ -32,6 +32,10 @@ export class TaskListComponent implements OnInit {
   searchTitle: string = '';
   searchDueDate: string = '';
 
+  page = 1;
+  pageSize = 5;
+  totalPages = 0;
+
 
 
   constructor(private taskService: TaskService, private toastr: ToastrService) {}
@@ -56,7 +60,7 @@ deleteTask(id: string) {
     this.taskService.deleteTask(id).subscribe({
       next: () => {
         this.toastr.success("Task deleted successfully");
-        this.fetchTasks(); // Refresh task list
+        this.fetchTasks(); 
       },
       error: (err) => {
         this.toastr.error(err?.error?.message || "Failed to delete task");
@@ -73,7 +77,7 @@ openEdit(task: TaskItemResponseDto): void {
 closeEdit(): void {
   this.selectedTaskToEdit = undefined;
    document.body.classList.remove('modal-open');
-  this.fetchTasks(); // refresh list
+  this.fetchTasks(); 
 }
 
 
@@ -112,7 +116,7 @@ openLogModal(taskId: string): void {
 closeLogModal(): void {
   this.showLogModal = false;
   this.selectedTaskIdForLogs = '';
-  document.body.style.overflow = ''; // Restore scrolling
+  document.body.style.overflow = ''; 
 }
 
 searchTasks(): void {
@@ -134,7 +138,7 @@ searchTasks(): void {
 clearSearch(): void {
   this.searchTitle = '';
   this.searchDueDate = '';
-  this.fetchTasks(); // reload original list
+  this.fetchTasks();
 }
 
  filterTasks(state: string) {

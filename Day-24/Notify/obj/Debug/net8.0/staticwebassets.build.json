@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ya+cfm06AVfn6YMf9S6gqRBfMEsdMB8MStlXejtPWGo=",
+  "Hash": "BLyRufjc+0ApkIJrz7W54spPWusdDzKhxaten7QYvQM=",
   "Source": "Notify",
   "BasePath": "_content/Notify",
   "Mode": "Default",
@@ -34,6 +34,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/uploads/1fcf7320-7bb8-465e-a637-703970b8abf8.txt"
+    },
+    {
+      "Identity": "/Users/presidio/Desktop/Genspark/PresidioTraining/Day-24/Notify/wwwroot/uploads/34c494de-408c-4bec-9ff4-db96167b282e.md",
+      "SourceId": "Notify",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/presidio/Desktop/Genspark/PresidioTraining/Day-24/Notify/wwwroot/",
+      "BasePath": "_content/Notify",
+      "RelativePath": "uploads/34c494de-408c-4bec-9ff4-db96167b282e.md",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/34c494de-408c-4bec-9ff4-db96167b282e.md"
     },
     {
       "Identity": "/Users/presidio/Desktop/Genspark/PresidioTraining/Day-24/Notify/wwwroot/uploads/413b5e02-20be-468d-a6ea-540f339e007d.txt",

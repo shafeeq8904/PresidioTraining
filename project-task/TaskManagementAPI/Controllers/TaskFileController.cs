@@ -67,7 +67,7 @@ public class TaskFileController : ControllerBase
                 return NotFound(ApiResponse<string>.ErrorResponse("File not found.", new Dictionary<string, List<string>>()));
             }
 
-            return fileResult; // Streamed file download
+            return fileResult;
         }
         catch (Exception ex)
         {

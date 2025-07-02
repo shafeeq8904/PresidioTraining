@@ -87,7 +87,8 @@ namespace TaskManagementAPI.Services
             {
                 Id = f.Id,
                 FileName = f.FileName,
-                UploadedAt = f.UploadedAt
+                UploadedAt = f.UploadedAt,
+                TaskTitle = task.Title 
             });
         }
 

@@ -45,18 +45,28 @@ export class CreateUserComponent {
   this.userService.createUser(dto).subscribe({
     next: res => {
       this.toastr.success('User created successfully');
-      this.userForm.reset(); // ✅ Clear the form
+      this.userForm.reset();
       this.loading = false;
     },
     error: err => {
       if (err.status === 409) {
         this.toastr.error('Email already exists.');
         this.userForm.get('email')?.setErrors({ conflict: true });
+      } else if (err.status === 400 && err.error?.errors) {
+        const validationErrors = err.error.errors;
+        const messages = Object.values(validationErrors).flat();
+
+        
+        if (messages.length > 0) {
+          this.toastr.error(String(messages[0]));
+        } else {
+          this.toastr.error('Validation failed');
+        }
       } else {
         this.toastr.error(err?.error?.message || 'Something went wrong');
       }
 
-      this.loading = false; // ✅ Reset even on error
+      this.loading = false;
     }
   });
 }

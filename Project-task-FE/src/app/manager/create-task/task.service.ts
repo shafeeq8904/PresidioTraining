@@ -27,9 +27,6 @@ export class TaskService {
   return this.http.get<{ data: TaskItemResponseDto[] }>(this.baseUrl);
 }
 
-/*getTaskById(id: string): Observable<TaskItemResponseDto> {
-  return this.http.get<TaskItemResponseDto>(`${this.baseUrl}/${id}`);
-}*/
 
 updateTask(id: string, dto: TaskItemUpdateDto): Observable<void> {
   return this.http.put<void>(`${this.baseUrl}/${id}`, dto);

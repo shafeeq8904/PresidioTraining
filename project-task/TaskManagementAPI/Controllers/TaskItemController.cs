@@ -44,7 +44,7 @@ namespace TaskManagementAPI.Controllers
 
         [HttpPut("{id}")]
         [Authorize(Roles = "Manager, TeamMember")]
-        public async Task<IActionResult> Update(Guid id, [FromForm] TaskItemUpdateDto dto)
+        public async Task<IActionResult> Update(Guid id, [FromBody] TaskItemUpdateDto dto)
         {
             try
             {
@@ -82,9 +82,6 @@ namespace TaskManagementAPI.Controllers
             try
             {
                 var result = await _taskService.GetTaskByIdAsync(id);
-                //var requesterId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
-                //var task = await _taskService.GetTaskByIdAsync(id, requesterId);
-                //return Ok(ApiResponse<TaskItemResponseDto>.SuccessResponse(task));
                 return Ok(ApiResponse<TaskItemResponseDto>.SuccessResponse(result));
             }
             catch (Exception ex)

@@ -64,7 +64,7 @@
   font-size: 14px;
   color: #4b5563;
   display: flex;
-  flex-direction: column; /* change from row to column */
+  flex-direction: column; 
   align-items: flex-start;
   gap: 10px;
   margin-top: 10px;
@@ -239,7 +239,7 @@
 }
 
 .edit-btn {
-  background-color: #415e81; /* soft blue */
+  background-color: #415e81; 
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -261,7 +261,7 @@
 }
 
 .delete-btn {
-    background-color: #415e81; /* soft blue */
+    background-color: #415e81; 
     color: white;
     border: none;
     border-radius: 6px;
@@ -284,7 +284,7 @@
 }
 
 .upload-btn {
-  background-color: #415e81; /* soft blue */
+  background-color: #415e81;
   color: white;
   border: none;
   border-radius: 6px;
@@ -297,7 +297,7 @@
 }
 
 .upload-btn:hover {
-  background-color: #059669;   /* teal-600 */
+  background-color: #059669; 
   transform: translateY(-1px);
 }
 
@@ -323,7 +323,7 @@
 }
 
 .view-files-btn:hover {
-  background-color: blanchedalmond;   /* Indigo */
+  background-color: blanchedalmond;  
   transform: translateY(-1px);
 }
 
@@ -351,7 +351,35 @@
   font-size: 1.1em;
 }
 
-/* RESPONSIVE STYLES */
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  gap: 10px;
+}
+
+.pagination-controls button {
+  padding: 6px 12px;
+  font-size: 14px;
+  border: none;
+  background-color: #3f51b5;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.pagination-controls button[disabled] {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination-controls span {
+  font-weight: 500;
+}
+
+
 @media (max-width: 1024px) {
   .task-list-wrapper {
     padding: 20px;

@@ -5,6 +5,7 @@ import { AuthService } from '../auth.service';
 import { LoginRequestDto } from '../auth.types';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { SignalRService } from '../signalr.service';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,8 @@ export class LoginComponent {
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private signalRService: SignalRService 
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -31,7 +33,7 @@ export class LoginComponent {
     });
   }
 
-  onSubmit(): void {
+ onSubmit(): void {
   if (this.loginForm.invalid) return;
 
   const payload: LoginRequestDto = this.loginForm.value;
@@ -42,18 +44,13 @@ export class LoginComponent {
       this.loading = false;
 
       if (res.success) {
-      sessionStorage.clear();
-      this.authService['setSession'](res.data); 
-
-      const role = res.data.user.role;
-      if (role === 'Manager') {
-        this.router.navigate(['/manager']);
-      } else if (role === 'TeamMember') {
-        this.router.navigate(['/team']);
+        sessionStorage.clear();
+        this.authService['setSession'](res.data); 
+        const user = this.authService.getUser();
+        console.log('[SignalR] Frontend userId:', user?.id);
+        this.signalRService.startConnection(); 
+        this.router.navigate(['/dashboard']);
       } else {
-        this.router.navigate(['/unauthorized']);
-      }
-    } else {
         this.errorMessage = res.message;
       }
     },

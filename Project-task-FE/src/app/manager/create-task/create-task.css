@@ -149,7 +149,6 @@ button[disabled] {
 }
 
 
-/* Fade animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -194,7 +193,6 @@ button[disabled] {
   }
 }
 
-/* Small devices (phones: 480px and below) */
 @media (max-width: 480px) {
   h2 {
     font-size: 20px;

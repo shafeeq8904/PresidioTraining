@@ -1,9 +1,9 @@
-// src/app/auth/auth.guard.ts
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from './auth.service';
 import { CanActivateFn } from '@angular/router';
+
 
 export const authGuard = (allowedRoles: string[] = []): CanActivateFn => {
   return () => {
@@ -11,28 +11,36 @@ export const authGuard = (allowedRoles: string[] = []): CanActivateFn => {
     const router = inject(Router);
     const toastr = inject(ToastrService);
 
-    // Not logged in
+    console.log('AuthGuard:', {
+  user: auth.getUser(),
+  isAuthenticated: auth.isAuthenticated(),
+  allowedRoles
+});
+
+    // Not logged in (no token)
     if (!auth.isAuthenticated()) {
-      router.navigate(['/login']);
+      toastr.warning('Please log in to access this page.', 'Authentication Required');
+      router.navigateByUrl('/login');
       return false;
     }
 
     const user = auth.getUser();
-    
-    // Logged in but not allowed
-    if (!user || !allowedRoles.includes(user.role)) {
+
+    // Session exists but user info is missing
+    if (!user) {
+      toastr.error('Could not read session. Please refresh the page.', 'Temporary Issue');
+      return false; //  No logout
+    }
+
+    // Logged in, but role not allowed
+    if (!allowedRoles.includes(user.role)) {
       toastr.error("Access Denied: You don't have permission to access this page.", 'Unauthorized');
-        if (user?.role === 'Manager') 
-        {
-            router.navigate(['/manager']);
-        } else if (user?.role === 'TeamMember') {
-            router.navigate(['/team']);
-        } else {
-            router.navigate(['/login']);
-      }
+      router.navigateByUrl('/access-denied');
       return false;
     }
 
     return true;
   };
 };
+
+

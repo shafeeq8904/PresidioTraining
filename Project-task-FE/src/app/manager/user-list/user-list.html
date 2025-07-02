@@ -2,9 +2,13 @@
 <div class="user-list-container">
   <h2>All Users</h2>
 
-  <!-- Search + Role Filters -->
   <div class="filter-bar">
-    <input class="search-input" type="text" [(ngModel)]="searchTerm" placeholder="Search by name or email..." />
+    <input
+    class="search-input"
+    type="text"
+    [(ngModel)]="searchTerm"
+    placeholder="Search by name or email..."
+    (ngModelChange)="onSearchInput($event)" />
     <div class="role-filters">
       <button [class.active]="roleFilter === ''" (click)="setRoleFilter('')">All</button>
       <button [class.active]="roleFilter === 'Manager'" (click)="setRoleFilter('Manager')">Manager</button>
@@ -12,10 +16,8 @@
     </div>
   </div>
 
-  <!-- Loader -->
   <div class="loader" *ngIf="loading"></div>
 
-  <!-- User Cards -->
   <div *ngIf="!loading && filteredUsers().length === 0" class="no-results">No results found.</div>
 
   <div class="user-list">
@@ -41,7 +43,6 @@
     </div>
   </div>
 
-  <!-- Pagination -->
 <div class="pagination-container" *ngIf="totalPages > 1">
   <button class="page-btn" [disabled]="page === 1" (click)="goToPage(page - 1)">
     ‹ Prev

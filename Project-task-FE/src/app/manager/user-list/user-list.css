@@ -46,7 +46,6 @@ h2 {
   color: white;
 }
 
-/* User Card Layout */
 .user-list {
   display: flex;
   flex-direction: column;
@@ -106,12 +105,12 @@ h2 {
 }
 
 .role-manager {
-  background-color: #dbeafe; /* light blue */
+  background-color: #dbeafe; 
   color: #1e3a8a;
 }
 
 .role-teammember {
-  background-color: #fef3c7; /* light yellow */
+  background-color: #fef3c7; 
   color: #92400e;
 }
 
@@ -197,7 +196,6 @@ h2 {
   to { transform: rotate(360deg); }
 }
 
-/* Fade animation */
 .animate-fade {
   animation: fadeIn 0.5s ease-in-out;
 }
@@ -207,7 +205,6 @@ h2 {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .user-card {
     flex-direction: column;

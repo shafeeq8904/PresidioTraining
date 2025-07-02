@@ -1,0 +1,1 @@
+console.log("Welcome to the Presidio Training Day 1!");

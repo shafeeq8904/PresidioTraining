@@ -18,7 +18,7 @@ namespace TaskManagementAPI.Mapper
                 taskItem.Status = dto.Status.Value;
 
             if (dto.DueDate.HasValue)
-                taskItem.DueDate = dto.DueDate;
+                taskItem.DueDate = DateTime.SpecifyKind(dto.DueDate.Value, DateTimeKind.Utc);
 
             if (dto.AssignedToId.HasValue)
                 taskItem.AssignedToId = dto.AssignedToId;

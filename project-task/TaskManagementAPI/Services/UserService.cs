@@ -20,20 +20,33 @@ namespace TaskManagementAPI.Services
             _userMapper = userMapper;
         }
 
-        public async Task<PagedResponse<UserResponseDto>> GetAllAsync(int page = 1, int pageSize = 10)
+        public async Task<PagedResponse<UserResponseDto>> GetAllAsync(int page, int pageSize, string? search = null, string? role = null)
         {
-            var allUsers = (await _userRepository.GetAll()).ToList();
-            var totalRecords = allUsers.Count;
+            var allUsers = (await _userRepository.GetAll()).AsQueryable();
 
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                allUsers = allUsers.Where(u =>
+                    u.FullName.Contains(search, StringComparison.OrdinalIgnoreCase) ||
+                    u.Email.Contains(search, StringComparison.OrdinalIgnoreCase));
+            }
+
+            if (!string.IsNullOrWhiteSpace(role))
+            {
+                allUsers = allUsers
+                    .Where(u => string.Equals(u.Role.ToString(), role, StringComparison.OrdinalIgnoreCase));
+            }
+
+            var totalRecords = allUsers.Count();
             var pagedUsers = allUsers
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
                 .ToList();
 
             var dtoList = _userMapper.MapToUserResponseDtoList(pagedUsers);
-
             return PagedResponse<UserResponseDto>.Create(dtoList, page, pageSize, totalRecords);
         }
+
 
 
         public async Task<ApiResponse<UserResponseDto>> GetByIdAsync(Guid id)
