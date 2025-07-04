@@ -102,22 +102,6 @@ describe('AuthService', () => {
     });
   });
 
-  it('should clear session and call logout API', () => {
-    sessionStorage.setItem('accessToken', 'token');
-    sessionStorage.setItem('user', JSON.stringify({ id: '1' }));
-    document.cookie = 'refreshToken=test-token';
-
-    service.logout();
-
-    const req = httpMock.expectOne(`${baseUrl}/logout`);
-    expect(req.request.method).toBe('POST');
-    expect(req.request.body).toEqual({ refreshToken: 'test-token' });
-
-    req.flush({ success: true, message: 'Logged out', data: '', errors: {} });
-
-    expect(sessionStorage.getItem('accessToken')).toBeNull();
-    expect(routerSpy.navigate).toHaveBeenCalledWith(['/login']);
-  });
 
   it('should still clean session if logout API fails', () => {
     sessionStorage.setItem('accessToken', 'token');

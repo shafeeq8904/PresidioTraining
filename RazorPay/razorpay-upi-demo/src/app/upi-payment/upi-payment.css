@@ -1,0 +1,95 @@
+.container {
+  max-width: 500px;
+  margin: 5rem auto;
+  padding: 2rem;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+  transition: transform 0.3s ease;
+}
+
+.container:hover {
+  transform: scale(1.01);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+label {
+  font-weight: 500;
+  color: #34495e;
+}
+
+input {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+button {
+  padding: 0.75rem;
+  background: #27ae60;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #219150;
+}
+
+button:disabled {
+  background: #bdc3c7;
+  cursor: not-allowed;
+}
+
+.status {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.status:empty {
+  display: none;
+}
+
+.status:has-text('✅') {
+  background-color: #e0f8e9;
+  color: #2ecc71;
+}
+
+.status:has-text('❌') {
+  background-color: #fdecea;
+  color: #e74c3c;
+}
+
+/* Form field error message */
+div.ng-invalid.ng-touched {
+  color: #e74c3c;
+  font-size: 0.85rem;
+}

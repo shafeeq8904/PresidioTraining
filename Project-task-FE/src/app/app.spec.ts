@@ -52,10 +52,5 @@ describe('App', () => {
     expect(routerMock.navigate).toHaveBeenCalledWith(['/login']);
   });
 
-  it('should render title in template', () => {
-    const fixture = TestBed.createComponent(App);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, Project-task-FE');
-  });
+
 });

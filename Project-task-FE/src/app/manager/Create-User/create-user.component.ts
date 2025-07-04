@@ -29,11 +29,19 @@ export class CreateUserComponent {
     private router: Router
   ) {
     this.userForm = this.fb.group({
-      fullName: [''],
-      email: [''],
-      role: [''],
-      password: ['']
-    });
+      fullName: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      role: ['', Validators.required],
+      password: [
+                  '',
+                  [
+                    Validators.required,
+                    Validators.pattern(
+                      '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$'
+                    )
+                  ]
+                ]
+});
   }
 
   submit() {

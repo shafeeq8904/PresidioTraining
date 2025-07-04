@@ -17,18 +17,24 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./task-list.component.css']
 })
 export class TaskListComponent implements OnInit {
+  
   tasks: TaskItemResponseDto[] = [];
   loading = false;
+
   selectedFilter: string = 'All';
   filteredTasks: TaskItemResponseDto[] = [];  
+
   selectedTaskToEdit?: TaskItemResponseDto; 
-  showUploadModal = false;
-  selectedTaskId = '';
   selectedTaskToUpload?: TaskItemResponseDto;
-  currentUser: any;
+  selectedTaskId = '';
+  selectedTaskIdForLogs = '';
+  
+  showUploadModal = false;
   showFilesModal = false;
   showLogModal = false;
-  selectedTaskIdForLogs = '';
+  
+  currentUser: any;
+
   searchTitle: string = '';
   searchDueDate: string = '';
 

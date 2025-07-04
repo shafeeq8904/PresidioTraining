@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../Create-User/user.service';
 import { UserResponseDto } from '../Create-User/user.types';
 import { FormsModule } from '@angular/forms';
-import { PagedResponse } from '../Create-User/user.types';
 import { ToastrService } from 'ngx-toastr';
 import { HttpErrorResponse } from '@angular/common/http';
 import { EditUserModalComponent } from "../EditUserModalComponent/edit-user-modal.component";
 import { Subject, Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
-
 
 @Component({
   selector: 'app-user-list',
@@ -18,94 +16,97 @@ import { debounceTime } from 'rxjs/operators';
   templateUrl: './user-list.html',
   styleUrls: ['./user-list.css'],
 })
-export class UserListComponent implements OnInit {
+export class UserListComponent implements OnInit, OnDestroy {
   users: UserResponseDto[] = [];
   loading = false;
+
   searchTerm: string = '';
   roleFilter = '';
-  showEditModal = false;
-  selectedUser?: UserResponseDto;
-  private searchSubject = new Subject<string>();
-  private searchSubscription!: Subscription;
-
-
   page = 1;
   pageSize = 5;
   totalPages = 0;
 
+  showEditModal = false;
+  selectedUser?: UserResponseDto;
+
+  private searchSubject = new Subject<string>();
+  private searchSubscription!: Subscription;
+
   constructor(private userService: UserService, private toastr: ToastrService) {}
 
-   ngOnInit(): void {
+  ngOnInit(): void {
     this.fetchUsers();
 
-    this.searchSubject.pipe(debounceTime(500)).subscribe(search => {
+    this.searchSubscription = this.searchSubject.pipe(debounceTime(500)).subscribe(search => {
       this.searchTerm = search;
       this.page = 1;
       this.fetchUsers();
     });
   }
 
-
-
-  setRoleFilter(role: string) {
-  this.roleFilter = role;
-  this.page = 1;
-  this.fetchUsers();
-}
+  ngOnDestroy(): void {
+    this.searchSubscription?.unsubscribe();
+  }
 
   onSearchInput(value: string) {
     this.searchSubject.next(value);
   }
 
-ngOnDestroy(): void {
-  this.searchSubscription?.unsubscribe();
-}
-
-getPageRange(): number[] {
-  const range: number[] = [];
-  for (let i = 1; i <= this.totalPages; i++) {
-    range.push(i);
+  setRoleFilter(role: string) {
+    this.roleFilter = role;
+    this.page = 1;
+    this.fetchUsers();
   }
-  return range;
-}
 
+  fetchUsers() {
+    this.loading = true;
 
+    this.userService.getAllUsers(this.page, this.pageSize, this.searchTerm, this.roleFilter).subscribe({
+      next: res => {
+        this.users = res.data;
+        this.totalPages = res.pagination.totalPages;
+        this.loading = false;
+      },
+      error: err => {
+        this.toastr.error(err?.error?.message || 'Failed to load users');
+        this.loading = false;
+      }
+    });
+  }
 
- filteredUsers(): UserResponseDto[] {
-  const term = this.searchTerm.toLowerCase();
+  goToPage(page: number) {
+    this.page = page;
+    this.fetchUsers();
+  }
 
-  return this.users.filter(user => {
-    const matchesSearch = user.fullName.toLowerCase().includes(term) || user.email.toLowerCase().includes(term);
-    const matchesRole = !this.roleFilter || user.role === this.roleFilter;
-    return matchesSearch && matchesRole;
-  });
-}
-
-fetchUsers() {
-  this.loading = true;
-
-  this.userService.getAllUsers(this.page, this.pageSize, this.searchTerm, this.roleFilter).subscribe({
-    next: res => {
-      this.users = res.data;
-      this.totalPages = res.pagination.totalPages;
-      this.loading = false;
-    },
-    error: err => {
-      this.toastr.error(err?.error?.message || 'Failed to load users');
-      this.loading = false;
-    }
-  });
-}
+  getPageRange(): number[] {
+    return Array.from({ length: this.totalPages }, (_, i) => i + 1);
+  }
 
   getInitials(name: string): string {
-    const parts = name.split(' ');
-    const first = parts[0]?.charAt(0).toUpperCase() || '';
-    const last = parts[1]?.charAt(0).toUpperCase() || '';
-    return first + last;
+    const [first = '', last = ''] = name.split(' ');
+    return first.charAt(0).toUpperCase() + last.charAt(0).toUpperCase();
+  }
+
+  openEditModal(user: UserResponseDto) {
+    this.selectedUser = user;
+    this.showEditModal = true;
+    document.body.style.overflow = 'hidden';
+  }
+
+  onModalClose() {
+    this.showEditModal = false;
+    this.selectedUser = undefined;
+    document.body.style.overflow = 'auto';
+  }
+
+  onUserUpdated() {
+    this.fetchUsers();
   }
 
   deleteUser(id: string) {
-     if (!confirm('Are you sure you want to delete this task?')) return;
+    if (!confirm('Are you sure you want to delete this user?')) return;
+
     this.userService.deleteUser(id).subscribe({
       next: () => {
         this.toastr.success('User deleted');
@@ -116,26 +117,4 @@ fetchUsers() {
       }
     });
   }
-
-  goToPage(page: number) {
-    this.page = page;
-    this.fetchUsers();
-  }
-
-  
-openEditModal(user: UserResponseDto) {
-  this.selectedUser = user;
-  this.showEditModal = true;
-  document.body.style.overflow = 'hidden'; 
-}
-
-onModalClose() {
-  this.showEditModal = false;
-  this.selectedUser = undefined;
-  document.body.style.overflow = 'auto'; 
-}
-
-onUserUpdated() {
-  this.fetchUsers();
-}
 }

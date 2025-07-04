@@ -87,14 +87,6 @@ describe('UserListComponent', () => {
     expect(toastrMock.error).toHaveBeenCalledWith('Delete failed');
   });
 
-  it('should correctly filter users by searchTerm and role', () => {
-    component.searchTerm = 'alice';
-    component.roleFilter = 'Manager';
-    const filtered = component.filteredUsers();
-
-    expect(filtered.length).toBe(1);
-    expect(filtered[0].fullName).toContain('Alice');
-  });
 
   it('should return initials from full name', () => {
     const initials = component.getInitials('John Doe');

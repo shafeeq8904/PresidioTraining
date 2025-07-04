@@ -6,17 +6,27 @@
       <div class="form-group">
         <label>Title</label>
         <input formControlName="title" type="text" placeholder="Task title" />
-        <div *ngIf="taskForm.get('title')?.touched && taskForm.get('title')?.invalid" class="error">
+        <div *ngIf="taskForm.get('title')?.touched && taskForm.get('title')?.errors">
+        <div *ngIf="taskForm.get('title')?.hasError('required')" class="error">
           Title is required.
         </div>
+        <div *ngIf="!taskForm.get('title')?.hasError('required') && taskForm.get('title')?.hasError('minlength')" class="error">
+          Title must be at least 3 characters.
+        </div>
+      </div>
       </div>
 
       <div class="form-group">
         <label>Description</label>
         <textarea formControlName="description" placeholder="Task description"></textarea>
-        <div *ngIf="taskForm.get('description')?.touched && taskForm.get('description')?.invalid" class="error">
-          description is required.
+        <div *ngIf="taskForm.get('description')?.touched && taskForm.get('description')?.errors">
+        <div *ngIf="taskForm.get('description')?.hasError('required')" class="error">
+          Description is required.
         </div>
+        <div *ngIf="!taskForm.get('description')?.hasError('required') && taskForm.get('description')?.hasError('minlength')" class="error">
+          Description must be at least 10 characters.
+        </div>
+      </div>
       </div>
 
       <div class="form-group status-group" [ngClass]="{'has-error': taskForm.get('status')?.invalid && taskForm.get('status')?.touched}">
@@ -45,12 +55,14 @@
         placeholder="Select due date"
         />
         <div *ngIf="taskForm.get('dueDate')?.touched && taskForm.get('dueDate')?.errors">
+        <div *ngIf="taskForm.get('dueDate')?.touched && taskForm.get('dueDate')?.errors">
         <div *ngIf="taskForm.get('dueDate')?.hasError('required')" class="error">
-            Due date is required.
+          Due date is required.
         </div>
-        <div *ngIf="taskForm.get('dueDate')?.hasError('pastDate')" class="error">
-            Due date cannot be in the past.
+        <div *ngIf="!taskForm.get('dueDate')?.hasError('required') && taskForm.get('dueDate')?.hasError('pastDate')" class="error">
+          Due date cannot be in the past.
         </div>
+      </div>
       </div>
 
       </div>
@@ -66,8 +78,8 @@
             </select>
             <span class="custom-arrow">▼</span>
         </div>
-        <div *ngIf="taskForm.get('assignedToId')?.touched && taskForm.get('assignedToId')?.invalid" class="error">
-            Assigned user is required.
+        <div *ngIf="taskForm.get('assignedToId')?.touched && taskForm.get('assignedToId')?.hasError('required')" class="error">
+          Assigned user is required.
         </div>
     </div>
 

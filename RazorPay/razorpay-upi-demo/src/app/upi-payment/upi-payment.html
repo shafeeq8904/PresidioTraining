@@ -1,0 +1,24 @@
+<div class="container">
+  <h2>Simulate Razorpay UPI Payment</h2>
+  <form [formGroup]="paymentForm" (ngSubmit)="payNow()">
+    <label>Name</label>
+    <input type="text" formControlName="name" />
+    <div *ngIf="f['name'].touched && f['name'].invalid">Name is required</div>
+
+    <label>Email</label>
+    <input type="email" formControlName="email" />
+    <div *ngIf="f['email'].touched && f['email'].invalid">Valid email required</div>
+
+    <label>Contact</label>
+    <input type="text" formControlName="contact" />
+    <div *ngIf="f['contact'].touched && f['contact'].invalid">10-digit contact required</div>
+
+    <label>Amount</label>
+    <input type="number" formControlName="amount" />
+    <div *ngIf="f['amount'].touched && f['amount'].invalid">Amount > 0 required</div>
+
+    <button type="submit" [disabled]="paymentForm.invalid">Pay Now</button>
+  </form>
+
+  <div class="status">{{ paymentStatus }}</div>
+</div>

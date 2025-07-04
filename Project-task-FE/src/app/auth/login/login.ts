@@ -49,6 +49,7 @@ export class LoginComponent {
         const user = this.authService.getUser();
         console.log('[SignalR] Frontend userId:', user?.id);
         this.signalRService.startConnection(); 
+        this.toastr.success('Login successful. Welcome back!');
         this.router.navigate(['/dashboard']);
       } else {
         this.errorMessage = res.message;
@@ -57,6 +58,7 @@ export class LoginComponent {
     error: (err) => {
       this.loading = false;
       this.errorMessage = err?.error?.message || 'Login failed.';
+      this.toastr.error(this.errorMessage);
     }
   });
 }

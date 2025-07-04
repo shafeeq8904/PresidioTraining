@@ -11,6 +11,11 @@ html, body {
   box-sizing: border-box;
 }
 
+.error{
+  font-size: small;
+  color: red;
+}
+
 .login-wrapper {
   display: flex;
   min-height: 100vh;
