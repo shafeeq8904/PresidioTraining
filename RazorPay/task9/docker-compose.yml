@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  webapp:
+    image: httpd:latest
+    ports:
+      - "8080:80"
+    deploy:
+      mode: replicated
+      replicas: 3
+      update_config:
+        parallelism: 1
+        delay: 10s
+        order: stop-first
+      restart_policy:
+        condition: on-failure

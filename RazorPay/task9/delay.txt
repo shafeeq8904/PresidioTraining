@@ -1,0 +1,80 @@
+=====================================================
+🚀 Docker Swarm - Task 9: Rolling Update with Delay
+=====================================================
+
+📌 Goal:
+Deploy a test service (httpd) with rolling update delay of 10 seconds between each replica update.
+
+-----------------------------------------------------
+🧱 Step 1: Create the Service with Rolling Update Delay
+
+Run the following command:
+
+docker service create \
+  --name webapp \
+  --replicas 3 \
+  --update-delay 10s \
+  httpd
+
+✅ This will:
+- Deploy 3 replicas of the Apache HTTP server (httpd).
+- Configure a 10-second delay between updates of each replica.
+
+📎 Verify service status:
+
+docker service ls
+
+Expected output:
+
+NAME     MODE        REPLICAS  IMAGE
+webapp   replicated  3/3       httpd:latest
+
+📎 View tasks (replica containers):
+
+docker service ps webapp
+
+-----------------------------------------------------
+🔁 Step 2: Perform Rolling Update
+
+Update the image to a different version (e.g., `httpd:alpine`):
+
+docker service update \
+  --image httpd:alpine \
+  webapp
+
+✅ This will:
+- Pull the new `httpd:alpine` image.
+- Begin a rolling update.
+- Wait 10 seconds between updating each replica.
+
+📎 Monitor the update process:
+
+docker service ps webapp
+
+You'll observe:
+
+- Old replicas shutting down one-by-one.
+- New replicas starting with `httpd:alpine`.
+- 10-second gap between each update.
+
+-----------------------------------------------------
+🧪 Verify Updated Image
+
+Run:
+
+docker service inspect webapp --pretty
+
+Look for:
+
+Image: httpd:alpine
+
+-----------------------------------------------------
+🧼 Cleanup (Optional)
+
+To remove the test service:
+
+docker service rm webapp
+
+-----------------------------------------------------
+✅ Outcome:
+You've successfully performed a **rolling update** of a multi-replica Docker service with **controlled delay**, minimizing downtime.

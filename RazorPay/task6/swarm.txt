@@ -1,0 +1,40 @@
+Create a file called docker-compose.yml
+
+version: "3.8"
+
+services:
+  nginx-web:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    deploy:
+      mode: replicated
+      replicas: 3
+      restart_policy:
+        condition: on-failure
+
+ Initialize Docker Swarm (only once)
+docker swarm init
+
+Run the following command inside the folder where docker-compose.yml is located:
+docker stack deploy -c docker-compose.yml nginx-stack
+
+
+ Check Running Services
+docker service ls
+
+Expected output:
+
+NAME                    MODE        REPLICAS  IMAGE
+nginx-stack_nginx-web   replicated  3/3       nginx:latest
+
+
+View Tasks (Replicas)
+docker service ps nginx-stack_nginx-web
+
+
+Remove the stack
+docker stack rm nginx-stack
+
+Leave Swarm mode
+docker swarm leave --force

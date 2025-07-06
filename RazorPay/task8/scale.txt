@@ -1,0 +1,82 @@
+=====================================================
+🧱 Docker Swarm - Task 8: Scale a Service (NGINX to 5 Replicas)
+=====================================================
+
+📌 Goal:
+Scale the NGINX service from 3 to 5 replicas in Docker Swarm.
+
+-----------------------------------------------------
+🔁 Option 1: Scale Using Docker CLI
+-----------------------------------------------------
+
+👉 Run the following command:
+
+docker service scale nginx-stack_nginx-web=5
+
+✅ This will:
+- Dynamically scale the nginx-stack_nginx-web service to 5 running containers.
+- No need to update the compose file.
+- No downtime.
+
+📎 Verify with:
+
+docker service ls
+
+Expected output:
+
+NAME                    MODE        REPLICAS  IMAGE
+nginx-stack_nginx-web   replicated  5/5       nginx:alpine
+
+📎 To view all replica containers (tasks):
+
+docker service ps nginx-stack_nginx-web
+
+-----------------------------------------------------
+🛠️ Option 2: Update docker-compose.yml and Redeploy
+-----------------------------------------------------
+
+1. Open `docker-compose.yml`.
+
+2. Modify the `replicas` under `deploy` for nginx-web:
+
+Before:
+----------------
+  deploy:
+    mode: replicated
+    replicas: 3
+    restart_policy:
+      condition: on-failure
+
+After:
+----------------
+  deploy:
+    mode: replicated
+    replicas: 5
+    restart_policy:
+      condition: on-failure
+
+3. Save the file.
+
+4. Redeploy the stack:
+
+docker stack deploy -c docker-compose.yml nginx-stack
+
+✅ This will:
+- Apply the new replica count (5) using the updated config.
+- Restart only what's needed (rolling update).
+- Preserve the rest of the stack.
+
+📎 Verify again with:
+
+docker service ls
+
+docker service ps nginx-stack_nginx-web
+
+-----------------------------------------------------
+✅ Outcome:
+You will now have 5 running NGINX containers in the `nginx-stack_nginx-web` service.
+
+Visit in browser:
+http://localhost:8080
+
+Load balanced across all replicas by Docker Swarm.

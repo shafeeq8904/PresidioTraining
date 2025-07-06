@@ -1,0 +1,76 @@
+=====================================================
+🚀 Docker Swarm NGINX Service - Image Update to alpine
+=====================================================
+
+▶️ Command:
+docker stack deploy -c docker-compose.yml nginx-stack
+
+Output:
+-----------------------------------------------------
+Since --detach=false was not specified, tasks will be created in the background.
+In a future release, --detach=false will become the default.
+Updating service nginx-stack_nginx-web (id: m0c339gv50n1zuifab3zd792d)
+
+-----------------------------------------------------
+
+▶️ Command:
+docker service inspect nginx-stack_nginx-web --pretty
+
+Output:
+-----------------------------------------------------
+ID:             m0c339gv50n1zuifab3zd792d
+Name:           nginx-stack_nginx-web
+Labels:
+ com.docker.stack.image=nginx:alpine
+ com.docker.stack.namespace=nginx-stack
+Service Mode:   Replicated
+ Replicas:      3
+UpdateStatus:
+ State:         updating
+ Started:       5 seconds ago
+ Message:       update in progress
+Placement:
+UpdateConfig:
+ Parallelism:   1
+ On failure:    pause
+ Monitoring Period: 5s
+ Max failure ratio: 0
+ Update order:      stop-first
+RollbackConfig:
+ Parallelism:   1
+ On failure:    pause
+ Monitoring Period: 5s
+ Max failure ratio: 0
+ Rollback order:    stop-first
+ContainerSpec:
+ Image:         nginx:alpine@sha256:b2e814d28359e77bd0aa5fed1939620075e4ffa0eb20423cc557b375bd5c14ad
+Resources:
+Networks: nginx-stack_default 
+Endpoint Mode:  vip
+Ports:
+ PublishedPort = 8080
+  Protocol = tcp
+  TargetPort = 80
+  PublishMode = ingress
+
+-----------------------------------------------------
+
+▶️ Command:
+docker service ps nginx-stack_nginx-web
+
+Output:
+-----------------------------------------------------
+ID             NAME                          IMAGE          NODE             DESIRED STATE   CURRENT STATE             ERROR     PORTS
+912rtf741oaz   nginx-stack_nginx-web.1       nginx:alpine   docker-desktop   Running         Running 12 seconds ago              
+0jyxb28iydv4    \_ nginx-stack_nginx-web.1   nginx:latest   docker-desktop   Shutdown        Shutdown 13 seconds ago             
+ux4mom6nawlc   nginx-stack_nginx-web.2       nginx:alpine   docker-desktop   Running         Running 8 seconds ago               
+wqiojxg6sdlh    \_ nginx-stack_nginx-web.2   nginx:latest   docker-desktop   Shutdown        Shutdown 9 seconds ago              
+n8mgx5ylrxeu   nginx-stack_nginx-web.3       nginx:alpine   docker-desktop   Running         Running 4 seconds ago               
+xruiv99f4isk    \_ nginx-stack_nginx-web.3   nginx:latest   docker-desktop   Shutdown        Shutdown 5 seconds ago
+
+-----------------------------------------------------
+
+✅ STATUS:
+All replicas have been updated from `nginx:latest` to `nginx:alpine` successfully.
+
+🧪 You can verify in the browser: http://localhost:8080
