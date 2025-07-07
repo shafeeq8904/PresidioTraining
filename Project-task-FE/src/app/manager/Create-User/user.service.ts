@@ -43,4 +43,8 @@ export class UserService {
   deleteUser(id: string): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${id}`);
   }
+
+  getAllTeamMembers(): Observable<ApiResponse<UserResponseDto[]>> {
+    return this.http.get<ApiResponse<UserResponseDto[]>>(`${this.baseUrl}/team-members`);
+  }
 }

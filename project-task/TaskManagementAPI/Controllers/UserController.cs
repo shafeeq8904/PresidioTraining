@@ -114,6 +114,16 @@ namespace TaskManagementAPI.Controllers
             return Ok(response);
         }
 
+        // GET: /api/v1/users/team-members
+        [HttpGet("team-members")]
+        [Authorize(Roles = "Manager")]
+        public async Task<ActionResult<ApiResponse<List<UserResponseDto>>>> GetAllTeamMembers()
+        {
+            var response = await _userService.GetAllTeamMembersAsync();
+            return Ok(response);
+        }
+
+
         private Guid GetUserIdFromToken()
         {
             var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;

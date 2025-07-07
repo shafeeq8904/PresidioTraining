@@ -53,7 +53,7 @@ namespace TaskManagementAPI.Services
         {
             var user = await _userRepository.Get(id);
             if (user == null)
-            return ApiResponse<UserResponseDto>.ErrorResponse($"User with ID {id} not found", new Dictionary<string, List<string>>());
+                return ApiResponse<UserResponseDto>.ErrorResponse($"User with ID {id} not found", new Dictionary<string, List<string>>());
 
 
             var response = _userMapper.MapToUserResponseDto(user);
@@ -113,5 +113,17 @@ namespace TaskManagementAPI.Services
             await _userRepository.Delete(id);
             return ApiResponse<string>.SuccessResponse("User deleted successfully");
         }
+
+        public async Task<ApiResponse<List<UserResponseDto>>> GetAllTeamMembersAsync()
+        {
+            var allUsers = await _userRepository.GetAll();
+            var teamMembers = allUsers
+                .Where(u => u.Role == Enums.UserRole.TeamMember)
+                .ToList();
+
+            var dtoList = _userMapper.MapToUserResponseDtoList(teamMembers).ToList();
+            return ApiResponse<List<UserResponseDto>>.SuccessResponse(dtoList, "Team members fetched successfully");
+        }
+
     }
 }

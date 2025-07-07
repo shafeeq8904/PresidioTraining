@@ -42,14 +42,14 @@ export class CreateTaskComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userService.getAllUsers().subscribe({
-      next: res => {
-        this.users = res.data.filter(user => user.role === 'TeamMember');
-      },
-      error: () => {
-        this.toastr.error('Failed to load team members');
-      }
-    });
+    this.userService.getAllTeamMembers().subscribe({
+    next: res => {
+      this.users = res.data;
+    },
+    error: () => {
+      this.toastr.error('Failed to load team members');
+    }
+  });
   }
 
 

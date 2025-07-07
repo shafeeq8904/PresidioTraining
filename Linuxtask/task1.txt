@@ -1,0 +1,54 @@
+sudo -i
+groupadd dev-team
+
+cat /etc/group | grep dev-team
+
+useradd -m -G dev-team john
+useradd -m -G dev-team bob
+
+passwd john
+passwd bob
+
+mkdir /home/dev-team
+
+chown :dev-team /home/dev-team
+
+chmod 770 /home/dev-team
+
+ls -ld /home/dev-team
+
+-- Exit root and switch to John
+exit
+su - john
+
+cd /home/dev-team
+
+touch john-file.txt
+
+chgrp dev-team john-file.txt
+
+ls -l john-file.txt
+
+Exit and switch to Bob
+exit
+su - bob
+
+cd /home/dev-team
+
+ls -l john-file.txt
+cat john-file.txt
+
+echo "Bob was here" >> john-file.txt
+cat john-file.txt
+
+
+--Create group project-manager and user fatima
+exit
+sudo -i
+groupadd project-manager
+useradd -m -G project-manager fatima
+passwd fatima
+
+
+su - fatima
+cd /home/dev-team

@@ -10,5 +10,7 @@ namespace TaskManagementAPI.Interfaces
         Task<ApiResponse<UserResponseDto>> CreateAsync(UserRequestDto dto, Guid createdById);
         Task<ApiResponse<UserResponseDto>> UpdateAsync(Guid id, UserUpdateDto dto, Guid updatedById);
         Task<ApiResponse<string>> DeleteAsync(Guid id);
+        Task<ApiResponse<List<UserResponseDto>>> GetAllTeamMembersAsync();
+
     }
 }

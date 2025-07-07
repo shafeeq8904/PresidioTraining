@@ -29,13 +29,13 @@
   <p *ngIf="isManager()">You can create a new task to get started.</p>
   <p *ngIf="isTeamMember()">Please check back later for updates.</p>
 
-  <button
+  <a
     routerLink="/task/create"
-    [disabled]="isTeamMember()"
+    *ngIf="isManager()"
     class="create-task-btn"
   >
     Create New Task
-  </button>
+  </a>
 </div>
 
   <ng-template #loadingTpl>

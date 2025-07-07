@@ -44,7 +44,7 @@ export class AuthService {
       return;
     }
 
-    this.http.post<ApiResponse<string>>('/api/v1/auth/logout', refreshToken).subscribe({
+    this.http.post<ApiResponse<string>>(`${this.baseUrl}/logout`, { refreshToken }).subscribe({
       next: () => {
         this.cleanSession();
       },

@@ -25,8 +25,9 @@ describe('CreateTaskComponent', () => {
   };
 
   const userServiceMock = {
-    getAllUsers: jasmine.createSpy('getAllUsers').and.returnValue(of({ data: mockUsers }))
-  };
+  getAllTeamMembers: jasmine.createSpy('getAllTeamMembers').and.returnValue(of({ data: mockUsers }))
+};
+
 
   const toastrMock = {
     success: jasmine.createSpy('success'),

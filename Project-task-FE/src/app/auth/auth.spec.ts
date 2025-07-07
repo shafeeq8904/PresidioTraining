@@ -65,7 +65,9 @@ describe('AuthService', () => {
     expect(routerSpy.navigate).toHaveBeenCalledWith(['/dashboard']);
   });
 
-  it('should refresh token and update session', () => {
+    it('should refresh token and update session', () => {
+    spyOn(service as any, 'getRefreshToken').and.returnValue('refresh-token');
+
     const mockResponse: ApiResponse<LoginResponseDto> = {
       success: true,
       message: 'Refreshed',
@@ -83,8 +85,6 @@ describe('AuthService', () => {
       errors: {}
     };
 
-    document.cookie = 'refreshToken=refresh-token';
-
     service.refreshToken().subscribe(success => {
       expect(success).toBeTrue();
       expect(sessionStorage.getItem('accessToken')).toBe('new-access-token');
@@ -96,6 +96,7 @@ describe('AuthService', () => {
     req.flush(mockResponse);
   });
 
+
   it('should return false if no refresh token is present', () => {
     service.refreshToken().subscribe(success => {
       expect(success).toBeFalse();
@@ -106,16 +107,21 @@ describe('AuthService', () => {
   it('should still clean session if logout API fails', () => {
     sessionStorage.setItem('accessToken', 'token');
     sessionStorage.setItem('user', JSON.stringify({ id: '1' }));
-    document.cookie = 'refreshToken=test-token';
+
+    spyOn(service as any, 'getRefreshToken').and.returnValue('test-token');
 
     service.logout();
 
     const req = httpMock.expectOne(`${baseUrl}/logout`);
+    expect(req.request.method).toBe('POST');
+    expect(req.request.body).toEqual({ refreshToken: 'test-token' });
+
     req.error(new ErrorEvent('Network error'));
 
     expect(sessionStorage.getItem('accessToken')).toBeNull();
     expect(routerSpy.navigate).toHaveBeenCalledWith(['/login']);
   });
+
 
   it('should return userId from token', () => {
     const payload = {

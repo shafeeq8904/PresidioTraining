@@ -1,0 +1,21 @@
+| Directory | Description                                                                                         |
+| --------- | --------------------------------------------------------------------------------------------------- |
+| `/`       | The **root** of the filesystem. Everything begins here.                                             |
+| `/bin`    | Essential **user binaries** (e.g., `ls`, `cat`, `cp`). Available in single-user mode.               |
+| `/sbin`   | Essential **system binaries** (e.g., `reboot`, `ifconfig`) for system admin.                        |
+| `/boot`   | Files needed for **booting** the OS (e.g., GRUB, kernel files).                                     |
+| `/dev`    | **Device files** (e.g., `/dev/sda`, `/dev/null`). Interface to hardware.                            |
+| `/etc`    | System-wide **configuration files** (e.g., `/etc/passwd`, `/etc/fstab`).                            |
+| `/home`   | Home directories of users (e.g., `/home/john`, `/home/bob`).                                        |
+| `/lib`    | Shared **libraries** needed by programs in `/bin` and `/sbin`.                                      |
+| `/media`  | Auto-mounted **removable media** (USBs, CDs).                                                       |
+| `/mnt`    | Temporarily **mount points** for filesystems.                                                       |
+| `/opt`    | Optional software/packages not part of the default system.                                          |
+| `/proc`   | Virtual filesystem providing **process info** and kernel info (`/proc/cpuinfo`).                    |
+| `/root`   | Home directory for the **root user** (not `/home/root`).                                            |
+| `/run`    | Stores **runtime data** like PID files, sockets (created at boot).                                  |
+| `/srv`    | Contains **service data** like websites (`/srv/www`).                                               |
+| `/sys`    | Virtual filesystem for **kernel information** and hardware configuration.                           |
+| `/tmp`    | Temporary files. Automatically cleared at reboot.                                                   |
+| `/usr`    | User-installed software and libraries. Contains subfolders like `/usr/bin`, `/usr/lib`.             |
+| `/var`    | Variable files like **logs**, **caches**, **spools**, and **databases** (`/var/log`, `/var/spool`). |
