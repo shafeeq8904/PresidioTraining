@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "I2bGkCO56TECKuOTToqjOoPgMGQI4i15BSqn9svQMd0=",
+  "Source": "SqlTestApp",
+  "BasePath": "_content/SqlTestApp",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
