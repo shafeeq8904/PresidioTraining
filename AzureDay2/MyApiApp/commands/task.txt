@@ -1,0 +1,71 @@
+Assignment: Deploy a .NET API on Azure Virtual Machine Using Docker
+Objective:
+Provision an Azure Virtual Machine, install Docker, deploy a .NET Web API in a container, and
+expose it publicly using the VM’s IP address.
+Instructions
+1. Create a Virtual Machine on Azure
+o Sign in to the Azure Portal.
+o Provision a Linux Virtual Machine (Ubuntu 20.04 LTS).
+o Configuration:
+▪ Public IP Address: Static
+▪ Inbound Ports: Allow SSH (port 22) and HTTP (port 80)
+▪ Size: B1s or larger
+o Download the SSH key or note your login credentials.
+
+
+2. Install Docker
+o Connect to your VM using SSH:
+o ssh azureuser@<public-ip>
+o Install Docker:
+o sudo apt-get update
+o sudo apt-get install -y docker.io
+o Start Docker and enable it on boot:
+o sudo systemctl start docker
+o sudo systemctl enable docker
+o Verify Docker installation:
+o docker --version
+
+
+3. Create a Simple .NET Web API
+o On your local machine, create a new .NET Web API project:
+o dotnet new webapi -o MyApiApp
+o cd MyApiApp
+o Test locally with:
+o dotnet run
+o Create a Dockerfile in the project root:
+o FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+o WORKDIR /app
+o EXPOSE 80
+o
+o FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+o WORKDIR /src
+o COPY . .
+o RUN dotnet publish -c Release -o /app/publish
+o
+o FROM base AS final
+o WORKDIR /app
+o COPY --from=build /app/publish .
+o ENTRYPOINT ["dotnet", "MyApiApp.dll"]
+o Build the Docker image locally:
+o docker build -t my-dotnet-api .
+o Push the image to Docker Hub (create a free account if needed):
+o docker login
+o docker tag my-dotnet-api <your-dockerhub-username>/my-dotnet-api:latest
+o docker push <your-dockerhub-username>/my-dotnet-api:latest
+
+
+4. Pull and Run the API on Azure VM
+o Back in your SSH session:
+▪ Pull the Docker image:
+▪ sudo docker pull <your-dockerhub-username>/my-dotnet-api:latest
+▪ Run the container exposing port 80:
+▪ sudo docker run -d -p 80:80 <your-dockerhub-username>/my-dotnet-
+api:latest
+o Verify the container is running:
+o sudo docker ps
+
+
+5. Test the API
+o From your browser or Postman:
+o http://<your-vm-public-ip>/weatherforecast
+o You should see the default .NET WeatherForecast JSON response.
