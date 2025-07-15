@@ -159,3 +159,16 @@
 /Users/presidio/Desktop/Genspark/PresidioTraining/project-task/TaskManagementAPI/obj/Debug/net8.0/ref/TaskManagementAPI.dll
 /Users/presidio/Desktop/Genspark/PresidioTraining/project-task/TaskManagementAPI/bin/Debug/net8.0/Microsoft.Extensions.Configuration.Binder.dll
 /Users/presidio/Desktop/Genspark/PresidioTraining/project-task/TaskManagementAPI/bin/Debug/net8.0/Microsoft.Extensions.FileProviders.Abstractions.dll
+/Users/presidio/Desktop/Genspark/PresidioTraining/project-task/TaskManagementAPI/bin/Debug/net8.0/Azure.Core.dll
+/Users/presidio/Desktop/Genspark/PresidioTraining/project-task/TaskManagementAPI/bin/Debug/net8.0/Azure.Storage.Blobs.dll
+/Users/presidio/Desktop/Genspark/PresidioTraining/project-task/TaskManagementAPI/bin/Debug/net8.0/Azure.Storage.Common.dll
+/Users/presidio/Desktop/Genspark/PresidioTraining/project-task/TaskManagementAPI/bin/Debug/net8.0/System.ClientModel.dll
+/Users/presidio/Desktop/Genspark/PresidioTraining/project-task/TaskManagementAPI/bin/Debug/net8.0/System.IO.Hashing.dll
+/Users/presidio/Desktop/Genspark/PresidioTraining/project-task/TaskManagementAPI/bin/Debug/net8.0/System.Memory.Data.dll
+/Users/presidio/Desktop/Genspark/PresidioTraining/project-task/TaskManagementAPI/bin/Debug/net8.0/Azure.Extensions.AspNetCore.Configuration.Secrets.dll
+/Users/presidio/Desktop/Genspark/PresidioTraining/project-task/TaskManagementAPI/bin/Debug/net8.0/Azure.Identity.dll
+/Users/presidio/Desktop/Genspark/PresidioTraining/project-task/TaskManagementAPI/bin/Debug/net8.0/Azure.Security.KeyVault.Secrets.dll
+/Users/presidio/Desktop/Genspark/PresidioTraining/project-task/TaskManagementAPI/bin/Debug/net8.0/Microsoft.Identity.Client.dll
+/Users/presidio/Desktop/Genspark/PresidioTraining/project-task/TaskManagementAPI/bin/Debug/net8.0/Microsoft.Identity.Client.Extensions.Msal.dll
+/Users/presidio/Desktop/Genspark/PresidioTraining/project-task/TaskManagementAPI/bin/Debug/net8.0/System.Security.Cryptography.ProtectedData.dll
+/Users/presidio/Desktop/Genspark/PresidioTraining/project-task/TaskManagementAPI/bin/Debug/net8.0/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll

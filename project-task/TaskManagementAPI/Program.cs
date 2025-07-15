@@ -15,13 +15,22 @@ using TaskManagementAPI.Repositories.Auth;
 using Microsoft.OpenApi.Models;
 using System.Text.Json.Serialization;
 using TaskManagementAPI.Hubs;
+using Azure.Storage.Blobs;
+using Azure.Identity;
+using Azure.Extensions.AspNetCore.Configuration.Secrets;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 
+// var vaultUri = builder.Configuration["AzureKeyVault:VaultUri"];
+// builder.Configuration.AddAzureKeyVault(
+//     new Uri(vaultUri),
+//     new DefaultAzureCredential()
+// );
+
 var configuration = builder.Configuration;
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(opt =>
 {
@@ -60,6 +69,12 @@ builder.Services.AddControllers()
         opts.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
     });
 
+// builder.Services.AddSingleton(x =>
+// {
+//     var config = builder.Configuration.GetSection("AzureBlob");
+//     return new BlobServiceClient(config["ConnectionString"]);
+// });
+
 
 
 #region serilog
@@ -79,6 +94,10 @@ builder.Services.AddDbContext<TaskManagementDbContext>(opts =>
 {
     opts.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+// builder.Services.AddDbContext<TaskManagementDbContext>(opts =>
+// {
+//     opts.UseNpgsql(builder.Configuration["DbConnectionString"]);
+// });
 #endregion
 
 #region jwttoken
@@ -143,6 +162,8 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ITaskFileService, TaskFileService>();
 builder.Services.AddScoped<ITaskService, TaskService>();
 builder.Services.AddScoped<ITaskStatusLogService, TaskStatusLogService>();
+//builder.Services.AddScoped<IFileBlobService, FileBlobService>();
+
 #endregion
 
 #region mapper

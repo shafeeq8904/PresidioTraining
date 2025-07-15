@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { TaskFileDto, TaskItemRequestDto, TaskItemResponseDto, TaskItemUpdateDto, TaskStatusLogResponseDto } from './task.types';
 import { Observable } from 'rxjs';
-import { ApiResponse } from '../Create-User/user.types';
+import { ApiResponse, PagedResponse } from '../Create-User/user.types';
 
 @Injectable({
   providedIn: 'root',
@@ -23,8 +23,23 @@ export class TaskService {
     return this.http.post<TaskItemResponseDto>(this.baseUrl, formData);
   }
 
-  getAllTasks(): Observable<{ data: TaskItemResponseDto[] }> {
-  return this.http.get<{ data: TaskItemResponseDto[] }>(this.baseUrl);
+getAllTasks(
+  page: number,
+  pageSize: number,
+  status: string = '',
+  title: string = '',
+  dueDate: string = ''
+): Observable<PagedResponse<TaskItemResponseDto>> {
+  const params: any = {
+    page,
+    pageSize,
+  };
+
+  if (status) params.status = status;
+  if (title) params.title = title;
+  if (dueDate) params.dueDate = dueDate;
+
+  return this.http.get<PagedResponse<TaskItemResponseDto>>(this.baseUrl, { params });
 }
 
 

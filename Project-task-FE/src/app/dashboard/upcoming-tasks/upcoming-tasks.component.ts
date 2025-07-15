@@ -23,7 +23,7 @@ user = JSON.parse(sessionStorage.getItem('user') || '{}');
   constructor(private taskService: TaskService) {}
 
   ngOnInit(): void {
-    this.taskService.getAllTasks().subscribe({
+    this.taskService.getAllTasks(1, 1000).subscribe({
       next: (tasks) => {
         const today = new Date();
         this.upcomingTasks = tasks.data

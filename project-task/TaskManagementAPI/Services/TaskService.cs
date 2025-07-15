@@ -9,7 +9,8 @@ using TaskManagementAPI.Models;
 using TaskManagementAPI.Mapper;
 using TaskManagementAPI.Hubs;
 using Microsoft.AspNetCore.SignalR;
-
+using TaskManagementAPI.ApiResponses;
+using System.Collections.Generic;
 
 
 namespace TaskManagementAPI.Services
@@ -235,7 +236,7 @@ namespace TaskManagementAPI.Services
             }
 
         }
-        
+
 
         public async Task<TaskItemResponseDto> GetTaskByIdAsync(Guid taskId)
         {
@@ -243,29 +244,32 @@ namespace TaskManagementAPI.Services
             return ToResponseDto(task);
         }
 
-        public async Task<IEnumerable<TaskItemResponseDto>> GetAllTasksAsync(Guid requesterId)
-        
-        {
-            var user = await _userRepository.Get(requesterId);
-            if (user == null) throw new ArgumentException("User not found");
-
-            IEnumerable<TaskItem> tasks;
-
-            if (user.Role == UserRole.Manager)
+        public async Task<PagedResponse<TaskItemResponseDto>> GetAllTasksAsync(
+            Guid requesterId, int page, int pageSize,
+            string? status = null, string? title = null, DateTime? dueDate = null)
             {
-                tasks = await _taskRepo.GetByCreatorIdAsync(requesterId); 
-            }
-            else if (user.Role == UserRole.TeamMember)
-            {
-                tasks = await _taskRepo.GetByAssignedToIdAsync(requesterId); 
-            }
-            else
-            {
-                tasks = Enumerable.Empty<TaskItem>();
-            }
+                var user = await _userRepository.Get(requesterId);
+                if (user == null) throw new ArgumentException("User not found");
 
-            return tasks.Where(t => !t.IsDeleted).Select(ToResponseDto);
-        }
+                IEnumerable<TaskItem> tasks = user.Role == UserRole.Manager
+                    ? await _taskRepo.GetByCreatorIdAsync(requesterId)
+                    : await _taskRepo.GetByAssignedToIdAsync(requesterId);
+
+                var filtered = tasks
+                    .Where(t => !t.IsDeleted)
+                    .Where(t => string.IsNullOrEmpty(status) || t.Status.ToString().Equals(status, StringComparison.OrdinalIgnoreCase))
+                    .Where(t => string.IsNullOrEmpty(title) || t.Title.Contains(title, StringComparison.OrdinalIgnoreCase))
+                    .Where(t => !dueDate.HasValue || t.DueDate?.Date == dueDate.Value.Date)
+                    .ToList();
+
+                var totalRecords = filtered.Count;
+                var pagedData = filtered
+                    .Skip((page - 1) * pageSize)
+                    .Take(pageSize)
+                    .Select(ToResponseDto);
+
+                return PagedResponse<TaskItemResponseDto>.Create(pagedData, page, pageSize, totalRecords);
+            }
 
 
         public async Task<IEnumerable<TaskItemResponseDto>> GetTasksByStatusAsync(TaskState status, Guid requesterId)
@@ -345,6 +349,6 @@ namespace TaskManagementAPI.Services
             };
         }
 
-    
+
     }
 }

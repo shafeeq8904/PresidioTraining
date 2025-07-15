@@ -40,7 +40,7 @@ public doughnutChartType: ChartType = 'doughnut';
   ngOnInit(): void {
     this.chart?.update();
 
-    this.taskService.getAllTasks().subscribe({
+    this.taskService.getAllTasks(1, 1000).subscribe({
       next: (res) => {
         const tasks = res.data;
         this.taskCounts.ToDo = tasks.filter((t: any) => t.status === 'ToDo').length;

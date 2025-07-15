@@ -19,7 +19,7 @@ export class RecentTasksTableComponent implements OnInit {
   constructor(private taskService: TaskService) {}
 
   ngOnInit(): void {
-    this.taskService.getAllTasks().subscribe({
+    this.taskService.getAllTasks(1, 1000).subscribe({
       next: (res) => {
         const tasks = res.data || [];
         this.recentTasks = tasks

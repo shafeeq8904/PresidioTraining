@@ -92,28 +92,25 @@ namespace TaskManagementAPI.Controllers
 
         [HttpGet]
         [Authorize]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll([FromQuery] int page = 1, [FromQuery] int pageSize = 6,[FromQuery] string? status = null,[FromQuery] string? title = null,[FromQuery] DateTime? dueDate = null)
         {
             try
             {
                 var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
                 var userRole = User.FindFirstValue(ClaimTypes.Role)!;
 
-                var result = await _taskService.GetAllTasksAsync(userId);
+                var response = await _taskService.GetAllTasksAsync(userId, page, pageSize, status, title, dueDate);
 
-                if (!result.Any())
+                if (!response.Data.Any())
                 {
                     string message = userRole == "Manager"
                         ? "No tasks created by you yet."
                         : "No tasks assigned to you yet.";
 
-                    return NotFound(ApiResponse<IEnumerable<TaskItemResponseDto>>.ErrorResponse(
-                        message,
-                        new Dictionary<string, List<string>>()
-                    ));
+                    return NotFound(PagedResponse<TaskItemResponseDto>.Create([], page, pageSize, 0));
                 }
 
-                return Ok(ApiResponse<IEnumerable<TaskItemResponseDto>>.SuccessResponse(result));
+                return Ok(response);
             }
             catch (Exception ex)
             {

@@ -54,7 +54,7 @@ export class MyTaskDeadlineBarChartComponent implements OnInit {
 
     if (!userId) return;
 
-    this.taskService.getAllTasks().subscribe({
+    this.taskService.getAllTasks(1, 1000).subscribe({
       next: (res) => {
         const now = new Date();
         const tasks = (res.data || []).filter((t: any) => t.assignedToId === userId);

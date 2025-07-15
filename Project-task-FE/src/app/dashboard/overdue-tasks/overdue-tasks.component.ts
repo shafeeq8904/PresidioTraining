@@ -25,7 +25,7 @@ export class OverdueTasksComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentUserRole = this.authService.getUser()?.role|| '';
-    this.taskService.getAllTasks().subscribe({
+    this.taskService.getAllTasks(1, 1000).subscribe({
       next: (res) => {
         const today = new Date();
         this.overdueTasks = res.data.filter(task => new Date(task.dueDate || '') < today && task.status !== 'Done');

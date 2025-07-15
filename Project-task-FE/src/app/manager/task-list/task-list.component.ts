@@ -21,9 +21,6 @@ export class TaskListComponent implements OnInit {
   tasks: TaskItemResponseDto[] = [];
   loading = false;
 
-  selectedFilter: string = 'All';
-  filteredTasks: TaskItemResponseDto[] = [];  
-
   selectedTaskToEdit?: TaskItemResponseDto; 
   selectedTaskToUpload?: TaskItemResponseDto;
   selectedTaskId = '';
@@ -37,9 +34,10 @@ export class TaskListComponent implements OnInit {
 
   searchTitle: string = '';
   searchDueDate: string = '';
+  selectedFilter: string = 'All';
 
   page = 1;
-  pageSize = 5;
+  pageSize =6;
   totalPages = 0;
 
 
@@ -126,46 +124,52 @@ closeLogModal(): void {
 }
 
 searchTasks(): void {
-  this.loading = true;
-  this.taskService.searchTasks(this.searchTitle, this.searchDueDate).subscribe({
-    next: (res) => {
-      this.filteredTasks = res.data || [];
-      this.selectedFilter = 'All';
-      this.loading = false;
-    },
-    error: (err) => {
-      this.filteredTasks = [];
-      this.toastr.error(err?.error?.message || 'Search failed');
-      this.loading = false;
-    }
-  });
-}
+    this.page = 1;
+    this.fetchTasks();
+  }
 
 clearSearch(): void {
   this.searchTitle = '';
   this.searchDueDate = '';
+  this.page = 1;
   this.fetchTasks();
 }
 
- filterTasks(state: string) {
-  this.selectedFilter = state;
-  this.filteredTasks = state === 'All'
-    ? this.tasks
-    : this.tasks.filter(t => t.status === state);
+
+goToPage(page: number) {
+  if (page < 1 || page > this.totalPages) return;
+  this.page = page;
+  this.fetchTasks();
 }
 
-  fetchTasks() {
+  getPageRange(): number[] {
+    return Array.from({ length: this.totalPages }, (_, i) => i + 1);
+  }
+
+filterTasks(state: string) {
+    this.selectedFilter = state;
+    this.page = 1;
+    this.fetchTasks();
+  }
+
+  fetchTasks(): void {
     this.loading = true;
-    this.taskService.getAllTasks().subscribe({
+
+    const status = this.selectedFilter === 'All' ? '' : this.selectedFilter;
+
+    this.taskService.getAllTasks(this.page, this.pageSize, status, this.searchTitle, this.searchDueDate).subscribe({
       next: (res) => {
         this.tasks = res.data;
-        this.filterTasks(this.selectedFilter);
+        this.totalPages = res.pagination.totalPages;
         this.loading = false;
       },
       error: (err) => {
-        this.toastr.error(err?.error?.message || 'Failed to load tasks');
+        this.tasks = [];
+        this.totalPages = 0;
+        this.toastr.error(err?.error?.message || 'No tasks Found');
         this.loading = false;
       }
     });
   }
+
 }
